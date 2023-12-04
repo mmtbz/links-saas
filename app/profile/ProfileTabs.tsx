@@ -3,12 +3,13 @@
 import { Tabs, Box, Text, Flex } from "@radix-ui/themes";
 import React from "react";
 import AboutPage from "./AboutPage";
+import ProfileTitle from "./ProfileTitle";
 
 const ProfileTabs = () => {
   return (
     <Tabs.Root defaultValue="about">
       <Flex align="center" justify="between">
-        <Text>About</Text>
+        <ProfileTitle title="About" />
         <Tabs.List>
           <Tabs.Trigger value="about">About</Tabs.Trigger>
           <Tabs.Trigger value="resume">Resume</Tabs.Trigger>

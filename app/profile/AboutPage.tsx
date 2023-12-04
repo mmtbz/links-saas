@@ -1,9 +1,17 @@
-import { Badge, Box, Flex, Text } from "@radix-ui/themes";
+import { Badge, Box, Flex, Text, Grid } from "@radix-ui/themes";
 import React from "react";
+import Testimonial from "./Testimonial";
+import ProfileTitle from "./ProfileTitle";
 
 type Skill = {
   skill: string;
   color: string;
+};
+
+type Testimonial = {
+  testimonial: string;
+  name: string;
+  photo: string;
 };
 
 const AboutPage = () => {
@@ -26,6 +34,14 @@ const AboutPage = () => {
     },
   ];
 
+  const testimonials: Testimonial[] = [
+    {
+      testimonial: "he is a good dev",
+      name: "Peter Parker",
+      photo: "https://randomuser.me/api/portraits/men/70.jpg",
+    },
+  ];
+
   return (
     <Flex gap="2" direction="column">
       <Flex>
@@ -41,7 +57,7 @@ const AboutPage = () => {
         </Text>
       </Flex>
       <Box>
-        <Text>Skills</Text>
+        <ProfileTitle title="Skills" />
       </Box>
 
       <Flex gap="2">
@@ -58,8 +74,17 @@ const AboutPage = () => {
       </Flex>
 
       <Box>
-        <Text>Testimonials</Text>
+        <ProfileTitle title="Testimonials" />
       </Box>
+      <Grid gap="3" className="grid" columns="repeat(3, 1fr)">
+        {testimonials.map((testimonial) => (
+          <Testimonial
+            testimonial={testimonial.testimonial}
+            photo={testimonial.photo}
+            name={testimonial.name}
+          />
+        ))}
+      </Grid>
     </Flex>
   );
 };
