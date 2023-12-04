@@ -14,7 +14,7 @@ type Testimonial = {
   photo: string;
 };
 
-const AboutPage = () => {
+const AboutTab = () => {
   const skills: Skill[] = [
     {
       skill: "java",
@@ -94,4 +94,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default AboutTab;

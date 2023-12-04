@@ -2,8 +2,9 @@
 
 import { Tabs, Box, Text, Flex } from "@radix-ui/themes";
 import React from "react";
-import AboutPage from "./AboutPage";
+import AboutTab from "./AboutTab";
 import ProfileTitle from "./ProfileTitle";
+import ResumeTab from "./ResumeTab";
 
 const ProfileTabs = () => {
   return (
@@ -19,11 +20,11 @@ const ProfileTabs = () => {
 
       <Box pt="2">
         <Tabs.Content value="about">
-          <AboutPage />
+          <AboutTab />
         </Tabs.Content>
 
         <Tabs.Content value="resume">
-          <Text size="2">Access and update your documents.</Text>
+          <ResumeTab />
         </Tabs.Content>
 
         <Tabs.Content value="contact">
