@@ -46,7 +46,7 @@ const AboutPage = () => {
     <Flex gap="2" direction="column">
       <Flex>
         <Text>
-          I'm Creative Director and UI/UX Designer from Sydney, Australia,
+          I&apos;m Creative Director and UI/UX Designer from Sydney, Australia,
           working in web development and print media. I enjoy turning complex
           problems into simple, beautiful and intuitive designs. My job is to
           build your website so that it is functional and user-friendly but at
@@ -78,7 +78,7 @@ const AboutPage = () => {
       </Box>
       <Grid gap="3" className="grid" columns="repeat(3, 1fr)">
         {testimonials.map((testimonial) => (
-          <Testimonial
+          <Testimonial key={testimonial.name}
             testimonial={testimonial.testimonial}
             photo={testimonial.photo}
             name={testimonial.name}
