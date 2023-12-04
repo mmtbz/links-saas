@@ -76,9 +76,14 @@ const AboutPage = () => {
       <Box>
         <ProfileTitle title="Testimonials" />
       </Box>
-      <Grid gap="3" className="grid" columns="repeat(3, 1fr)">
+      <Grid
+        gap="3"
+        className="grid"
+        columns={{ sm: "1fr" , md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)"}}
+      >
         {testimonials.map((testimonial) => (
-          <Testimonial key={testimonial.name}
+          <Testimonial
+            key={testimonial.name}
             testimonial={testimonial.testimonial}
             photo={testimonial.photo}
             name={testimonial.name}

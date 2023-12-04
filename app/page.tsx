@@ -1,15 +1,10 @@
-import {
-  Box,
-  Grid,
-  ScrollArea,
-  Separator
-} from "@radix-ui/themes";
+import { Box, Grid, ScrollArea, Separator } from "@radix-ui/themes";
 import AddNewLink from "./components/AddNewLink";
 import IphoneCanvas from "./components/IphoneCanvas";
 import ProfileSection from "./components/ProfileSection";
 
 export default function Home() {
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 640;
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 640;
 
   return (
     <Grid
