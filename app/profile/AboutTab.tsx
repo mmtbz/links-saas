@@ -43,7 +43,7 @@ const AboutTab = () => {
   ];
 
   return (
-    <Flex gap="2" direction="column">
+    <Flex gap="2" direction="column" className="px-4">
       <Flex>
         <Text>
           I&apos;m Creative Director and UI/UX Designer from Sydney, Australia,

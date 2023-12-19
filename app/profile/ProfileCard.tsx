@@ -1,8 +1,12 @@
-import { Flex, Box, Text, Badge } from "@radix-ui/themes";
-import React from "react";
+import { Badge, Flex, Text } from "@radix-ui/themes";
 import { FaLocationDot } from "react-icons/fa6";
 
-const ProfileCard = () => {
+interface Props {
+  prop: string;
+  value: string;
+}
+
+const ProfileCard = ({ prop, value }: Props) => {
   return (
     <Flex gap="2" className="my-4">
       {/* <Flex align="center" justify="center" className="bg-slate-900">
@@ -12,8 +16,8 @@ const ProfileCard = () => {
         <FaLocationDot />
       </Badge>
       <Flex direction="column">
-        <Text className="uppercase text-xs">Location</Text>
-        <Text className="font-semibold">San-Francisco, USA</Text>
+        <Text className="uppercase text-xs">{prop}</Text>
+        <Text className="font-semibold">{value}</Text>
       </Flex>
     </Flex>
   );
