@@ -28,10 +28,10 @@ const ResumeCard = () => {
         </div>
         <div className="comment">
           <p>
-            I've sent him the assignment we discussed recently, he is coming
+            I&apos;ve sent him the assignment we discussed recently, he is coming
             back to us this week. Regarding to our last call, I really enjoyed
             talking to him and so far he has the profile we are looking for.
-            Can't wait to see his technical test, I'll keep you posted and we'll
+            Can&apos;t wait to see his technical test, I&apos;ll keep you posted and we&apos;ll
             debrief it all together! 😊
           </p>
         </div>
