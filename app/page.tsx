@@ -3,6 +3,7 @@ import AddNewLink from "./components/AddNewLink";
 import IphoneCanvas from "./components/IphoneCanvas";
 import ProfileSection from "./components/ProfileSection";
 
+
 export default function Home() {
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 640;
 

@@ -14,7 +14,6 @@ const ProfileTabs = () => {
         <Tabs.List>
           <Tabs.Trigger value="about">About</Tabs.Trigger>
           <Tabs.Trigger value="resume">Resume</Tabs.Trigger>
-          <Tabs.Trigger value="contact">Contact</Tabs.Trigger>
         </Tabs.List>
       </Flex>
 
@@ -25,10 +24,6 @@ const ProfileTabs = () => {
 
         <Tabs.Content value="resume">
           <ResumeTab />
-        </Tabs.Content>
-
-        <Tabs.Content value="contact">
-          <Text size="2">Edit your profile or update contact information.</Text>
         </Tabs.Content>
       </Box>
     </Tabs.Root>

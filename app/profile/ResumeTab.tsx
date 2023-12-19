@@ -1,11 +1,15 @@
 import { Flex } from "@radix-ui/themes";
-import "react-vertical-timeline-component/style.min.css";
-
+import ResumeCard from "./ResumeCard";
 
 const ResumeTab = () => {
   return (
     <Flex gap="3">
-        profile tab
+      <ol className="timeline">
+        <ResumeCard />
+        <ResumeCard />
+        <ResumeCard />
+        <ResumeCard />
+      </ol>
     </Flex>
   );
 };

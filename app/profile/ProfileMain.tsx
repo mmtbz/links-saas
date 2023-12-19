@@ -6,7 +6,7 @@ import Image from "next/image";
 const ProfileMain = () => {
   const tags = [0, 1, 2, 3];
   return (
-    <>
+    <div className="max-h-screen">
       <Flex align="center" direction="column" gap="3">
         <Image
           src="https://randomuser.me/api/portraits/men/75.jpg"
@@ -25,7 +25,7 @@ const ProfileMain = () => {
       {tags.map((tag) => (
         <ProfileCard key={tag} />
       ))}
-    </>
+    </div>
   );
 };
 
