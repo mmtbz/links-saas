@@ -1,6 +1,3 @@
-import { Box, Text } from "@radix-ui/themes";
-import Image from "next/image";
-import React from "react";
 
 type Props = {
   testimonial: string;
@@ -10,20 +7,20 @@ type Props = {
 
 const Testimonial = ({ testimonial, name, photo }: Props) => {
   return (
-    <Box className="relative border-[1px] min-h-[100px] mt-5 rounded-2xl border-red">
-      <Image
-        src={photo}
-        alt={"tesimonial user"}
-        height={80}
-        width={80}
-        className="absolute rounded-2xl -top-8 left-4"
-      />
-      <Text className="absolute left-[6.5rem] top-[1.5rem] text-xl font-bold">
-        {name}
-      </Text>
-
-      <Box className="mt-[3.5rem] ml-4">{testimonial}</Box>
-    </Box>
+    <div className="timeline-item-wrapper">
+      <div className="timeline-item-description">
+        <i className="avatar | small">
+          <img src={photo} alt={name} />
+        </i>
+        <span>
+          <a href="#">{name}</a> testimony on <time>Jan 20, 2021</time>
+        </span>
+      </div>
+      <div className="comment">
+        <p>{testimonial}</p>
+        <button className="button">👏 2</button>
+      </div>
+    </div>
   );
 };
 

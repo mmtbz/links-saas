@@ -40,6 +40,13 @@ const AboutTab = () => {
       name: "Peter Parker",
       photo: "https://randomuser.me/api/portraits/men/70.jpg",
     },
+
+    {
+      testimonial:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+      name: "Igiraneza Emmanuel",
+      photo: "https://randomuser.me/api/portraits/men/70.jpg",
+    },
   ];
 
   return (
@@ -79,7 +86,7 @@ const AboutTab = () => {
       <Grid
         gap="3"
         className="grid"
-        columns={{ sm: "1fr" , md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)"}}
+        columns={{ sm: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }}
       >
         {testimonials.map((testimonial) => (
           <Testimonial
