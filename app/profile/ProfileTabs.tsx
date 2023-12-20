@@ -9,11 +9,15 @@ import ResumeTab from "./ResumeTab";
 const ProfileTabs = () => {
   return (
     <Tabs.Root defaultValue="about">
-      <Flex align="center" justify="between" className="px-4 justify-center">
+      <Flex align="center" justify="between" className="px-4">
         <ProfileTitle title="About" />
         <Tabs.List>
-          <Tabs.Trigger value="about">About</Tabs.Trigger>
-          <Tabs.Trigger value="resume">Resume</Tabs.Trigger>
+          <Tabs.Trigger value="about">
+            <Text className="text-xl font-medium">About</Text>
+          </Tabs.Trigger>
+          <Tabs.Trigger value="resume">
+            <Text className="text-xl font-medium">Resume</Text>
+          </Tabs.Trigger>
         </Tabs.List>
       </Flex>
 

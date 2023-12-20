@@ -7,7 +7,7 @@ type Props = {
 
 const Testimonial = ({ testimonial, name, photo }: Props) => {
   return (
-    <div className="timeline-item-wrapper">
+    <div className="testimony">
       <div className="timeline-item-description">
         <i className="avatar | small">
           <img src={photo} alt={name} />
