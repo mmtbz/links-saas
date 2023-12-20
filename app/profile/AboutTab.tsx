@@ -1,7 +1,7 @@
 import { Badge, Box, Flex, Text, Grid } from "@radix-ui/themes";
 import React from "react";
 import Testimonial from "./Testimonial";
-import ProfileTitle from "./ProfileTitle";
+import Title from "../components/Title";
 
 type Skill = {
   skill: string;
@@ -42,8 +42,7 @@ const AboutTab = () => {
     },
 
     {
-      testimonial:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+      testimonial: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
       name: "Igiraneza Emmanuel",
       photo: "https://randomuser.me/api/portraits/men/70.jpg",
     },
@@ -64,7 +63,7 @@ const AboutTab = () => {
         </Text>
       </Flex>
       <Box>
-        <ProfileTitle title="Skills" />
+        <Title title="Skills" />
       </Box>
 
       <Flex gap="2">
@@ -81,7 +80,7 @@ const AboutTab = () => {
       </Flex>
 
       <Box>
-        <ProfileTitle title="Testimonials" />
+        <Title title="Testimonials" />
       </Box>
       <Grid
         gap="3"

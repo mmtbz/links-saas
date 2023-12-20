@@ -2,7 +2,7 @@ import "@radix-ui/themes/styles.css";
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Theme, ThemePanel } from "@radix-ui/themes";
+import { Container, Theme, ThemePanel } from "@radix-ui/themes";
 
 import { Outfit } from "next/font/google";
 
@@ -30,7 +30,11 @@ export default function RootLayout({
           panelBackground="solid"
           radius="large"
         >
-          <main className={outfit.className}>{children}</main>
+          <main className={outfit.className}>
+            <Container className="p-2 sm:p-5 md:p-8 lg:p-10 xl:p-12">
+              {children}
+            </Container>
+          </main>
         </Theme>
       </body>
     </html>

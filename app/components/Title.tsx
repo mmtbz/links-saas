@@ -1,6 +1,6 @@
 import { Text, Separator, Box } from "@radix-ui/themes";
 
-const ProfileTitle = ({ title }: { title: string }) => {
+const Title = ({ title }: { title: string }) => {
   return (
     <Box>
       <Text className="text-xl font-bold">{title}</Text>
@@ -9,4 +9,4 @@ const ProfileTitle = ({ title }: { title: string }) => {
   );
 };
 
-export default ProfileTitle;
+export default Title;
