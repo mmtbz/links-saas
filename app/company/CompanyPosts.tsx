@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import GoogleLogo from "../../public/images/google.png";
 import { IoMdTime } from "react-icons/io";
-import Link from "next/link";
 import { CiHeart } from "react-icons/ci";
 import { GoComment } from "react-icons/go";
 import { PiShareFatLight } from "react-icons/pi";
