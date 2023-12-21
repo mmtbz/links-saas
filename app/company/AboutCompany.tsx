@@ -1,7 +1,6 @@
-import { Box, Text, Link, Grid } from "@radix-ui/themes";
-import React from "react";
-import Title from "../components/Title";
+import { Box, Grid, Link, Text } from "@radix-ui/themes";
 import Image from "next/image";
+import Title from "../components/Title";
 
 const AboutCompany = () => {
   const images = [1, 2, 3, 4, 5, 6];
