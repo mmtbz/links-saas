@@ -5,6 +5,9 @@ import Image from "next/image";
 import GoogleLogo from "../../public/images/google.png";
 import { FiPlus } from "react-icons/fi";
 import { TbExternalLink } from "react-icons/tb";
+import AboutCompany from "./AboutCompany";
+import CompanyPosts from "./CompanyPosts";
+import CompanyJobs from "./CompanyJobs";
 
 const CompanyPage = () => {
   return (
@@ -57,11 +60,17 @@ const CompanyPage = () => {
         </Tabs.List>
 
         <Box pt="2">
-          <Tabs.Content value="about">About Us</Tabs.Content>
+          <Tabs.Content value="about">
+            <AboutCompany />
+          </Tabs.Content>
 
-          <Tabs.Content value="posts">Posts</Tabs.Content>
+          <Tabs.Content value="posts">
+            <CompanyPosts />
+          </Tabs.Content>
 
-          <Tabs.Content value="jobs">Jobs</Tabs.Content>
+          <Tabs.Content value="jobs">
+            <CompanyJobs />
+          </Tabs.Content>
         </Box>
       </Tabs.Root>
     </>
