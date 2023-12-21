@@ -48,7 +48,7 @@ const PostCard = () => {
       />
 
       <Text className="font-bold block" size="5" mt="4">
-        What's it like to work at Google?
+        What&apos;s it like to work at Google?
       </Text>
       <Text className="font-extralight block" size="3" mt="1">
         Youtube.com
