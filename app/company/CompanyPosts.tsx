@@ -4,6 +4,9 @@ import Image from "next/image";
 import GoogleLogo from "../../public/images/google.png";
 import { IoMdTime } from "react-icons/io";
 import Link from "next/link";
+import { CiHeart } from "react-icons/ci";
+import { GoComment } from "react-icons/go";
+import { PiShareFatLight } from "react-icons/pi";
 
 const CompanyPosts = () => {
   return (
@@ -57,6 +60,19 @@ const CompanyPosts = () => {
         <Text className="font-extralight block" size="3" mt="1">
           Youtube.com
         </Text>
+        <Flex justify="between" mt="4">
+          <Flex gap="4">
+            <Button variant="ghost">
+              <CiHeart size={24} /> 3
+            </Button>
+            <Button variant="ghost">
+              <GoComment size={24} /> 10
+            </Button>
+          </Flex>
+          <Button variant="ghost">
+            <PiShareFatLight size={24} /> 2
+          </Button>
+        </Flex>
       </Card>
     </Grid>
   );
