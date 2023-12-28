@@ -5,6 +5,7 @@ import "./globals.css";
 import { Container, Theme, ThemePanel } from "@radix-ui/themes";
 
 import { Outfit } from "next/font/google";
+import NavigationBar from "./NavigationBar";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         >
           <main className={outfit.className}>
             <Container className="p-2 sm:p-5 md:p-8 lg:p-10 xl:p-12">
+              <NavigationBar />
               {children}
             </Container>
           </main>
