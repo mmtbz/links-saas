@@ -1,6 +1,5 @@
 "use client";
 import { Card, Grid, Separator, Text, TextField } from "@radix-ui/themes";
-import React from "react";
 import Title from "../components/Title";
 
 const JobPage = () => {
