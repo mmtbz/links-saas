@@ -95,7 +95,7 @@ const MobileNavMenu = ({
             <ul className="">
               {links.map((link) => (
                 <SheetClose asChild key={link.label}>
-                  <li key={link.label}>
+                  <li key={link.label} className="text-lg py-2 text-left">
                     <Link
                       href={link.href}
                       className={classnames({
