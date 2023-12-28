@@ -32,8 +32,8 @@ export default function RootLayout({
           radius="large"
         >
           <main className={outfit.className}>
-            <Container className="p-2 sm:p-5 md:p-8 lg:p-10 xl:p-12">
-              <NavigationBar />
+            <NavigationBar />
+            <Container className="px-2 sm:px-5 md:px-8 lg:px-10 xl:px-12">
               {children}
             </Container>
           </main>
