@@ -1,4 +1,12 @@
 "use client";
+import {
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTrigger,
+} from "@/components/ui/sheet";
 import { Container, Flex } from "@radix-ui/themes";
 import classnames from "classnames";
 import Link from "next/link";
@@ -16,16 +24,11 @@ const NavigationBar = () => {
         <Flex justify="between">
           <Flex align="center" gap="3">
             <Link href="/">LOGO</Link>
-            <NavMenu menuOpen />
+            <NavMenu menuOpen={menuOpen} />
           </Flex>
           <Flex align="center" gap="3">
             <Link href={"login"}>Login</Link>
-            <button
-              className="lg:hidden focus:outline-none"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              {menuOpen ? <IoMdClose /> : <CiMenuBurger />}
-            </button>
+            <MobileNavMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
           </Flex>
         </Flex>
       </Container>
@@ -48,7 +51,9 @@ const NavMenu = ({ menuOpen }: { menuOpen: boolean }) => {
       {/* Navigation links for large screens */}
 
       <ul
-        className={`lg:flex space-x-6 ${menuOpen ? 'hidden' : 'block sm:hidden'}`}
+        className={`lg:flex space-x-6 ${
+          menuOpen ? "hidden" : "block sm:hidden"
+        }`}
       >
         {links.map((link) => (
           <li key={link.href}>
@@ -65,6 +70,59 @@ const NavMenu = ({ menuOpen }: { menuOpen: boolean }) => {
         ))}
       </ul>
     </div>
+  );
+};
+
+const MobileNavMenu = ({
+  menuOpen,
+  setMenuOpen,
+}: {
+  menuOpen: boolean;
+  setMenuOpen: (menuOpen: boolean) => void;
+}) => {
+  const currentPath = usePathname();
+  const links = [
+    { label: "Home", href: "/" },
+    { label: "Dashboard", href: "/dashboard" },
+    { label: "Profile", href: "/profile" },
+    { label: "Company", href: "/company" },
+    { label: "Jobs", href: "/job" },
+  ];
+
+  return (
+    <Sheet>
+      <SheetTrigger>
+        <button
+          className="lg:hidden focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <IoMdClose /> : <CiMenuBurger />}
+        </button>
+      </SheetTrigger>
+      <SheetContent className="bg-white">
+        <SheetHeader>
+          <SheetDescription>
+            <ul className="">
+              {links.map((link) => (
+                <SheetClose asChild key={link.label}>
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className={classnames({
+                        "nav-link": true,
+                        "!text-zinc-900": link.href === currentPath,
+                      })}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                </SheetClose>
+              ))}
+            </ul>
+          </SheetDescription>
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
   );
 };
 export default NavigationBar;
