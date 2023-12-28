@@ -1,11 +1,11 @@
 "use client";
 import {
-    Sheet,
-    SheetClose,
-    SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTrigger,
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTrigger,
 } from "@/components/ui/sheet";
 import { Container, Flex } from "@radix-ui/themes";
 import classnames from "classnames";
@@ -13,7 +13,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
-import { IoMdClose } from "react-icons/io";
 
 const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -48,13 +47,7 @@ const NavMenu = ({ menuOpen }: { menuOpen: boolean }) => {
 
   return (
     <div className="md:hidden lg:flex lg:items-center lg:justify-end">
-      {/* Navigation links for large screens */}
-
-      <ul
-        className={`lg:flex space-x-6 ${
-          menuOpen ? "hidden" : "block sm:hidden"
-        }`}
-      >
+      <ul className="hidden md:flex space-x-6">
         {links.map((link) => (
           <li key={link.href}>
             <Link
@@ -92,11 +85,8 @@ const MobileNavMenu = ({
   return (
     <Sheet>
       <SheetTrigger>
-        <button
-          className="lg:hidden focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <IoMdClose /> : <CiMenuBurger />}
+        <button className="lg:hidden focus:outline-none">
+          <CiMenuBurger />
         </button>
       </SheetTrigger>
       <SheetContent className="bg-white">
