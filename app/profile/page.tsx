@@ -6,10 +6,10 @@ import Box from "../components/Box";
 const ProfilePage = () => {
   return (
     <Grid gap="3" columns={{ md: "1fr 2fr", lg: "1fr 3fr", sm: "1fr" }}>
-      <Box>
+      <Box className="bg-white">
         <ProfileMain />
       </Box>
-      <Box>
+      <Box className="inherit">
         <ProfileTabs />
       </Box>
     </Grid>

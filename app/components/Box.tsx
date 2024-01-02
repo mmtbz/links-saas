@@ -1,9 +1,16 @@
 import React, { ReactNode } from "react";
 import { Box as ReadixBox } from "@radix-ui/themes";
 
-const Box = ({ children }: { children: ReactNode }) => {
+interface props {
+  children: ReactNode;
+  className: string;
+}
+
+const Box = ({ children, className }: props) => {
   return (
-    <ReadixBox className="bg-white rounded-xl shadow-sm p-2">{children}</ReadixBox>
+    <ReadixBox className={`${className} rounded-xl shadow-sm p-2`}>
+      {children}
+    </ReadixBox>
   );
 };
 
