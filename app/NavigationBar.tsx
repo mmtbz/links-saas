@@ -15,19 +15,17 @@ import { useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 
 const NavigationBar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
-    <nav className="border-b mb-3 px-5 py-3">
+    <nav className="border-b mb-3 px-5 py-3 bg-white">
       <Container>
         <Flex justify="between">
           <Flex align="center" gap="3">
             <Link href="/">LOGO</Link>
-            <NavMenu menuOpen={menuOpen} />
+            <NavMenu />
           </Flex>
           <Flex align="center" gap="3">
             <Link href={"login"}>Login</Link>
-            <MobileNavMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+            <MobileNavMenu />
           </Flex>
         </Flex>
       </Container>
@@ -35,7 +33,7 @@ const NavigationBar = () => {
   );
 };
 
-const NavMenu = ({ menuOpen }: { menuOpen: boolean }) => {
+const NavMenu = () => {
   const currentPath = usePathname();
   const links = [
     { label: "Home", href: "/" },
@@ -66,13 +64,7 @@ const NavMenu = ({ menuOpen }: { menuOpen: boolean }) => {
   );
 };
 
-const MobileNavMenu = ({
-  menuOpen,
-  setMenuOpen,
-}: {
-  menuOpen: boolean;
-  setMenuOpen: (menuOpen: boolean) => void;
-}) => {
+const MobileNavMenu = () => {
   const currentPath = usePathname();
   const links = [
     { label: "Home", href: "/" },

@@ -1,16 +1,17 @@
 import { Card, Grid } from "@radix-ui/themes";
 import ProfileMain from "./ProfileMain";
 import ProfileTabs from "./ProfileTabs";
+import Box from "../components/Box";
 
 const ProfilePage = () => {
   return (
     <Grid gap="3" columns={{ md: "1fr 2fr", lg: "1fr 3fr", sm: "1fr" }}>
-      <Card>
+      <Box>
         <ProfileMain />
-      </Card>
-      <Card>
+      </Box>
+      <Box>
         <ProfileTabs />
-      </Card>
+      </Box>
     </Grid>
   );
 };
