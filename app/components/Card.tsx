@@ -10,7 +10,7 @@ interface props {
 
 const Card = ({ children, title, body }: props) => {
   return (
-    <ReadixBox className="bg-white rounded-xl shadow-sm p-2">
+    <ReadixBox className="bg-white sm:rounded-xl shadow-sm p-2">
       <Title title={title} />
       {body && <Text className="block">{body}</Text>}
       {children && children}

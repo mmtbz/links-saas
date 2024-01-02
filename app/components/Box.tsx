@@ -8,7 +8,7 @@ interface props {
 
 const Box = ({ children, className }: props) => {
   return (
-    <ReadixBox className={`${className} rounded-xl shadow-sm p-2`}>
+    <ReadixBox className={`${className} sm:rounded-xl shadow-sm sm:p-2`}>
       {children}
     </ReadixBox>
   );
