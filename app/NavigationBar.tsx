@@ -16,7 +16,7 @@ import { CiMenuBurger } from "react-icons/ci";
 
 const NavigationBar = () => {
   return (
-    <nav className="border-b mb-3 px-5 py-3 bg-white">
+    <nav className="mb-2 px-5 py-6 bg-white">
       <Container>
         <Flex justify="between">
           <Flex align="center" gap="3">
