@@ -86,7 +86,7 @@ const MobileNavigationBar = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Box className="lg:hidden border border-solid rounded-xl border-black p-2">
+        <Box className="lg:hidden border border-solid rounded-xl border-black p-2 focus:outline-none">
           <GiHamburgerMenu className="lg:hidden focus:outline-none" size={18} />
         </Box>
       </SheetTrigger>
