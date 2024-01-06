@@ -11,6 +11,7 @@ import { Box, Container, Flex, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { CiMenuBurger } from "react-icons/ci";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const links = [
   { label: "Dashboard", href: "/dashboard" },
@@ -21,7 +22,7 @@ const links = [
 
 const NavigationBar = () => {
   return (
-    <nav className="mb-2 py-4 bg-white">
+    <nav className="mb-2 py-2 lg:py-4 px-2 bg-white">
       <Container>
         <Flex justify="between">
           <Flex align="center" gap="3">
@@ -85,7 +86,9 @@ const MobileNavigationBar = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <CiMenuBurger className="lg:hidden focus:outline-none" />
+        <Box className="lg:hidden border border-solid rounded-xl border-black p-2">
+          <GiHamburgerMenu className="lg:hidden focus:outline-none" size={18} />
+        </Box>
       </SheetTrigger>
       <SheetContent className="bg-white">
         <SheetHeader>
