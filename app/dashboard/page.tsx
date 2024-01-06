@@ -13,6 +13,7 @@ import { MdInsights, MdOutlineQuiz } from "react-icons/md";
 
 import NavLink from "./_components/NavLink";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const DashboardPage = () => {
   const navLinks = [
@@ -54,12 +55,16 @@ const DashboardPage = () => {
   ];
 
   const currentPath = usePathname();
-
-  console.log("current path " + currentPath);
+  const [hideText, setHidetext] = useState(false);
 
   return (
     <ResizablePanelGroup direction="horizontal">
-      <ResizablePanel defaultSize={20}>
+      <ResizablePanel
+        defaultSize={20}
+        minSize={10}
+        maxSize={25}
+        onResize={(size) => setHidetext(size <= 15)}
+      >
         <Flex
           className="rounded-md bg-white p-2 max-h-screen min-h-screen"
           direction="column"
@@ -73,6 +78,7 @@ const DashboardPage = () => {
                 label={link.label}
                 icon={link.icon}
                 selected={currentPath === link.href}
+                hideText={hideText}
                 key={link.label}
               />
             ))}
@@ -82,10 +88,11 @@ const DashboardPage = () => {
             label="settings"
             icon={<CiSettings />}
             selected={currentPath === "/settings"}
+            hideText={hideText}
           />
         </Flex>
       </ResizablePanel>
-      <ResizableHandle withHandle className="bg-gray-400" />
+      <ResizableHandle withHandle className="bg-gray-200" />
       <ResizablePanel defaultSize={80}>
         <div className="flex h-full items-center justify-center p-6 bg-white">
           <span className="font-semibold">Content</span>
