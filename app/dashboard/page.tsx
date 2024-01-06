@@ -12,6 +12,7 @@ import { IoIosPeople } from "react-icons/io";
 import { MdInsights, MdOutlineQuiz } from "react-icons/md";
 
 import NavLink from "./_components/NavLink";
+import { usePathname } from "next/navigation";
 
 const DashboardPage = () => {
   const navLinks = [
@@ -19,6 +20,11 @@ const DashboardPage = () => {
       href: "/",
       label: "Home",
       icon: <CiHome />,
+    },
+    {
+      href: "/dashboard",
+      label: "dashboard",
+      icon: <BsListTask />,
     },
     {
       href: "/tasks",
@@ -47,35 +53,45 @@ const DashboardPage = () => {
     },
   ];
 
+  const currentPath = usePathname();
+
+  console.log("current path " + currentPath);
+
   return (
-      <ResizablePanelGroup direction="horizontal">
-        <ResizablePanel defaultSize={20}>
-          <Flex
-            className="rounded-md bg-white p-2 max-h-screen min-h-screen"
-            direction="column"
-            gap="2"
-            justify="between"
-          >
-            <Flex gap="2" direction="column">
-              {navLinks.map((link) => (
-                <NavLink
-                  href={link.href}
-                  label={link.label}
-                  icon={link.icon}
-                  key={link.label}
-                />
-              ))}
-            </Flex>
-            <NavLink href="/settings" label="settings" icon={<CiSettings />} />
+    <ResizablePanelGroup direction="horizontal">
+      <ResizablePanel defaultSize={20}>
+        <Flex
+          className="rounded-md bg-white p-2 max-h-screen min-h-screen"
+          direction="column"
+          gap="2"
+          justify="between"
+        >
+          <Flex gap="2" direction="column">
+            {navLinks.map((link) => (
+              <NavLink
+                href={link.href}
+                label={link.label}
+                icon={link.icon}
+                selected={currentPath === link.href}
+                key={link.label}
+              />
+            ))}
           </Flex>
-        </ResizablePanel>
-        <ResizableHandle withHandle className="bg-gray-400" />
-        <ResizablePanel defaultSize={80}>
-          <div className="flex h-full items-center justify-center p-6 bg-white">
-            <span className="font-semibold">Content</span>
-          </div>
-        </ResizablePanel>
-      </ResizablePanelGroup>
+          <NavLink
+            href="/settings"
+            label="settings"
+            icon={<CiSettings />}
+            selected={currentPath === "/settings"}
+          />
+        </Flex>
+      </ResizablePanel>
+      <ResizableHandle withHandle className="bg-gray-400" />
+      <ResizablePanel defaultSize={80}>
+        <div className="flex h-full items-center justify-center p-6 bg-white">
+          <span className="font-semibold">Content</span>
+        </div>
+      </ResizablePanel>
+    </ResizablePanelGroup>
   );
 };
 

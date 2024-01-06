@@ -7,15 +7,21 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Container, Flex } from "@radix-ui/themes";
-import classnames from "classnames";
+import { Box, Container, Flex, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { CiMenuBurger } from "react-icons/ci";
 
+const links = [
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Profile", href: "/profile" },
+  { label: "Company", href: "/company" },
+  { label: "Jobs", href: "/job" },
+];
+
 const NavigationBar = () => {
   return (
-    <nav className="mb-2 px-5 py-6 bg-white">
+    <nav className="mb-2 py-4 bg-white">
       <Container>
         <Flex justify="between">
           <Flex align="center" gap="3">
@@ -23,7 +29,10 @@ const NavigationBar = () => {
             <NavMenu />
           </Flex>
           <Flex align="center" gap="3">
-            <Link href={"login"}>Login</Link>
+            <Box className="px-6 py-2 hover:bg-slate-200 rounded-2xl border border-solid">
+              <Link href={"login"}>Login</Link>
+            </Box>
+
             <MobileNavigationBar />
           </Flex>
         </Flex>
@@ -34,27 +43,18 @@ const NavigationBar = () => {
 
 const NavMenu = () => {
   const currentPath = usePathname();
-  const links = [
-    { label: "Home", href: "/" },
-    { label: "Dashboard", href: "/dashboard" },
-    { label: "Profile", href: "/profile" },
-    { label: "Company", href: "/company" },
-    { label: "Jobs", href: "/job" },
-  ];
-
   return (
     <div className="md:hidden lg:flex lg:items-center lg:justify-end">
       <ul className="hidden md:flex space-x-6">
         {links.map((link) => (
           <li key={link.href}>
-            <Link
-              href={link.href}
-              className={classnames({
-                "nav-link": true,
-                "!text-zinc-900": link.href === currentPath,
-              })}
-            >
-              {link.label}
+            <Link href={link.href}>
+              <Text
+                color={currentPath === link.href ? undefined : "gray"}
+                className="hover:text-black"
+              >
+                {link.label}
+              </Text>
             </Link>
           </li>
         ))}
@@ -65,13 +65,6 @@ const NavMenu = () => {
 
 const MobileNavigationBar = () => {
   const router = useRouter();
-  const links = [
-    { label: "Home", href: "/" },
-    { label: "Dashboard", href: "/dashboard" },
-    { label: "Profile", href: "/profile" },
-    { label: "Company", href: "/company" },
-    { label: "Jobs", href: "/job" },
-  ];
 
   const navigateToRoute = (href: string): void => {
     router.push(href);
