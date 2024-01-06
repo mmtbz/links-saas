@@ -4,10 +4,15 @@ import "./globals.css";
 
 import { Container, Theme } from "@radix-ui/themes";
 
-import { Outfit } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import NavigationBar from "./NavigationBar";
 
 const outfit = Outfit({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const inter = Inter({
   subsets: ["latin"],
   weight: "400",
 });
@@ -31,7 +36,7 @@ export default function RootLayout({
           panelBackground="solid"
           radius="large"
         >
-          <main className={`${outfit.className} bg-gray-200 min-h-screen`}>
+          <main className={`${inter.className} bg-gray-200 min-h-screen`}>
             <NavigationBar />
             <Container className="sm:px-5 md:px-8 lg:px-10 xl:px-12">
               {children}
