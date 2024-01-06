@@ -29,7 +29,18 @@ const NavigationBar = () => {
             <NavMenu />
           </Flex>
           <Flex align="center" gap="3">
-            <Box className="px-6 py-2 hover:bg-slate-200 rounded-2xl border border-solid">
+            <Box className="py-2 hover:rounded-2xl hover:text-orange-300 hidden lg:flex">
+              <Link href={"login"}>Apply For Jobs</Link>
+            </Box>
+            <Box
+              className="px-6 py-2 rounded-2xl bg-orange-300 text-white border border-solid border-orange-300 hover:bg-white hover:text-orange-300
+            hover:border hover:border-solid hover:border-orange-300 hidden lg:flex"
+            >
+              <Link href={"login"} className="font-bold">
+                Hire Best Talents
+              </Link>
+            </Box>
+            <Box className="px-6 py-2 rounded-2xl text-orange-300 border border-solid border-orange-300 hover:bg-orange-200 hover:text-white">
               <Link href={"login"}>Login</Link>
             </Box>
 
