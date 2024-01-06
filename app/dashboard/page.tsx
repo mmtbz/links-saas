@@ -4,17 +4,14 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { Box, Flex } from "@radix-ui/themes";
+import { Flex } from "@radix-ui/themes";
 import { BsListTask } from "react-icons/bs";
-import { MdOutlineQuiz } from "react-icons/md";
-import { IoIosPeople } from "react-icons/io";
+import { CiHome, CiSettings } from "react-icons/ci";
 import { GoProjectRoadmap } from "react-icons/go";
-import { MdInsights } from "react-icons/md";
-import { CiSettings } from "react-icons/ci";
-import { CiHome } from "react-icons/ci";
+import { IoIosPeople } from "react-icons/io";
+import { MdInsights, MdOutlineQuiz } from "react-icons/md";
 
 import NavLink from "./_components/NavLink";
-import DashboardLayout from "../layouts/dashboard";
 
 const DashboardPage = () => {
   const navLinks = [
@@ -51,7 +48,6 @@ const DashboardPage = () => {
   ];
 
   return (
-    <DashboardLayout>
       <ResizablePanelGroup direction="horizontal">
         <ResizablePanel defaultSize={20}>
           <Flex
@@ -80,7 +76,6 @@ const DashboardPage = () => {
           </div>
         </ResizablePanel>
       </ResizablePanelGroup>
-    </DashboardLayout>
   );
 };
 

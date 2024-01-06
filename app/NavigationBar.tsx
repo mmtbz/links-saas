@@ -10,8 +10,7 @@ import {
 import { Container, Flex } from "@radix-ui/themes";
 import classnames from "classnames";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { CiMenuBurger } from "react-icons/ci";
 
 const NavigationBar = () => {
@@ -25,7 +24,7 @@ const NavigationBar = () => {
           </Flex>
           <Flex align="center" gap="3">
             <Link href={"login"}>Login</Link>
-            <MobileNavMenu />
+            <MobileNavigationBar />
           </Flex>
         </Flex>
       </Container>
@@ -64,8 +63,8 @@ const NavMenu = () => {
   );
 };
 
-const MobileNavMenu = () => {
-  const currentPath = usePathname();
+const MobileNavigationBar = () => {
+  const router = useRouter();
   const links = [
     { label: "Home", href: "/" },
     { label: "Dashboard", href: "/dashboard" },
@@ -74,33 +73,30 @@ const MobileNavMenu = () => {
     { label: "Jobs", href: "/job" },
   ];
 
+  const navigateToRoute = (href: string): void => {
+    router.push(href);
+    router.refresh();
+  };
+
   return (
     <Sheet>
       <SheetTrigger>
-        <button className="lg:hidden focus:outline-none">
-          <CiMenuBurger />
-        </button>
+        <CiMenuBurger className="lg:hidden focus:outline-none" />
       </SheetTrigger>
       <SheetContent className="bg-white">
         <SheetHeader>
           <SheetDescription>
-            <ul className="">
+            <Flex direction="column" gap="3" className="text-lg">
               {links.map((link) => (
-                <SheetClose asChild key={link.label}>
-                  <li key={link.label} className="text-lg py-2 text-left">
-                    <Link
-                      href={link.href}
-                      className={classnames({
-                        "nav-link": true,
-                        "!text-zinc-900": link.href === currentPath,
-                      })}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
+                <SheetClose
+                  onClick={() => navigateToRoute(link.href)}
+                  key={link.label}
+                  className="text-left"
+                >
+                  {link.label}
                 </SheetClose>
               ))}
-            </ul>
+            </Flex>
           </SheetDescription>
         </SheetHeader>
       </SheetContent>
