@@ -36,11 +36,9 @@ export default function RootLayout({
           panelBackground="solid"
           radius="large"
         >
-          <main className={`${inter.className} bg-gray-200 min-h-screen`}>
+          <main className={`${inter.className}`}>
             <NavigationBar />
-            <Container className="sm:px-5 md:px-8 lg:px-10 xl:px-12">
-              {children}
-            </Container>
+            {children}
           </main>
         </Theme>
       </body>

@@ -10,7 +10,6 @@ import {
 import { Box, Container, Flex, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { CiMenuBurger } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const links = [
@@ -22,11 +21,11 @@ const links = [
 
 const NavigationBar = () => {
   return (
-    <nav className="mb-2 py-2 lg:py-4 px-2 bg-white">
+    <nav className="py-2 lg:py-3 px-2 lg:px-0 bg-[#FFF5EC] border-solid border-b">
       <Container>
         <Flex justify="between">
           <Flex align="center" gap="3">
-            <Link href="/">LOGO</Link>
+            <Link href="/" className="pr-8">LOGO</Link>
             <NavMenu />
           </Flex>
           <Flex align="center" gap="3">
@@ -57,7 +56,7 @@ const NavMenu = () => {
   const currentPath = usePathname();
   return (
     <div className="md:hidden lg:flex lg:items-center lg:justify-end">
-      <ul className="hidden md:flex space-x-6">
+      <ul className="hidden md:flex space-x-4">
         {links.map((link) => (
           <li key={link.href}>
             <Link href={link.href}>
