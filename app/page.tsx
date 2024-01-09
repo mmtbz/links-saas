@@ -46,7 +46,7 @@ export default function Home() {
         </Container>
       </div>
       {/* bug here */}
-      <div>
+      {/* <div>
         <Container className="px-2 lg:px-0">
           <p className="text-center text-xl mb-6 mt-2">
             Trusted by big and small{" "}
@@ -64,7 +64,7 @@ export default function Home() {
             <Image src={AirbnbLogo} alt="Airbnb logo" height="80" width="80" />
           </Flex>
         </Container>
-      </div>
+      </div> */}
       <div className="bg-[#FFF5EC] py-8">
         <Container className="px-2 lg:px-0">
           <p className="text-center text-orange-400">Choose Categories</p>
