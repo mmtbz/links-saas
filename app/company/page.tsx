@@ -18,7 +18,7 @@ const CompanyPage = () => {
           height="150"
           width="150"
           alt="Company Picture"
-          className="rounded-full mt-3 object-cover"
+          className="rounded-full object-cover"
         />
         <Text as="p" size="7" className="text-center font-bold">
           Google
