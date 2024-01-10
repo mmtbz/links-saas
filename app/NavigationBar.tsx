@@ -8,6 +8,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Box, Container, Flex, Text } from "@radix-ui/themes";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -20,12 +21,15 @@ const links = [
 ];
 
 const NavigationBar = () => {
+  const { status, data: session } = useSession();
   return (
     <nav className="py-2 lg:py-3 px-2 lg:px-0 bg-[#FFF5EC] border-solid border-b">
       <Container>
         <Flex justify="between">
           <Flex align="center" gap="3">
-            <Link href="/" className="pr-8">LOGO</Link>
+            <Link href="/" className="pr-8">
+              LOGO
+            </Link>
             <NavMenu />
           </Flex>
           <Flex align="center" gap="3">
@@ -40,9 +44,17 @@ const NavigationBar = () => {
                 Hire Best Talents
               </Link>
             </Box>
-            <Box className="px-6 py-2 rounded-2xl text-orange-300 border border-solid border-orange-300 hover:bg-orange-200 hover:text-white">
-              <Link href={"login"}>Login</Link>
-            </Box>
+            {status === "authenticated" && (
+              <Box>
+                {session.user?.name}
+                <Link href="/api/auth/signout" className="ml-3">Sign Out</Link>
+              </Box>
+            )}
+            {status === "unauthenticated" && (
+              <Box className="px-6 py-2 rounded-2xl text-orange-300 border border-solid border-orange-300 hover:bg-orange-200 hover:text-white">
+                <Link href="/api/auth/signin">Login</Link>
+              </Box>
+            )}
 
             <MobileNavigationBar />
           </Flex>

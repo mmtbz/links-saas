@@ -6,6 +6,7 @@ import { Container, Theme } from "@radix-ui/themes";
 
 import { Inter, Outfit } from "next/font/google";
 import NavigationBar from "./NavigationBar";
+import AuthProvider from "./auth/Provider";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -29,17 +30,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <Theme
           appearance="light"
           accentColor="iris"
           panelBackground="solid"
           radius="large"
         >
-          <main className={`${inter.className}`}>
+          <AuthProvider>
             <NavigationBar />
             {children}
-          </main>
+          </AuthProvider>
         </Theme>
       </body>
     </html>
