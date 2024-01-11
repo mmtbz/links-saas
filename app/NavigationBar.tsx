@@ -7,11 +7,19 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Box, Container, Flex, Text } from "@radix-ui/themes";
+import {
+  Avatar,
+  Box,
+  Container,
+  DropdownMenu,
+  Flex,
+  Text,
+} from "@radix-ui/themes";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
+import classnames from "classnames";
 
 const links = [
   { label: "Dashboard", href: "/dashboard" },
@@ -21,7 +29,6 @@ const links = [
 ];
 
 const NavigationBar = () => {
-  const { status, data: session } = useSession();
   return (
     <nav className="py-2 lg:py-3 px-2 lg:px-0 bg-[#FFF5EC] border-solid border-b">
       <Container>
@@ -44,17 +51,7 @@ const NavigationBar = () => {
                 Hire Best Talents
               </Link>
             </Box>
-            {status === "authenticated" && (
-              <Box>
-                {session.user?.name}
-                <Link href="/api/auth/signout" className="ml-3">Sign Out</Link>
-              </Box>
-            )}
-            {status === "unauthenticated" && (
-              <Box className="px-6 py-2 rounded-2xl text-orange-300 border border-solid border-orange-300 hover:bg-orange-200 hover:text-white">
-                <Link href="/api/auth/signin">Login</Link>
-              </Box>
-            )}
+            <AuthStatus />
 
             <MobileNavigationBar />
           </Flex>
@@ -74,7 +71,11 @@ const NavMenu = () => {
             <Link href={link.href}>
               <Text
                 color={currentPath === link.href ? undefined : "gray"}
-                className="hover:text-black"
+                className={classnames({
+                  "pb-5 hover:text-black hover:border-b-4 hover:border-black":
+                    true,
+                  "border-b-4 border-black": currentPath === link.href,
+                })}
               >
                 {link.label}
               </Text>
@@ -104,7 +105,7 @@ const MobileNavigationBar = () => {
       <SheetContent className="bg-white">
         <SheetHeader>
           <SheetDescription>
-            <Flex direction="column" gap="3" className="text-lg">
+            <Flex direction="column" gap="5" className="text-lg pt-5">
               {links.map((link) => (
                 <SheetClose
                   onClick={() => navigateToRoute(link.href)}
@@ -119,6 +120,41 @@ const MobileNavigationBar = () => {
         </SheetHeader>
       </SheetContent>
     </Sheet>
+  );
+};
+
+const AuthStatus = () => {
+  const { status, data: session } = useSession();
+
+  if (status === "loading") return <p>loading</p>;
+  if (status === "unauthenticated")
+    return (
+      <Box className="px-6 py-2 rounded-2xl text-orange-300 border border-solid border-orange-300 hover:bg-orange-200 hover:text-white">
+        <Link href="/api/auth/signin">Login</Link>
+      </Box>
+    );
+  return (
+    <Box>
+      <DropdownMenu.Root>
+        <DropdownMenu.Trigger>
+          <Avatar
+            src={session!.user?.image!}
+            fallback="?"
+            size="2"
+            radius="full"
+            className="cursor-pointer"
+          />
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Content>
+          <DropdownMenu.Label>
+            <Text size="2">{session!.user?.email}</Text>
+          </DropdownMenu.Label>
+          <DropdownMenu.Item>
+            <Link href="/api/auth/signout">Log Out</Link>
+          </DropdownMenu.Item>
+        </DropdownMenu.Content>
+      </DropdownMenu.Root>
+    </Box>
   );
 };
 export default NavigationBar;
