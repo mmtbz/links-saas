@@ -19,10 +19,10 @@ export default function Home() {
             justify="center"
             align="center"
           >
-            <div className="font-extrabold text-7xl leading-[5rem] lg:text-6xl lg:leading-[4rem]">
+            <div className="font-extrabold text-7xl leading-[5rem] lg:text-6xl lg:leading-[4rem] mb-6">
               <p className=" text-[#16171C]">Hire the best candidates</p>
               <Flex gap="3">
-                <p >in </p>
+                <p>in </p>
                 <p className="text-[#F2994A]">Africa</p>
               </Flex>
 
@@ -30,7 +30,9 @@ export default function Home() {
                 Find You New Job Today! New Job Postings Everyday just for you,
                 browse the job you want and apply wherever you want
               </p>
-              <p className="text-[#333333] text-2xl pt-4 font-extrabold">Trending keywords:</p>
+              <p className="text-[#333333] text-2xl pt-4 font-extrabold">
+                Trending keywords:
+              </p>
               <p className="text-[#F2994A] text-base pt-4 font-black">
                 Web Developer | UI/UX Engineer | Frontend
               </p>
@@ -41,17 +43,21 @@ export default function Home() {
                 <TextField.Input placeholder="Search talents…" />
               </TextField.Root>
             </div>
-            <Image src={WomanImage} alt="business-woman" />
+            <Image
+              src={WomanImage}
+              alt="business-woman"
+              className="hidden lg:block"
+            />
           </Grid>
         </Container>
       </div>
-      {/* bug here */}
-      {/* <div>
+      <div>
         <Container className="px-2 lg:px-0">
-          <p className="text-center text-xl mb-6 mt-2">
-            Trusted by big and small{" "}
-            <p className="text-orange-400 inline font-bold">companies</p>
-          </p>
+          <div className="text-center text-xl mb-6 mt-2">
+            <p className="inline">Trusted by big and small</p>
+            <p className="text-orange-400 inline font-bold"> companies</p>
+          </div>
+
           <Flex align="center" gap="2" justify="between" mb="6">
             <Image src={GoogleLogo} alt="google logo" height="80" width="80" />
             <Image
@@ -64,7 +70,7 @@ export default function Home() {
             <Image src={AirbnbLogo} alt="Airbnb logo" height="80" width="80" />
           </Flex>
         </Container>
-      </div> */}
+      </div>
       <div className="bg-[#FFF5EC] py-8">
         <Container className="px-2 lg:px-0">
           <p className="text-center text-orange-400">Choose Categories</p>
@@ -85,7 +91,8 @@ export default function Home() {
               </svg>
               <Box>
                 <Text className="text-white font-black block text-2xl">
-                  UI / UX <br/>Design
+                  UI / UX <br />
+                  Design
                 </Text>
                 <Text className="text-[#F2F2F2] text-sm">
                   120 Candidates available
