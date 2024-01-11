@@ -104,18 +104,18 @@ const MobileNavigationBar = () => {
       </SheetTrigger>
       <SheetContent className="bg-white">
         <SheetHeader>
-          <SheetDescription>
-            <Flex direction="column" gap="5" className="text-lg pt-5">
-              {links.map((link) => (
-                <SheetClose
-                  onClick={() => navigateToRoute(link.href)}
-                  key={link.label}
-                  className="text-left"
-                >
-                  {link.label}
-                </SheetClose>
-              ))}
-            </Flex>
+          <SheetDescription className="flex flex-col justify-between">
+              <Flex direction="column" gap="5" className="text-lg pt-8">
+                {links.map((link) => (
+                  <SheetClose
+                    onClick={() => navigateToRoute(link.href)}
+                    key={link.label}
+                    className="text-left pt-3 pb-1 border-solid border-b-[1px] border-black"
+                  >
+                    {link.label}
+                  </SheetClose>
+                ))}
+              </Flex>
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

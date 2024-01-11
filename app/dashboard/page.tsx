@@ -64,6 +64,7 @@ const DashboardPage = () => {
         minSize={10}
         maxSize={25}
         onResize={(size) => setHidetext(size <= 15)}
+        className="hidden lg:block"
       >
         <Flex
           className="rounded-md bg-white p-2 max-h-screen min-h-screen"
@@ -92,7 +93,7 @@ const DashboardPage = () => {
           />
         </Flex>
       </ResizablePanel>
-      <ResizableHandle withHandle className="bg-gray-200" />
+      <ResizableHandle withHandle className="bg-gray-200 hidden lg:flex" />
       <ResizablePanel defaultSize={80}>
         <div className="flex h-full items-center justify-center p-6 bg-white">
           <span className="font-semibold">Content</span>

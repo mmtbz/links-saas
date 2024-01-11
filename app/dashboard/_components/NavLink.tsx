@@ -16,9 +16,9 @@ const NavLink = ({ href, label, icon, selected, hideText }: props) => {
       <Link href={href}>
         <Box
           className={classnames({
-            "px-6 py-2 hover:bg-slate-100 rounded-2xl border border-solid":
+            "px-6 py-2 hover:bg-slate-100 border-b-[1px] border-solid":
               true,
-            "bg-black text-white hover:text-black": selected,
+            "hover:text-black border-b-[2px] border-solid border-black": selected,
             "px-8 py-3": hideText,
           })}
         >
