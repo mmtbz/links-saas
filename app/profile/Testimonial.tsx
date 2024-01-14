@@ -1,3 +1,4 @@
+import Image from "next/image";
 
 type Props = {
   testimonial: string;
@@ -10,7 +11,7 @@ const Testimonial = ({ testimonial, name, photo }: Props) => {
     <div className="testimony">
       <div className="timeline-item-description">
         <i className="avatar | small">
-          <img src={photo} alt={name} />
+          <Image src={photo} alt={name} />
         </i>
         <span>
           <a href="#">{name}</a> testimony on <time>Jan 20, 2021</time>

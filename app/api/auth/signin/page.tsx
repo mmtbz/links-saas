@@ -10,7 +10,7 @@ const LoginPage = () => {
         <Text size="7" mb="5">
           Welcome back 👋
         </Text>
-        <Text size="2">Today is a new day. It's your day. You shape it.</Text>
+        <Text size="2">Today is a new day. It&lsquo;s your day. You shape it.</Text>
         <Text size="2" mb="3">
           Sign in to manage your projects
         </Text>
@@ -59,7 +59,7 @@ const LoginPage = () => {
         </button>
 
         <Flex gap="2" align="center" justify="end">
-          <Text>Don't have an account?</Text>
+          <Text>Don&lsquo;t have an account?</Text>
           <a className="outline-none hover:bg-inherit hover:cursor-pointer text-sky-600">
             Sign Up
           </a>
