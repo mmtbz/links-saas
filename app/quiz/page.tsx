@@ -31,8 +31,8 @@ const QuizPage = () => {
             padding: 0,
           }}
         >
-          <AlertDialog.Title style={{ marginBottom: "2rem", padding: "12px" }}>
-            <Flex justify="between" align="center">
+          <AlertDialog.Title className="px-[12px] pt-[12px] pb-3 lg:px-[24px] lg:pt-[24px] lg:pb-[45px]">
+            <Flex justify="between" align="center" gap="2">
               <Flex
                 gap="2"
                 className="bg-[#F4F3F6] rounded-[5px] p-1"
@@ -42,9 +42,9 @@ const QuizPage = () => {
                 <Text className="text-sm"> 200</Text>
               </Flex>
 
-              <Text className="font-semibold text-lg lg:text-xl">
+              <p className="font-semibold text-base text-center lg:text-xl leading-6">
                 Javascript Foundamentals #145
-              </Text>
+              </p>
 
               <AlertDialog.Action>
                 <button className="text-[#191D63] rounded-full bg-white p-2">
@@ -54,12 +54,16 @@ const QuizPage = () => {
             </Flex>
           </AlertDialog.Title>
           <AlertDialog.Description size="2">
-            <Flex direction="column" align="center" gap="4" p="5">
+            <Flex
+              direction="column"
+              align="center"
+              className="pb-4 gap-[0.5rem] px-[12px] lg:px-[24px]"
+            >
               <Progress value={33} className="h-3 bg-[#F4F3F6] lg:hidden" />
 
-              <Text className="font-bold text-xl">
+              <p className="font-bold text-lg lg:text-xl text-center leading-6 pt-5 lg:pt-0">
                 PREDICT THE TOP LOSER (for tomorrow) across these indices
-              </Text>
+              </p>
               <Flex direction="column" gap="1">
                 <Flex
                   className="mt-4 bg-[#F4F3F6] p-3 rounded-[5px] font-semibold hover:cursor-pointer hover:bg-gray-50"
@@ -104,15 +108,20 @@ const QuizPage = () => {
                 </Flex>
               </Flex>
             </Flex>
-            <Box className="bg-white px-[20rem] py-3">
-              <Flex align="center" justify="between">
-                <Progress value={33} className="max-w-[12rem] h-2 hidden lg:block" />
+            <Flex
+              align="center"
+              justify="center"
+              className="bg-white p-3 lg:gap-[20rem]"
+            >
+              <Progress
+                value={33}
+                className="max-w-[12rem] h-2 hidden lg:block"
+              />
 
-                <button className="bg-[#747475] text-white px-10 py-3 rounded-[5px] opacity-50">
-                  CONTINUE
-                </button>
-              </Flex>
-            </Box>
+              <button className="bg-[#747475] text-white px-10 py-3 rounded-[5px] opacity-50">
+                CONTINUE
+              </button>
+            </Flex>
           </AlertDialog.Description>
         </AlertDialog.Content>
       </AlertDialog.Root>
