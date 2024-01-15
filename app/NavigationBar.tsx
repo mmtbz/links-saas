@@ -34,7 +34,7 @@ const loginUrl = "/api/auth/signin";
 const NavigationBar = () => {
   const currentPath = usePathname();
   return (
-    <nav className="py-2 lg:py-3 px-2 lg:px-0 bg-[#FFF5EC] border-solid border-b">
+    <nav className="py-2 lg:py-4 px-2 lg:px-0 border-solid border-b">
       <Container>
         <Flex justify="between">
           <Flex align="center" gap="3">
@@ -49,16 +49,31 @@ const NavigationBar = () => {
                 currentPath === loginUrl ? "hidden" : "hidden lg:block"
               } `}
             >
-              <Link href={"login"}>Apply For Jobs</Link>
+              <Link href={"login"}>For Companies</Link>
             </Box>
+
             <Box
-              className={`px-6 py-2 rounded-2xl bg-orange-300 text-white border border-solid border-orange-300 hover:bg-white hover:text-orange-300
-            hover:border hover:border-solid hover:border-orange-300 
-            ${currentPath === loginUrl ? "hidden" : "hidden lg:block"} `}
+              className={`py-2 hover:rounded-2xl hover:text-orange-300 ${
+                currentPath === loginUrl ? "hidden" : "hidden lg:block"
+              } `}
             >
-              <Link href={"login"} className="font-bold">
-                Hire Best Talents
-              </Link>
+              <Link href={"login"}>Find a Job</Link>
+            </Box>
+
+            <Box
+              className={`py-2 hover:rounded-2xl hover:text-orange-300 ${
+                currentPath === loginUrl ? "hidden" : "hidden lg:block"
+              } `}
+            >
+              <Link href={"login"}>Log In</Link>
+            </Box>
+
+            <Box
+              className={`py-3 px-3 rounded-full bg-sky-100 font-bold  hover:rounded-full  ${
+                currentPath === loginUrl ? "hidden" : "hidden lg:block"
+              } `}
+            >
+              <Link href={"login"}>Sign Up</Link>
             </Box>
             <AuthStatus />
 
@@ -84,7 +99,7 @@ const NavMenu = () => {
                   "pb-5 hover:text-black hover:border-b-4 hover:border-black":
                     true,
                   "border-b-4 border-black": currentPath === link.href,
-                  hidden: currentPath === loginUrl,
+                  hidden: currentPath === loginUrl || currentPath === "/",
                 })}
               >
                 {link.label}
