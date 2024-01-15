@@ -31,14 +31,18 @@ const QuizPage = () => {
             padding: 0,
           }}
         >
-          <AlertDialog.Title style={{ marginBottom: "2rem", padding: "24px" }}>
+          <AlertDialog.Title style={{ marginBottom: "2rem", padding: "12px" }}>
             <Flex justify="between" align="center">
-              <Flex gap="2" className="bg-[#F4F3F6] rounded-[5px] p-1">
-                <Image src={CoinsImage} alt="coins" />
-                <Text> 200</Text>
+              <Flex
+                gap="2"
+                className="bg-[#F4F3F6] rounded-[5px] p-1"
+                align="center"
+              >
+                <Image src={CoinsImage} alt="coins" className="h-5 w-5" />
+                <Text className="text-sm"> 200</Text>
               </Flex>
 
-              <Text className="font-semibold text-xl">
+              <Text className="font-semibold text-lg lg:text-xl">
                 Javascript Foundamentals #145
               </Text>
 
@@ -51,6 +55,8 @@ const QuizPage = () => {
           </AlertDialog.Title>
           <AlertDialog.Description size="2">
             <Flex direction="column" align="center" gap="4" p="5">
+              <Progress value={33} className="h-3 bg-[#F4F3F6] lg:hidden" />
+
               <Text className="font-bold text-xl">
                 PREDICT THE TOP LOSER (for tomorrow) across these indices
               </Text>
@@ -100,7 +106,7 @@ const QuizPage = () => {
             </Flex>
             <Box className="bg-white px-[20rem] py-3">
               <Flex align="center" justify="between">
-                <Progress value={33} className="max-w-[12rem] h-2" />
+                <Progress value={33} className="max-w-[12rem] h-2 hidden lg:block" />
 
                 <button className="bg-[#747475] text-white px-10 py-3 rounded-[5px] opacity-50">
                   CONTINUE
