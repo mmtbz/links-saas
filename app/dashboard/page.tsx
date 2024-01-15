@@ -5,52 +5,56 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import { Flex } from "@radix-ui/themes";
-import { BsListTask } from "react-icons/bs";
-import { CiHome, CiSettings } from "react-icons/ci";
-import { GoProjectRoadmap } from "react-icons/go";
-import { IoIosPeople } from "react-icons/io";
-import { MdInsights, MdOutlineQuiz } from "react-icons/md";
+import { CiSettings } from "react-icons/ci";
 
-import NavLink from "./_components/NavLink";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import LayersImage from "../../public/icons/001-layers.png";
+import ProjectsImage from "../../public/icons/002-research.png";
+import DashboardImage from "../../public/icons/003-layout.png";
+import ListImage from "../../public/icons/004-list.png";
+import QuizImage from "../../public/icons/005-quiz.png";
+import PeopleImage from "../../public/icons/006-people.png";
+import HomeImage from "../../public/icons/007-home.png";
+import NavLink from "./_components/NavLink";
+
 
 const DashboardPage = () => {
   const navLinks = [
     {
       href: "/",
       label: "Home",
-      icon: <CiHome />,
+      image: HomeImage
     },
     {
       href: "/dashboard",
       label: "dashboard",
-      icon: <BsListTask />,
+      image: DashboardImage 
     },
     {
       href: "/tasks",
       label: "Tasks",
-      icon: <BsListTask />,
+      image: ListImage
     },
     {
       href: "/quiz",
       label: "quiz",
-      icon: <MdOutlineQuiz />,
+      image: QuizImage
     },
     {
       href: "/people",
       label: "people",
-      icon: <IoIosPeople />,
+      image: PeopleImage
     },
     {
       href: "/projects",
       label: "projects",
-      icon: <GoProjectRoadmap />,
+      image: LayersImage
     },
     {
       href: "/insights",
       label: "insights",
-      icon: <MdInsights />,
+      image: ProjectsImage
     },
   ];
 
@@ -77,7 +81,7 @@ const DashboardPage = () => {
               <NavLink
                 href={link.href}
                 label={link.label}
-                icon={link.icon}
+                image={link.image}
                 selected={currentPath === link.href}
                 hideText={hideText}
                 key={link.label}
