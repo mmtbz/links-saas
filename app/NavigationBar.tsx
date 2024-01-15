@@ -28,7 +28,10 @@ const links = [
   { label: "Jobs", href: "/job" },
 ];
 
+const loginUrl = "/api/auth/signin";
+
 const NavigationBar = () => {
+  const currentPath = usePathname();
   return (
     <nav className="py-2 lg:py-3 px-2 lg:px-0 bg-[#FFF5EC] border-solid border-b">
       <Container>
@@ -40,12 +43,17 @@ const NavigationBar = () => {
             <NavMenu />
           </Flex>
           <Flex align="center" gap="3">
-            <Box className="py-2 hover:rounded-2xl hover:text-orange-300 hidden lg:flex">
+            <Box
+              className={`py-2 hover:rounded-2xl hover:text-orange-300 ${
+                currentPath === loginUrl ? "hidden" : "hidden lg:block"
+              } `}
+            >
               <Link href={"login"}>Apply For Jobs</Link>
             </Box>
             <Box
-              className="px-6 py-2 rounded-2xl bg-orange-300 text-white border border-solid border-orange-300 hover:bg-white hover:text-orange-300
-            hover:border hover:border-solid hover:border-orange-300 hidden lg:flex"
+              className={`px-6 py-2 rounded-2xl bg-orange-300 text-white border border-solid border-orange-300 hover:bg-white hover:text-orange-300
+            hover:border hover:border-solid hover:border-orange-300 
+            ${currentPath === loginUrl ? "hidden" : "hidden lg:block"} `}
             >
               <Link href={"login"} className="font-bold">
                 Hire Best Talents
@@ -75,6 +83,7 @@ const NavMenu = () => {
                   "pb-5 hover:text-black hover:border-b-4 hover:border-black":
                     true,
                   "border-b-4 border-black": currentPath === link.href,
+                  hidden: currentPath === loginUrl,
                 })}
               >
                 {link.label}
@@ -105,17 +114,17 @@ const MobileNavigationBar = () => {
       <SheetContent className="bg-white">
         <SheetHeader>
           <SheetDescription className="flex flex-col justify-between">
-              <Flex direction="column" gap="5" className="text-lg pt-8">
-                {links.map((link) => (
-                  <SheetClose
-                    onClick={() => navigateToRoute(link.href)}
-                    key={link.label}
-                    className="text-left pt-3 pb-1 border-solid border-b-[1px] border-black"
-                  >
-                    {link.label}
-                  </SheetClose>
-                ))}
-              </Flex>
+            <Flex direction="column" gap="5" className="text-lg pt-8">
+              {links.map((link) => (
+                <SheetClose
+                  onClick={() => navigateToRoute(link.href)}
+                  key={link.label}
+                  className="text-left pt-3 pb-1 border-solid border-b-[1px] border-black"
+                >
+                  {link.label}
+                </SheetClose>
+              ))}
+            </Flex>
           </SheetDescription>
         </SheetHeader>
       </SheetContent>
@@ -125,14 +134,19 @@ const MobileNavigationBar = () => {
 
 const AuthStatus = () => {
   const { status, data: session } = useSession();
+  const currentPath = usePathname();
+
+  console.log(currentPath);
 
   if (status === "loading") return <p>loading</p>;
   if (status === "unauthenticated")
-    return (
-      <Box className="px-6 py-2 rounded-2xl text-orange-300 border border-solid border-orange-300 hover:bg-orange-200 hover:text-white">
-        <Link href="/api/auth/signin">Login</Link>
-      </Box>
-    );
+    if (currentPath === "/api/auth/signin") return null;
+    else
+      return (
+        <Box className="px-6 py-2 rounded-2xl text-orange-300 border border-solid border-orange-300 hover:bg-orange-200 hover:text-white">
+          <Link href="/api/auth/signin">Login</Link>
+        </Box>
+      );
   return (
     <Box>
       <DropdownMenu.Root>

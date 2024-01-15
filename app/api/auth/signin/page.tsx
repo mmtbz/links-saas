@@ -7,11 +7,13 @@ const LoginPage = () => {
   return (
     <Grid columns={{ sm: "1", lg: "2" }}>
       <Flex direction="column" className="px-2 lg:mx-auto">
-        <Text size="7" mb="5">
+        <Text size="8" mb="5" mt="5">
           Welcome back 👋
         </Text>
-        <Text size="2">Today is a new day. It&lsquo;s your day. You shape it.</Text>
-        <Text size="2" mb="3">
+        <Text size="3">
+          Today is a new day. It&lsquo;s your day. You shape it.
+        </Text>
+        <Text size="3" mb="3">
           Sign in to manage your projects
         </Text>
         <Flex direction="column" mb="3">
@@ -49,7 +51,7 @@ const LoginPage = () => {
           <hr className="flex-1 border-t border-gray-300" />
         </div>
 
-        <button className="px-3 py-2 bg-sky-50 text-black rounded-xl mb-5 flex gap-2 justify-center items-center">
+        <button className="px-3 py-2 bg-sky-50 text-black rounded-xl mb-3 flex gap-2 justify-center items-center">
           <FcGoogle size={20} />
           <Text>Sign In with Google</Text>
         </button>
@@ -58,14 +60,20 @@ const LoginPage = () => {
           Sign In with Facebook
         </button>
 
-        <Flex gap="2" align="center" justify="end">
+        <Flex gap="2" align="center" justify="end" mb="5">
           <Text>Don&lsquo;t have an account?</Text>
           <a className="outline-none hover:bg-inherit hover:cursor-pointer text-sky-600">
             Sign Up
           </a>
         </Flex>
+
+        <Flex justify="center" align="center">
+          <Text color="gray" className="opacity-50 mt-9" size="2">
+            © 2024 ALL RIGHTS RESERVED
+          </Text>
+        </Flex>
       </Flex>
-      <Image src={WorkPerson} alt="My Happy SVG" />
+      <Image src={WorkPerson} alt="My Happy SVG" className="hidden lg:block"/>
     </Grid>
   );
 };
