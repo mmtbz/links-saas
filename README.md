@@ -39,3 +39,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 on planet scale
 Deployment on Vercel
 Google Auth
+
+gifs: https://www.freepik.com/premium-vector/man-talking-psychologist-male-character-depression-having-psychological-therapy-help-person-having-appointment-with-therapist-female-specialist-supporting-patient-vector_23375671.htm#from_view=detail_alsolike#position=1

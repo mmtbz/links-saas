@@ -1,9 +1,25 @@
+"use client";
 import { Button, Flex, Grid, Text } from "@radix-ui/themes";
-import WorkPerson from "../../../../public/svg/working_person.svg";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
+import WorkPerson from "../../../../public/svg/working_person.svg";
 
 const LoginPage = () => {
+
+  const handleSignIn = async () => {
+    const loginData = {
+      callbackUrl: "/dashboard",
+      redirect: false,
+    };
+    const result = await signIn("google", loginData);
+
+    // Check if the sign-in was successful and the user is authenticated
+    if (result?.error) {
+      console.error("Sign-in failed:", result.error);
+    }
+  };
+
   return (
     <Grid columns={{ sm: "1", lg: "2" }}>
       <Flex direction="column" className="px-2 lg:mx-auto">
@@ -51,13 +67,12 @@ const LoginPage = () => {
           <hr className="flex-1 border-t border-gray-300" />
         </div>
 
-        <button className="px-3 py-2 bg-sky-50 text-black rounded-xl mb-3 flex gap-2 justify-center items-center">
+        <button
+          className="px-3 py-2 bg-sky-50 text-black rounded-xl mb-3 flex gap-2 justify-center items-center"
+          onClick={handleSignIn}
+        >
           <FcGoogle size={20} />
           <Text>Sign In with Google</Text>
-        </button>
-
-        <button className="px-3 py-2 bg-sky-50 text-black rounded-xl mb-5">
-          Sign In with Facebook
         </button>
 
         <Flex gap="2" align="center" justify="end" mb="5">
@@ -73,7 +88,12 @@ const LoginPage = () => {
           </Text>
         </Flex>
       </Flex>
-      <Image src={WorkPerson} alt="My Happy SVG" className="hidden lg:block"/>
+      <Image
+        src={WorkPerson}
+        alt="My Happy SVG"
+        className="hidden lg:block"
+        priority={false}
+      />
     </Grid>
   );
 };

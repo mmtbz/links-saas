@@ -10,12 +10,13 @@ import {
 import {
   Avatar,
   Box,
+  Button,
   Container,
   DropdownMenu,
   Flex,
   Text,
 } from "@radix-ui/themes";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -136,7 +137,12 @@ const AuthStatus = () => {
   const { status, data: session } = useSession();
   const currentPath = usePathname();
 
-  console.log(currentPath);
+  const handleSignOut = async () => {
+    const signOutData = {
+      callbackUrl: "/",
+    };
+    const result = await signOut(signOutData);
+  };
 
   if (status === "loading") return <p>loading</p>;
   if (status === "unauthenticated")
@@ -164,7 +170,8 @@ const AuthStatus = () => {
             <Text size="2">{session!.user?.email}</Text>
           </DropdownMenu.Label>
           <DropdownMenu.Item>
-            <Link href="/api/auth/signout">Log Out</Link>
+            <Button onClick={handleSignOut}>Sign Out</Button>
+            {/* <Link href="/api/auth/signout">Log Out</Link> */}
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Root>

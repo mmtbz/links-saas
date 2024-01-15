@@ -10,4 +10,14 @@ export const authOptions = {
   pages: {
     signIn: "/auth/signin",
   },
+
+  callbacks: {
+    async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
+      console.log("url: " + url + " , baseUrl: " + baseUrl);
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url;
+      return baseUrl;
+    },
+  },
 };
