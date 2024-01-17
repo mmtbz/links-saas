@@ -37,13 +37,13 @@ const NavigationBar = () => {
     <nav className="border-solid border-b border-black border-collapse">
       <Container className="">
         <Flex justify="between">
-          <Flex align="center" gap="3" className="border-solid border-l py-2 lg:py-4 px-2 lg:px-0 border-black">
+          <Flex align="center" gap="3" className="border-solid border-l py-2 lg:py-4 px-2 lg:px-0 border-black mx-2 lg:mx-0">
             <Link href="/" className="pl-2">
               LOGO
             </Link>
             <NavMenu />
           </Flex>
-          <Flex align="center" gap="3" className="py-2 lg:py-4 px-2 lg:px-0 border-solid border-r border-black">
+          <Flex align="center" gap="3" className="py-2 lg:py-4 px-2 lg:px-0 border-solid border-r border-black mx-2 lg:mx-0">
             <Box
               className={`py-2 hover:rounded-2xl hover:text-orange-300 ${
                 currentPath === loginUrl ? "hidden" : "hidden lg:block"

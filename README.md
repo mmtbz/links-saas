@@ -41,3 +41,11 @@ Deployment on Vercel
 Google Auth
 
 gifs: https://www.freepik.com/premium-vector/man-talking-psychologist-male-character-depression-having-psychological-therapy-help-person-having-appointment-with-therapist-female-specialist-supporting-patient-vector_23375671.htm#from_view=detail_alsolike#position=1
+
+
+before acccent color: bg-[#FFF5EC]
+
+## color palate
+#145959 -- accent
+#004B4B1F -- secondary
+#086348C2 -- primary
