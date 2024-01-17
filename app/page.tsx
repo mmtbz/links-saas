@@ -10,7 +10,7 @@ import { IoSearch } from "react-icons/io5";
 
 export default function Home() {
   return (
-    <Flex gap="2" direction="column">
+    <Flex direction="column" className="border-collapse">
       <div className="bg-[#FFF5EC]">
         <Container className="px-2 lg:px-0">
           <Grid
@@ -18,7 +18,17 @@ export default function Home() {
             gap="5"
             justify="center"
             align="center"
+            className="border-solid border border-black border-collapse"
           >
+            <div className="relative">
+              <div className="uppercase font-bold text-8xl opacity-10">
+                Popular
+              </div>
+              <div className="capitalize font-bold text-2xl absolute top-[2rem] left-[2rem] text-[#191D63]">
+                Latest Popular Jobs
+              </div>
+            </div>
+
             <div className="font-extrabold text-7xl leading-[5rem] lg:text-6xl lg:leading-[4rem] mb-6">
               <p className=" text-[#16171C]">Hire the best candidates</p>
               <Flex gap="3">
@@ -52,7 +62,7 @@ export default function Home() {
         </Container>
       </div>
       <div>
-        <Container className="px-2 lg:px-0">
+        <Container className="px-2 lg:px-0 border-solid border border-black border-collapse">
           <div className="text-center text-xl mb-6 mt-2">
             <p className="inline">Trusted by big and small</p>
             <p className="text-orange-400 inline font-bold"> companies</p>
@@ -71,7 +81,7 @@ export default function Home() {
           </Flex>
         </Container>
       </div>
-      <div className="bg-[#FFF5EC] py-8">
+      <div className="bg-[#FFF5EC] py-8 border-solid border border-black border-collapse">
         <Container className="px-2 lg:px-0">
           <p className="text-center text-orange-400">Choose Categories</p>
           <p className="text-center text-2xl font-bold">Choose Categories</p>
