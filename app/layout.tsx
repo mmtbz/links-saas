@@ -5,8 +5,8 @@ import "./globals.css";
 import { Container, Theme } from "@radix-ui/themes";
 
 import { Inter, Outfit } from "next/font/google";
-import NavigationBar from "./NavigationBar";
 import AuthProvider from "./auth/Provider";
+import DashboardNavBar from "./DashboardNavBar";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -38,7 +38,7 @@ export default function RootLayout({
           radius="large"
         >
           <AuthProvider>
-            <NavigationBar />
+            <DashboardNavBar />
             {children}
           </AuthProvider>
         </Theme>
