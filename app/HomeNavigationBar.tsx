@@ -111,7 +111,7 @@ const MobileNavigationBar = () => {
       <SheetContent className="bg-[#145959] text-white">
         <SheetHeader>
           <SheetDescription className="flex flex-col justify-between">
-            <Flex direction="column" gap="5" className="text-lg pt-8">
+            <Flex direction="column" gap="5" className="text-lg pt-8 outline-none">
               {links.map((link) => (
                 <SheetClose
                   onClick={() => navigateToRoute(link.href)}
