@@ -49,13 +49,17 @@ const HomeNavBar = () => {
             gap="3"
             className="py-2 lg:py-3 lg:px-0 mx-2 lg:mx-0"
           >
-            <Flex gap="1">
-              <Link href="/">For Companies</Link>
-              <FaSortDown />
-            </Flex>
-            <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-[5px] hover:opacity-80 hover:text-black">
+            <Box className="hidden lg:block">
+              <Flex gap="1">
+                <Link href="/">For Companies</Link>
+                <FaSortDown />
+              </Flex>
+            </Box>
+
+            <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-[5px] hover:opacity-80 hover:text-black hidden lg:block">
               <Link href="/">Find a Job</Link>
             </Box>
+
             <Flex className="border border-solid rounded-[5px] ">
               <Box className="border-r border-solid p-2 ">
                 <Link href="/">Login</Link>
@@ -70,19 +74,21 @@ const HomeNavBar = () => {
               </Flex>
             </Flex>
 
-            <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-[5px] hover:opacity-80 hover:text-black">
+            <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-[5px] hover:opacity-80 hover:text-black hidden lg:block">
               <Link href="/">Get a Demo</Link>
             </Box>
-            <Flex
-              gap="1"
-              align="center"
-              className="p-2 border border-solid rounded-[5px]"
-            >
-              <FiPlus />
-              <Link href="/">Add a Project</Link>
-            </Flex>
+            <Box className="hidden lg:block">
+              <Flex
+                gap="1"
+                align="center"
+                className="p-2 border border-solid rounded-[5px]"
+              >
+                <FiPlus />
+                <Link href="/">Add a Project</Link>
+              </Flex>
+            </Box>
 
-            {/* <MobileNavigationBar /> */}
+            <MobileNavigationBar />
           </Flex>
         </Flex>
       </Container>
@@ -101,7 +107,7 @@ const MobileNavigationBar = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Box className="lg:hidden border border-solid rounded-xl border-black p-2 focus:outline-none">
+        <Box className="lg:hidden border border-solid rounded-xl p-2 focus:outline-none">
           <GiHamburgerMenu className="lg:hidden focus:outline-none" size={18} />
         </Box>
       </SheetTrigger>
