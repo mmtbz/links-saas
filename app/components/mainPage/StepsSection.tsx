@@ -1,4 +1,4 @@
-import { Container, Grid, Box, Flex, Text } from "@radix-ui/themes";
+import { Container, Grid, Box, Flex, Text, Button } from "@radix-ui/themes";
 import React from "react";
 
 const StepsSection = () => {
@@ -28,6 +28,9 @@ const StepsSection = () => {
                     Talk to our expert
                   </Text>
                   <Text>Talk to our expert for your use case.</Text>
+                  <button className="mt-4 px-6 py-2 bg-[#004b4b] text-white rounded-[5px]">
+                    Talk to an Expert
+                  </button>
                 </Box>
               </Flex>
               <Flex
