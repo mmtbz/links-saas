@@ -16,11 +16,9 @@ import {
   Flex,
   Text,
 } from "@radix-ui/themes";
-import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
-import classnames from "classnames";
 import { FaSortDown } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { PiUsersFill } from "react-icons/pi";
@@ -33,7 +31,6 @@ const links = [
   { label: "add a Project", href: "/job" },
 ];
 
-const loginUrl = "/api/auth/signin";
 
 const HomeNavBar = () => {
   const currentPath = usePathname();
@@ -111,7 +108,7 @@ const MobileNavigationBar = () => {
           <GiHamburgerMenu className="lg:hidden focus:outline-none" size={18} />
         </Box>
       </SheetTrigger>
-      <SheetContent className="bg-white">
+      <SheetContent className="bg-[#145959] text-white">
         <SheetHeader>
           <SheetDescription className="flex flex-col justify-between">
             <Flex direction="column" gap="5" className="text-lg pt-8">
@@ -119,7 +116,7 @@ const MobileNavigationBar = () => {
                 <SheetClose
                   onClick={() => navigateToRoute(link.href)}
                   key={link.label}
-                  className="text-left pt-3 pb-1 border-solid border-b-[1px] border-black"
+                  className="text-left pt-3 pb-1 border-solid border-b-[1px]"
                 >
                   {link.label}
                 </SheetClose>
@@ -132,49 +129,4 @@ const MobileNavigationBar = () => {
   );
 };
 
-const AuthStatus = () => {
-  const { status, data: session } = useSession();
-  const currentPath = usePathname();
-
-  const handleSignOut = async () => {
-    const signOutData = {
-      callbackUrl: "/",
-    };
-    const result = await signOut(signOutData);
-  };
-
-  if (status === "loading") return <p>loading</p>;
-  if (status === "unauthenticated")
-    if (currentPath === "/api/auth/signin") return null;
-    else
-      return (
-        <Box className="px-6 py-2 rounded-2xl text-orange-300 border border-solid border-orange-300 hover:bg-orange-200 hover:text-white">
-          <Link href="/api/auth/signin">Login</Link>
-        </Box>
-      );
-  return (
-    <Box>
-      <DropdownMenu.Root>
-        <DropdownMenu.Trigger>
-          <Avatar
-            src={session!.user?.image!}
-            fallback="?"
-            size="2"
-            radius="full"
-            className="cursor-pointer"
-          />
-        </DropdownMenu.Trigger>
-        <DropdownMenu.Content>
-          <DropdownMenu.Label>
-            <Text size="2">{session!.user?.email}</Text>
-          </DropdownMenu.Label>
-          <DropdownMenu.Item>
-            <Button onClick={handleSignOut}>Sign Out</Button>
-            {/* <Link href="/api/auth/signout">Log Out</Link> */}
-          </DropdownMenu.Item>
-        </DropdownMenu.Content>
-      </DropdownMenu.Root>
-    </Box>
-  );
-};
 export default HomeNavBar;

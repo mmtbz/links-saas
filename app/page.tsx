@@ -12,7 +12,7 @@ import HomeNavBar from "./HomeNavigationBar";
 export default function Home() {
   return (
     <div className="bg-[#145959]">
-      <Box className="max-h-[1rem] opacity-0">
+      <Box className="max-h-[0.5rem] lg:max-h-[1rem] opacity-0">
         a
       </Box>
       <HomeNavBar />
