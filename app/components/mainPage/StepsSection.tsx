@@ -1,5 +1,9 @@
 import { Container, Grid, Box, Flex, Text, Button } from "@radix-ui/themes";
 import React from "react";
+import InterviewImage from "../../../public/images/interview.png";
+import FreeImage from "../../../public/images/free.png";
+import FastDelivery from "../../../public/images/fast-delivery.png";
+import Image from "next/image";
 
 const StepsSection = () => {
   return (
@@ -15,67 +19,83 @@ const StepsSection = () => {
                 Get your team in 4 steps
               </Box>
             </Box>
-            <Flex gap="2" className="mt-4 flex-col lg:flex-row">
+            <Grid
+              gap="2"
+              className="mt-4"
+              columns={{ sm: "4" }}
+              align="stretch"
+            >
               <Flex
                 gap="2"
                 justify="start"
-                align="center"
+                align="baseline"
                 className="p-3 border border-dashed border-sky-400"
               >
-                <Box className="px-4 py-2 bg-[#004b4b] rounded-full text-white">1</Box>
+                <Box className="px-[0.75rem] py-1 bg-[#004b4b] rounded-full text-white">
+                  1
+                </Box>
                 <Box>
-                  <Text className="block font-bold py-2">
+                  <Text className="block font-bold pb-2">
                     Talk to our expert
                   </Text>
                   <Text>Talk to our expert for your use case.</Text>
-                  <button className="mt-4 px-6 py-2 bg-[#004b4b] text-white rounded-[5px]">
-                    Talk to an Expert
-                  </button>
+                  <Flex justify="center">
+                    <button className="mt-4 px-6 py-4 bg-[#004b4b] text-white rounded-[5px]">
+                      Talk to an Expert
+                    </button>
+                  </Flex>
                 </Box>
               </Flex>
               <Flex
                 gap="2"
                 justify="start"
-                align="center"
+                align="baseline"
                 className="p-3 border border-dashed border-sky-400"
               >
-                <Box className="px-4 py-2 bg-white rounded-full ">2</Box>
+                <Box className="px-[0.75rem] py-1 bg-white rounded-full">2</Box>
                 <Box>
                   <Text className="block font-bold py-2">
                     Interview best match
                   </Text>
                   <Text>Talk to our expert for your use case.</Text>
+                  <Flex justify="center">
+                    <Image src={InterviewImage} alt="interview" height={100} width={100} className=" object-cover"/>
+                  </Flex>
                 </Box>
               </Flex>
               <Flex
                 gap="2"
                 justify="start"
-                align="center"
+                align="baseline"
                 className="p-3 border border-dashed border-sky-400"
               >
-                <Box className="px-4 py-2 bg-white rounded-full ">3</Box>
+                <Box className="px-[0.75rem] py-1 bg-white rounded-full">3</Box>
                 <Box>
-                  <Text className="block font-bold py-2">
-                    Start Free trial
-                  </Text>
+                  <Text className="block font-bold py-2">Start free trial</Text>
                   <Text>Talk to our expert for your use case.</Text>
+                  <Flex justify="center">
+                    <Image src={FreeImage} alt="free" height={100} width={100} className=" object-cover"/>
+                  </Flex>
                 </Box>
               </Flex>
               <Flex
                 gap="2"
                 justify="start"
-                align="center"
+                align="baseline"
                 className="p-3 border border-dashed border-sky-400"
               >
-                <Box className="px-4 py-2 bg-white rounded-full ">4</Box>
+                <Box className="px-[0.75rem] py-1 bg-white rounded-full">2</Box>
                 <Box>
                   <Text className="block font-bold py-2">
-                    Deliver your project
+                    Get your project delivered
                   </Text>
                   <Text>Talk to our expert for your use case.</Text>
+                  <Flex justify="center">
+                    <Image src={FastDelivery} alt="fast" height={100} width={100} className=" object-cover"/>
+                  </Flex>
                 </Box>
               </Flex>
-            </Flex>
+            </Grid>
           </div>
         </Box>
       </Container>
