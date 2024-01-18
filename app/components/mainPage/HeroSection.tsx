@@ -62,19 +62,21 @@ const HeroSection = () => {
                     width={20}
                   />
                 </Flex>
-                <Flex
-                  align="center"
-                  className="text-white font-normal text-xs uppercase px-4 py-2 bg-white bg-opacity-[0.06] rounded-full gap-1"
-                >
-                  <Text>Salesforce developer</Text>
-                  <Image
-                    src={Trending}
-                    alt="My Happy SVG"
-                    priority={false}
-                    height={20}
-                    width={20}
-                  />
-                </Flex>
+                <Box className="hidden lg:block">
+                  <Flex
+                    align="center"
+                    className="text-white font-normal text-xs uppercase px-4 py-2 bg-white bg-opacity-[0.06] rounded-full gap-1"
+                  >
+                    <Text>Salesforce developer</Text>
+                    <Image
+                      src={Trending}
+                      alt="My Happy SVG"
+                      priority={false}
+                      height={20}
+                      width={20}
+                    />
+                  </Flex>
+                </Box>
               </Flex>
               <TextField.Root className="mt-4 " radius="large" size="3">
                 <TextField.Slot>

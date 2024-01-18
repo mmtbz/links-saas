@@ -22,7 +22,7 @@ const StepsSection = () => {
                 align="center"
                 className="p-3 border border-dashed border-sky-400"
               >
-                <Box className="px-4 py-2 bg-white rounded-full ">1</Box>
+                <Box className="px-4 py-2 bg-[#004b4b] rounded-full text-white">1</Box>
                 <Box>
                   <Text className="block font-bold py-2">
                     Talk to our expert
