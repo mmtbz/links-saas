@@ -49,3 +49,4 @@ before acccent color: bg-[#FFF5EC]
 #145959 -- accent
 #004B4B1F -- secondary
 #086348C2 -- primary
+#004b4b -- another one

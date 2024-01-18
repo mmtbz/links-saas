@@ -3,6 +3,7 @@ import { Box } from "@radix-ui/themes";
 import HomeNavBar from "./HomeNavigationBar";
 import HeroSection from "./components/mainPage/HeroSection";
 import CompaniesSection from "./components/mainPage/CompaniesSection";
+import StepsSection from "./components/mainPage/StepsSection";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <HeroSection />
       </div>
       <CompaniesSection />
+      <StepsSection />
     </>
   );
 }
