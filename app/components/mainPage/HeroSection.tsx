@@ -1,14 +1,10 @@
 import { Container, Grid, Flex, Box, TextField, Text } from "@radix-ui/themes";
 import Image from "next/image";
-import WomanImage from "../../public/images/businesswoman.png";
-import GoogleLogo from "../public/images/goog.png";
-import AirbnbLogo from "../public/images/abnb.png";
-import MsftLogo from "../public/images/msft.png";
-import SlackLogo from "../public/images/slack.png";
+import WomanImage from "../../../public/images/businesswoman.png";
 import { IoSearch } from "react-icons/io5";
-import Trending from "../../public/svg/trending.svg";
+import Trending from "../../../public/svg/trending.svg";
 
-const MainPageFirstComp = () => {
+const HeroSection = () => {
   return (
     <Flex direction="column">
       <div className="bg-[#145959] pt-5">
@@ -18,7 +14,7 @@ const MainPageFirstComp = () => {
             gap="5"
             justify="center"
             align="center"
-            className="px-3"
+            className="px-3 lg:px-0"
           >
             <div className="font-extrabold text-6xl leading-[5rem] lg:leading-[4rem] mb-6">
               <div className="relative pt-[3rem]">
@@ -101,4 +97,4 @@ const MainPageFirstComp = () => {
   );
 };
 
-export default MainPageFirstComp;
+export default HeroSection;
