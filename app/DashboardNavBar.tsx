@@ -25,12 +25,74 @@ import { FiPlus } from "react-icons/fi";
 import NotificationIcon from "../public/svg/notification.svg";
 import HeartIcon from "../public/svg/favorite.svg";
 import MessageIcon from "../public/svg/message.svg";
+import LayersImage from "../public/icons/001-layers.png";
+import ProjectsImage from "../public/icons/002-research.png";
+import DashboardImage from "../public/icons/003-layout.png";
+import ListImage from "../public/icons/004-list.png";
+import QuizImage from "../public/icons/005-quiz.png";
+import PeopleImage from "../public/icons/006-people.png";
+import HomeImage from "../public/icons/007-home.png";
+import { RiHome4Fill } from "react-icons/ri";
+import { FaHome } from "react-icons/fa";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { FaTasks } from "react-icons/fa";
+import { MdOutlineQuiz } from "react-icons/md";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { GoStack } from "react-icons/go";
+import { MdInsights } from "react-icons/md";
+
+import React from "react";
 
 const links = [
   { label: "Dashboard", href: "/dashboard" },
   { label: "Profile", href: "/profile" },
   { label: "Company", href: "/company" },
   { label: "Jobs", href: "/job" },
+];
+
+const navLinks = [
+  {
+    href: "/",
+    label: "Home",
+    image: HomeImage,
+    icon: RiHome4Fill,
+  },
+  {
+    href: "/dashboard",
+    label: "dashboard",
+    image: DashboardImage,
+    icon: LuLayoutDashboard,
+  },
+  {
+    href: "/tasks",
+    label: "Tasks",
+    image: ListImage,
+    icon: FaTasks,
+  },
+  {
+    href: "/quiz",
+    label: "quiz",
+    image: QuizImage,
+    icon: MdOutlineQuiz,
+  },
+  {
+    href: "/people",
+    label: "people",
+    image: PeopleImage,
+    icon: FaPeopleGroup,
+  },
+  {
+    href: "/projects",
+    label: "projects",
+    image: LayersImage,
+    icon: GoStack,
+  },
+  {
+    href: "/insights",
+    label: "insights",
+    image: ProjectsImage,
+    icon: MdInsights,
+  },
 ];
 
 const loginUrl = "/api/auth/signin";
@@ -98,13 +160,15 @@ const DashboardNavBar = () => {
       <Container>
         <Box className="mx-4">
           <Flex
-            className="text-white bg-[#0D7070] mt-2 rounded-[0.5rem] px-4  text-sm"
+            className="text-white bg-[#0D7070] my-2 rounded-[0.5rem] px-4  text-sm"
             gap="4"
           >
-            {links.map((link) => (
-              <Box key={link.href} className="p-1">
+            {navLinks.map((link) => (
+              <Flex key={link.href} className="p-1" gap="1" align="center">
+                {link.icon &&
+                  React.createElement(link.icon, { className: "icon-class" })}
                 <Link href={link.href}>{link.label}</Link>
-              </Box>
+              </Flex>
             ))}
           </Flex>
         </Box>
