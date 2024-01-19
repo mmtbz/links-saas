@@ -18,9 +18,13 @@ import {
 } from "@radix-ui/themes";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
-import classnames from "classnames";
+import { FiPlus } from "react-icons/fi";
+import NotificationIcon from "../public/svg/notification.svg";
+import HeartIcon from "../public/svg/favorite.svg";
+import MessageIcon from "../public/svg/message.svg";
 
 const links = [
   { label: "Dashboard", href: "/dashboard" },
@@ -36,89 +40,76 @@ const DashboardNavBar = () => {
   // we don't want this nav bar on home page, home page has it's own
   if (currentPath === "/") return null;
   return (
-    <nav className="text-white bg-[#0D7070]">
-      <Container className="">
-        <Flex justify="between">
-          <Flex
-            align="center"
-            gap="3"
-            className="border-solid border-l py-2 lg:py-4 px-2 lg:px-0 border-black mx-2 lg:mx-0"
-          >
+    <nav>
+      <Box className="max-h-[0.5rem] lg:max-h-[0.5rem] opacity-0">a</Box>
+      <Container>
+        <Flex
+          justify="between"
+          className="text-white bg-[#145959] lg:rounded-[1rem]"
+        >
+          <Flex align="center" gap="3">
             <Link href="/" className="pl-2">
               LOGO
             </Link>
-            <NavMenu />
           </Flex>
-          <Flex
-            align="center"
-            gap="3"
-            className="py-2 lg:py-4 px-2 lg:px-0 border-solid border-r border-black mx-2 lg:mx-0"
-          >
-            <Box
-              className={`py-2 hover:rounded-2xl hover:text-orange-300 ${
-                currentPath === loginUrl ? "hidden" : "hidden lg:block"
-              } `}
-            >
-              <Link href={"login"}>For Companies</Link>
-            </Box>
+          <Flex align="center" gap="3" className="py-2 px-2">
+            <Flex gap="2" align="center">
+              <Image
+                src={NotificationIcon}
+                alt="Notification"
+                className="hidden lg:block hover:cursor-pointer"
+                priority={false}
+                height={20}
+                width={20}
+              />
+              <Image
+                src={HeartIcon}
+                alt="Favorites"
+                className="hidden lg:block hover:cursor-pointer"
+                priority={false}
+                height={20}
+                width={20}
+              />
+              <Image
+                src={MessageIcon}
+                alt="Message"
+                className="hidden lg:block hover:cursor-pointer"
+                priority={false}
+                height={20}
+                width={20}
+              />
+            </Flex>
 
-            <Box
-              className={`py-2 hover:rounded-2xl hover:text-orange-300 ${
-                currentPath === loginUrl ? "hidden" : "hidden lg:block"
-              } `}
-            >
-              <Link href={"login"}>Find a Job</Link>
-            </Box>
-
-            <Box
-              className={`py-2 hover:rounded-2xl hover:text-orange-300 ${
-                currentPath === loginUrl ? "hidden" : "hidden lg:block"
-              } `}
-            >
-              <Link href={"login"}>Log In</Link>
-            </Box>
-
-            <Box
-              className={`py-3 px-3 rounded-full bg-sky-100 font-bold  hover:rounded-full  ${
-                currentPath === loginUrl ? "hidden" : "hidden lg:block"
-              } `}
-            >
-              <Link href={"login"}>Sign Up</Link>
+            <Box className="hidden lg:block">
+              <Flex
+                gap="1"
+                align="center"
+                className="px-3 py-1 border border-solid rounded-[5px]"
+              >
+                <FiPlus />
+                <Link href="/">Add a Project</Link>
+              </Flex>
             </Box>
             <AuthStatus />
-
             <MobileNavigationBar />
           </Flex>
         </Flex>
       </Container>
+      <Container>
+        <Box className="mx-4">
+          <Flex
+            className="text-white bg-[#0D7070] mt-2 rounded-[0.5rem] px-4  text-sm"
+            gap="4"
+          >
+            {links.map((link) => (
+              <Box key={link.href} className="p-1">
+                <Link href={link.href}>{link.label}</Link>
+              </Box>
+            ))}
+          </Flex>
+        </Box>
+      </Container>
     </nav>
-  );
-};
-
-const NavMenu = () => {
-  const currentPath = usePathname();
-  return (
-    <div className="md:hidden lg:flex lg:items-center lg:justify-end">
-      <ul className="hidden md:flex space-x-4">
-        {links.map((link) => (
-          <li key={link.href}>
-            <Link href={link.href}>
-              <Text
-                color={currentPath === link.href ? undefined : "gray"}
-                className={classnames({
-                  "pb-5 hover:text-black hover:border-b-4 hover:border-black":
-                    true,
-                  "border-b-4 border-black": currentPath === link.href,
-                  hidden: currentPath === loginUrl || currentPath === "/",
-                })}
-              >
-                {link.label}
-              </Text>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 };
 

@@ -59,7 +59,7 @@ const HomeNavBar = () => {
 
             <Flex className="border border-solid rounded-[5px] ">
               <Box className="border-r border-solid p-2 ">
-                <Link href="/">Login</Link>
+                <Link href="/api/auth/signin">Login</Link>
               </Box>
               <Flex
                 gap="1"
@@ -67,12 +67,12 @@ const HomeNavBar = () => {
                 className="px-4 bg-sky-100 text-black opacity-90"
               >
                 <PiUsersFill />
-                <Link href="/">Join</Link>
+                <Link href="/api/auth/signup">Sign Up</Link>
               </Flex>
             </Flex>
 
             <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-[5px] hover:opacity-80 hover:text-black hidden lg:block">
-              <Link href="/">Get a Demo</Link>
+              <Link href="/dashboard">Get a Demo</Link>
             </Box>
             <Box className="hidden lg:block">
               <Flex
