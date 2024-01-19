@@ -104,7 +104,7 @@ const DashboardNavBar = () => {
   return (
     <nav>
       <Box className="max-h-[0.5rem] lg:max-h-[0.5rem] opacity-0">a</Box>
-      <Container>
+      <Box className="max-w-[74rem] mx-auto">
         <Flex
           justify="between"
           className="text-white bg-[#145959] lg:rounded-[1rem]"
@@ -156,9 +156,9 @@ const DashboardNavBar = () => {
             <MobileNavigationBar />
           </Flex>
         </Flex>
-      </Container>
-      <Container>
-        <Box className="mx-4">
+      </Box>
+      <Container >
+        <Box className="hidden lg:block">
           <Flex
             className="text-white bg-[#0D7070] my-2 rounded-[0.5rem] px-4  text-sm"
             gap="4"
