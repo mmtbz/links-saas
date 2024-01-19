@@ -11,11 +11,11 @@ const StepsSection = () => {
       <Container>
         <Box className="px-3 lg:px-0">
           <div>
-            <Box className="relative">
-              <Box className="uppercase font-bold text-7xl lg:text-6xl opacity-10">
+            <Box className="relative text-center lg:text-left">
+              <Box className="uppercase font-bold text-7xl lg:text-8xl opacity-10">
                 Process
               </Box>
-              <Box className="capitalize font-bold text-3xl lg:text-2xl absolute top-[1rem] left-[1rem] text-[#004b4b]">
+              <Box className="capitalize font-bold text-3xl lg:text-4xl absolute top-[1rem] lg:top-[1.7rem] left-[0.5rem] lg:left-0 text-[#004b4b]">
                 Get your team in 4 steps
               </Box>
             </Box>
