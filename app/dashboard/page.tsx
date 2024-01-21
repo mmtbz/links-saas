@@ -9,10 +9,11 @@ import {
   Separator,
   Button,
 } from "@radix-ui/themes";
-import { FaAngleRight } from "react-icons/fa";
+import { FaAngleRight, FaSortDown } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import { IoStar } from "react-icons/io5";
 import { Progress } from "@/components/ui/progress";
+import Link from "next/link";
 
 const DashboardPage = () => {
   const { data: session } = useSession();
@@ -54,8 +55,12 @@ const DashboardPage = () => {
           </Flex>
         </Flex>
 
-        <Grid columns={{ sm: "1", lg: "4" }} className="grid-cols-3" gap="4">
-          <Box className=" col-span-1 mt-4 shadow-lg  border border-solid border-[#E4E5E7] rounded-[5px] hidden lg:block">
+        <Grid
+          columns={{ sm: "1", lg: "4" }}
+          className="grid-cols-3 py-4"
+          gap="4"
+        >
+          <Box className=" col-span-1 shadow-lg  border border-solid border-[#E4E5E7] rounded-[5px] hidden lg:block">
             <Box className=" bg-white">
               <text className="opacity-0">a</text>
             </Box>
@@ -139,7 +144,70 @@ const DashboardPage = () => {
               </Box>
             </Box>
           </Box>
-          <Box className=" col-span-3">heyy</Box>
+          <Box className=" col-span-3">
+            <Flex gap="4">
+              <Flex
+                direction="column"
+                className="flex-1 p-4 bg-gradient-to-br from-teal-500 to-green-700 text-white rounded-[15px]"
+                gap="4"
+                align="baseline"
+              >
+                <Text size="1" className=" font-semibold text-[#ffffff80]">
+                  Unseen Tasks
+                </Text>
+                <Box>
+                  <Text size="5" className=" font-semibold">
+                    Unseen Tasks - 5
+                  </Text>
+                </Box>
+
+                <Flex gap="1" className="p-2 border border-solid rounded-[5px]">
+                  <Link href="/">Unseen Tasks</Link>
+                  <FaSortDown />
+                </Flex>
+              </Flex>
+              <Flex
+                direction="column"
+                className="flex-1 p-4 bg-gradient-to-br from-teal-500 to-green-700 text-white rounded-[15px]"
+                gap="4"
+                align="baseline"
+              >
+                <Text size="1" className=" font-semibold text-[#ffffff80]">
+                  Pending Tasks
+                </Text>
+                <Box>
+                  <Text size="5" className=" font-semibold">
+                    Active Tasks - 10
+                  </Text>
+                </Box>
+
+                <Flex gap="1" className="p-2 border border-solid rounded-[5px]">
+                  <Link href="/">Active Tasks</Link>
+                  <FaSortDown />
+                </Flex>
+              </Flex>{" "}
+              <Flex
+                direction="column"
+                className="flex-1 p-4 border border-solid rounded-[15px] bg-gray-100"
+                gap="4"
+                align="baseline"
+              >
+                <Text size="1" className=" font-semibold opacity-50">
+                  Finished Tasks
+                </Text>
+                <Box>
+                  <Text size="5" className=" font-semibold">
+                    Finished Tasks - 75
+                  </Text>
+                </Box>
+
+                <Flex gap="1" className="p-2 border border-solid rounded-[5px]">
+                  <Link href="/">Finished Tasks</Link>
+                  <FaSortDown />
+                </Flex>
+              </Flex>
+            </Flex>
+          </Box>
         </Grid>
       </Box>
     </Container>
