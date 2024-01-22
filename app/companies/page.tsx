@@ -1,79 +1,87 @@
 "use client";
-import { Tabs, Flex, Box, Text, Badge, Button } from "@radix-ui/themes";
-import React from "react";
+import {
+  Box,
+  Container,
+  Flex,
+  Grid,
+  Separator,
+  Text
+} from "@radix-ui/themes";
 import Image from "next/image";
 import GoogleLogo from "../../public/images/google.png";
-import { FiPlus } from "react-icons/fi";
-import { TbExternalLink } from "react-icons/tb";
-import AboutCompany from "./AboutCompany";
-import CompanyPosts from "./CompanyPosts";
-import CompanyJobs from "./CompanyJobs";
+import MicrosoftLogo from "../../public/images/msft.png";
 
 const CompanyPage = () => {
   return (
-    <>
-      <Flex align="center" direction="column" gap="3">
-        <Image
-          src={GoogleLogo}
-          height="150"
-          width="150"
-          alt="Company Picture"
-          className="rounded-full object-cover"
-        />
-        <Text as="p" size="7" className="text-center font-bold">
-          Google
+    <Container>
+      <Box className="mt-4 px-3 lg:px-0">
+        <Text size="6" className="font-semibold">
+          Companies
         </Text>
+        <Grid
+          gap="3"
+          className="grid mt-4"
+          columns={{
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+            lg: "repeat(4, 1fr)",
+          }}
+        >
+          <Flex
+            direction="column"
+            gap="3"
+            className="border border-solid bg-gray-50 border-gray-200 rounded-[15px] p-4 hover:bg-gray-100"
+          >
+            <Box>
+              <Text className="block font-bold text-lg">Google</Text>
+              <Text className="text-blue-600 text-xs font-semibold">
+                🔥 Active hiring
+              </Text>
+            </Box>
 
-        <Flex align="center" gap="3">
-          <Badge size="2" color="orange">
-            Software
-          </Badge>
-          <Badge size="2" color="blue">
-            California, USA
-          </Badge>
-          <Badge size="2" color="green">
-            1 week ago
-          </Badge>
-        </Flex>
+            <Image
+              src={GoogleLogo}
+              alt="google logo"
+              className=" object-cover rounded-[15px]"
+            />
 
-        <Flex align="center" gap="3">
-          <Button color="orange">
-            <FiPlus /> Follow
-          </Button>
-          <Button color="orange">
-            <TbExternalLink /> Visit
-          </Button>
-        </Flex>
-      </Flex>
+            <Separator size="4" />
+            <Text>Software Services</Text>
+            <Box className="uppercase text-xs">
+              <Text className="opacity-70">followed by</Text>
+              <Text className="text-blue-600 font-semibold"> 1000 </Text>
+              <Text className="opacity-70"> people</Text>
+            </Box>
+          </Flex>
+          <Flex
+            direction="column"
+            gap="3"
+            className="border border-solid bg-gray-50 border-gray-200 rounded-[15px] p-4 hover:bg-gray-100"
+          >
+            <Box>
+              <Text className="block font-bold text-lg">Microsoft</Text>
+              <Text className="text-blue-600 text-xs font-semibold">
+                Open Hiring soon
+              </Text>
+            </Box>
 
-      <Tabs.Root defaultValue="about">
-        <Tabs.List className="justify-center">
-          <Tabs.Trigger value="about">
-            <Text className="text-xl font-medium">About Us</Text>
-          </Tabs.Trigger>
-          <Tabs.Trigger value="posts">
-            <Text className="text-xl font-medium">Posts</Text>
-          </Tabs.Trigger>
-          <Tabs.Trigger value="jobs">
-            <Text className="text-xl font-medium">Jobs</Text>
-          </Tabs.Trigger>
-        </Tabs.List>
+            <Image
+              src={MicrosoftLogo}
+              alt="google logo"
+              className=" object-cover rounded-[15px]"
+            />
 
-        <Box pt="2">
-          <Tabs.Content value="about">
-            <AboutCompany />
-          </Tabs.Content>
-
-          <Tabs.Content value="posts">
-            <CompanyPosts />
-          </Tabs.Content>
-
-          <Tabs.Content value="jobs">
-            <CompanyJobs />
-          </Tabs.Content>
-        </Box>
-      </Tabs.Root>
-    </>
+            <Separator size="4" />
+            <Text>Software Services</Text>
+            <Box className="uppercase text-xs">
+              <Text className="opacity-70">followed by</Text>
+              <Text className="text-blue-600 font-semibold"> 674 </Text>
+              <Text className="opacity-70"> people</Text>
+            </Box>
+          </Flex>
+        </Grid>
+      </Box>
+    </Container>
   );
 };
 

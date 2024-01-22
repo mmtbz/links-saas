@@ -17,14 +17,17 @@ import {
   Text,
 } from "@radix-ui/themes";
 import { signOut, useSession } from "next-auth/react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { FaTasks } from "react-icons/fa";
+import { FaPeopleGroup } from "react-icons/fa6";
 import { FiPlus } from "react-icons/fi";
-import NotificationIcon from "../public/svg/notification.svg";
-import HeartIcon from "../public/svg/favorite.svg";
-import MessageIcon from "../public/svg/message.svg";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GoOrganization, GoStack } from "react-icons/go";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { MdInsights, MdOutlineQuiz } from "react-icons/md";
+import { RiHome4Fill } from "react-icons/ri";
 import LayersImage from "../public/icons/001-layers.png";
 import ProjectsImage from "../public/icons/002-research.png";
 import DashboardImage from "../public/icons/003-layout.png";
@@ -32,13 +35,9 @@ import ListImage from "../public/icons/004-list.png";
 import QuizImage from "../public/icons/005-quiz.png";
 import PeopleImage from "../public/icons/006-people.png";
 import HomeImage from "../public/icons/007-home.png";
-import { RiHome4Fill } from "react-icons/ri";
-import { LuLayoutDashboard } from "react-icons/lu";
-import { FaTasks } from "react-icons/fa";
-import { MdOutlineQuiz } from "react-icons/md";
-import { FaPeopleGroup } from "react-icons/fa6";
-import { GoStack } from "react-icons/go";
-import { MdInsights } from "react-icons/md";
+import HeartIcon from "../public/svg/favorite.svg";
+import MessageIcon from "../public/svg/message.svg";
+import NotificationIcon from "../public/svg/notification.svg";
 
 import React from "react";
 import { CiLogout } from "react-icons/ci";
@@ -93,6 +92,12 @@ const navLinks = [
     label: "insights",
     image: ProjectsImage,
     icon: MdInsights,
+  },
+  {
+    href: "/companies",
+    label: "companies",
+    image: GoOrganization,
+    icon: GoOrganization,
   },
 ];
 
@@ -167,7 +172,7 @@ const DashboardNavBar = () => {
             gap="4"
           >
             {navLinks.map((link) => (
-              <Flex key={link.href} className="p-1" gap="1" align="center">
+              <Flex key={link.href} className="p-1 capitalize" gap="1" align="center">
                 {link.icon &&
                   React.createElement(link.icon, { className: "icon-class" })}
                 <Link href={link.href}>{link.label}</Link>
