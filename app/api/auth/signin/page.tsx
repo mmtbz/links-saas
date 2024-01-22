@@ -45,12 +45,16 @@ const LoginPage = () => {
     <Flex
       justify="between"
       direction="column"
-      className="shadow-lg max-w-[25rem] mx-auto h-screen"
+      className="shadow-lg max-w-[25rem] mx-auto bg-gradient-to-br from-teal-500 to-green-700 min-h-screen"
     >
-      <Box className=" bg-white text-center text-3xl font-bold mt-7">
+      <Flex
+        className="text-center text-3xl font-bold p-7"
+        align="center"
+        justify="center"
+      >
         <Link href="/">HAKKA</Link>
-      </Box>
-      <Box className="bg-gradient-to-br from-teal-500 to-green-700 rounded-t-[10px]">
+      </Flex>
+      <Box className="rounded-t-[10px]">
         <Flex
           direction="column"
           className="rounded-t-[10px] p-3 bg-gray-50 mx-1 mt-1"
@@ -59,8 +63,8 @@ const LoginPage = () => {
             Welcome back 👋
           </Text>
           <Text mb="4" className="text-gray-500 text-sm">
-            Today is a new day. It&lsquo;s your day. You shape it. <br /> Sign in to
-            manage your projects
+            Today is a new day. It&lsquo;s your day. You shape it. <br /> Sign
+            in to manage your projects
           </Text>
 
           <button
@@ -112,9 +116,12 @@ const LoginPage = () => {
 
           <Flex gap="2" align="center" justify="center" mb="5">
             <Text>Don&lsquo;t have an account?</Text>
-            <a className="outline-none hover:bg-inherit hover:cursor-pointer text-blue-800">
+            <Link
+              href="/api/auth/signup"
+              className="outline-none hover:bg-inherit hover:cursor-pointer text-blue-800"
+            >
               Sign Up
-            </a>
+            </Link>
           </Flex>
 
           <Flex justify="center" align="center" className="mb-1 mt-9">

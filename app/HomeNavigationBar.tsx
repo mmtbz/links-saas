@@ -7,20 +7,12 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {
-  Avatar,
-  Box,
-  Button,
-  Container,
-  DropdownMenu,
-  Flex,
-  Text,
-} from "@radix-ui/themes";
+import { Box, Container, Flex } from "@radix-ui/themes";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSortDown } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { PiUsersFill } from "react-icons/pi";
 
 const links = [
@@ -30,7 +22,6 @@ const links = [
   { label: "Get a Demo", href: "/job" },
   { label: "add a Project", href: "/job" },
 ];
-
 
 const HomeNavBar = () => {
   const currentPath = usePathname();
@@ -57,18 +48,13 @@ const HomeNavBar = () => {
               <Link href="/">Find a Job</Link>
             </Box>
 
-            <Flex className="border border-solid rounded-[5px] ">
-              <Box className="border-r border-solid p-2 ">
-                <Link href="/api/auth/signin">Login</Link>
-              </Box>
-              <Flex
-                gap="1"
-                align="center"
-                className="px-4 bg-sky-100 text-black opacity-90"
-              >
-                <PiUsersFill />
-                <Link href="/api/auth/signup">Sign Up</Link>
-              </Flex>
+            <Flex
+              align="center"
+              gap="2"
+              className="border border-solid rounded-[5px] px-4 py-2 bg-sky-100 text-black opacity-90"
+            >
+              <PiUsersFill />
+              <Link href="/api/auth/signup">Sign Up</Link>
             </Flex>
 
             <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-[5px] hover:opacity-80 hover:text-black hidden lg:block">
@@ -111,7 +97,11 @@ const MobileNavigationBar = () => {
       <SheetContent className="bg-[#145959] text-white">
         <SheetHeader>
           <SheetDescription className="flex flex-col justify-between">
-            <Flex direction="column" gap="5" className="text-lg pt-8 outline-none">
+            <Flex
+              direction="column"
+              gap="5"
+              className="text-lg pt-8 outline-none"
+            >
               {links.map((link) => (
                 <SheetClose
                   onClick={() => navigateToRoute(link.href)}
