@@ -24,11 +24,11 @@ const DashboardPage = () => {
 
   return (
     <Container>
-      <Box className="mt-4">
+      <Box className="mt-4 px-3 lg:px-0">
         <Text size="6" className="font-semibold">
           Morning David,
         </Text>
-        <Flex gap="4" className="mt-4">
+        <Flex gap="4" className="mt-4 flex-col lg:flex-row">
           <Flex
             align="center"
             gap="3"
@@ -61,7 +61,7 @@ const DashboardPage = () => {
 
         <Grid
           columns={{ sm: "1", lg: "4" }}
-          className="grid-cols-4 py-4"
+          className=" grid-cols-1 lg:grid-cols-4 py-4"
           gap="4"
         >
           <Box className=" col-span-1 shadow-lg border border-solid border-[#E4E5E7] rounded-[5px] hidden lg:block">
@@ -148,8 +148,18 @@ const DashboardPage = () => {
               </Box>
             </Box>
           </Box>
-          <Box className=" col-span-3">
-            <Flex gap="4">
+          <Box className="col-span-1 lg:col-span-3">
+            <Box className="my-4 lg:hidden">
+              <Flex align="center">
+                <Box className="bg-gray-100 px-2 py-[2px] text-gray-600 font-semibold rounded-[5px] capitalize">
+                  <Text size="2" className=" whitespace-nowrap">
+                    Tasks Insights
+                  </Text>
+                </Box>
+                <Separator size="4" />
+              </Flex>
+            </Box>
+            <Flex gap="4" className="flex-col lg:flex-row">
               <Flex
                 direction="column"
                 className="flex-1 p-4 bg-gradient-to-br from-teal-500 to-green-700 text-white rounded-[15px]"
@@ -189,7 +199,7 @@ const DashboardPage = () => {
                   <Link href="/">Active Tasks</Link>
                   <FaSortDown />
                 </Flex>
-              </Flex>{" "}
+              </Flex>
               <Flex
                 direction="column"
                 className="flex-1 p-4 border border-solid rounded-[15px] bg-gray-100"
@@ -231,7 +241,7 @@ const DashboardPage = () => {
                 and resources to help you become a leading seller on Fiverr.
               </Text>
 
-              <Flex className="mt-6" gap="4">
+              <Flex className="mt-6 flex-col lg:flex-row" gap="4">
                 <Flex className=" flex-1" direction="column" gap="3">
                   <Box>
                     <Image
