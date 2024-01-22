@@ -24,7 +24,7 @@ const DashboardPage = () => {
         <Text size="6" className="font-semibold">
           Morning David,
         </Text>
-        <Flex gap="4" className="mt-4 mx-4">
+        <Flex gap="4" className="mt-4">
           <Flex
             align="center"
             gap="3"
@@ -196,7 +196,7 @@ const DashboardPage = () => {
                   Finished Tasks
                 </Text>
                 <Box>
-                  <Text size="5" className=" font-semibold">
+                  <Text size="5" className=" font-semibold opacity-70">
                     Finished Tasks - 75
                   </Text>
                 </Box>
@@ -207,6 +207,16 @@ const DashboardPage = () => {
                 </Flex>
               </Flex>
             </Flex>
+            <Box className="mt-4">
+              <Flex align="center">
+                <Box className="bg-gray-100 px-2 py-[2px] text-gray-600 font-semibold rounded-[5px] capitalize">
+                  <Text size="2" className=" whitespace-nowrap">
+                    Upgrade yourself
+                  </Text>
+                </Box>
+                <Separator size="4" />
+              </Flex>
+            </Box>
           </Box>
         </Grid>
       </Box>
