@@ -58,10 +58,24 @@ const LoginPage = () => {
           <Text size="8" mb="5" mt="5">
             Welcome back 👋
           </Text>
-          <Text size="3" mb="4" className="text-gray-500">
-            Today is a new day. It&lsquo;s your day. You shape it. Sign in to
+          <Text mb="4" className="text-gray-500 text-sm">
+            Today is a new day. It&lsquo;s your day. You shape it. <br /> Sign in to
             manage your projects
           </Text>
+
+          <button
+            className="px-3 py-2 bg-sky-100 text-black rounded-xl my-3 flex gap-2 justify-center items-center"
+            onClick={handleGoogleSignIn}
+          >
+            <FcGoogle size={20} />
+            <Text>Sign In with Google</Text>
+          </button>
+
+          <div className="flex items-center my-4">
+            <hr className="flex-1 border-t border-gray-300" />
+            <span className="mx-4 text-gray-500">Or</span>
+            <hr className="flex-1 border-t border-gray-300" />
+          </div>
           <form>
             <Flex direction="column" mb="3">
               <label>Email</label>
@@ -94,20 +108,6 @@ const LoginPage = () => {
             onClick={handleCustomSignIn}
           >
             Sign In
-          </button>
-
-          <div className="flex items-center my-4">
-            <hr className="flex-1 border-t border-gray-300" />
-            <span className="mx-4 text-gray-500">Or</span>
-            <hr className="flex-1 border-t border-gray-300" />
-          </div>
-
-          <button
-            className="px-3 py-2 bg-sky-50 text-black rounded-xl mb-3 flex gap-2 justify-center items-center"
-            onClick={handleGoogleSignIn}
-          >
-            <FcGoogle size={20} />
-            <Text>Sign In with Google</Text>
           </button>
 
           <Flex gap="2" align="center" justify="center" mb="5">
