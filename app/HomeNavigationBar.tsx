@@ -10,6 +10,7 @@ import {
 import { Box, Container, Flex } from "@radix-ui/themes";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { CiLogin } from "react-icons/ci";
 import { FaSortDown } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -18,9 +19,8 @@ import { PiUsersFill } from "react-icons/pi";
 const links = [
   { label: "For Companies", href: "/dashboard" },
   { label: "Find A Job", href: "/profile" },
-  { label: "Login", href: "/company" },
   { label: "Get a Demo", href: "/job" },
-  { label: "add a Project", href: "/job" },
+  { label: "Dashboard", href: "/dashboard" },
 ];
 
 const HomeNavBar = () => {
@@ -97,20 +97,41 @@ const MobileNavigationBar = () => {
       <SheetContent className="bg-[#145959] text-white">
         <SheetHeader>
           <SheetDescription className="flex flex-col justify-between">
-            <Flex
-              direction="column"
-              gap="5"
-              className="text-lg pt-8 outline-none"
-            >
-              {links.map((link) => (
-                <SheetClose
-                  onClick={() => navigateToRoute(link.href)}
-                  key={link.label}
-                  className="text-left pt-3 pb-1 border-solid border-b-[1px]"
-                >
-                  {link.label}
-                </SheetClose>
-              ))}
+            <Flex direction="column">
+              <Flex
+                direction="column"
+                gap="5"
+                className="text-lg pt-8 outline-none"
+              >
+                {links.map((link) => (
+                  <SheetClose
+                    onClick={() => navigateToRoute(link.href)}
+                    key={link.label}
+                    className="text-left pt-3 pb-1 border-solid border-b-[1px]"
+                  >
+                    {link.label}
+                  </SheetClose>
+                ))}
+              </Flex>
+              <Flex
+                gap="6"
+                align="center"
+                justify="center"
+                className="p-2 border border-solid rounded-[5px] mt-9"
+              >
+                <FiPlus />
+                <Link href="/">Add a Project</Link>
+              </Flex>
+
+              <Flex
+                gap="2"
+                align="center"
+                justify="center"
+                className="bg-gray-200 p-2 border border-solid rounded-[5px] mt-3 text-black font-bold"
+              >
+                <CiLogin />
+                <Link href="/api/auth/signin">Log In</Link>
+              </Flex>
             </Flex>
           </SheetDescription>
         </SheetHeader>

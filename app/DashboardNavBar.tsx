@@ -41,12 +41,14 @@ import { GoStack } from "react-icons/go";
 import { MdInsights } from "react-icons/md";
 
 import React from "react";
+import { CiLogout } from "react-icons/ci";
 
 const links = [
   { label: "Dashboard", href: "/dashboard" },
-  { label: "Profile", href: "/profile" },
-  { label: "Company", href: "/company" },
+  { label: "Tasks", href: "/tasks" },
   { label: "Jobs", href: "/job" },
+  { label: "Quiz", href: "/quiz" },
+  { label: "Settings", href: "/profile" },
 ];
 
 const navLinks = [
@@ -189,11 +191,11 @@ const MobileNavigationBar = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Box className="lg:hidden border border-solid rounded-xl border-black p-2 focus:outline-none">
+        <Box className="lg:hidden border border-solid rounded-xl border-white p-2 focus:outline-none">
           <GiHamburgerMenu className="lg:hidden focus:outline-none" size={18} />
         </Box>
       </SheetTrigger>
-      <SheetContent className="bg-white">
+      <SheetContent className="bg-[#145959] text-white">
         <SheetHeader>
           <SheetDescription className="flex flex-col justify-between">
             <Flex direction="column" gap="5" className="text-lg pt-8">
@@ -201,11 +203,20 @@ const MobileNavigationBar = () => {
                 <SheetClose
                   onClick={() => navigateToRoute(link.href)}
                   key={link.label}
-                  className="text-left pt-3 pb-1 border-solid border-b-[1px] border-black"
+                  className="text-left pt-3 pb-1 border-solid border-b-[1px] border-white"
                 >
                   {link.label}
                 </SheetClose>
               ))}
+            </Flex>
+            <Flex
+              gap="6"
+              align="center"
+              justify="center"
+              className="p-2 border border-solid rounded-[5px] mt-9"
+            >
+              <CiLogout />
+              <Link href="/">Sign Out</Link>
             </Flex>
           </SheetDescription>
         </SheetHeader>
