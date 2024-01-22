@@ -39,7 +39,7 @@ export default function RootLayout({
         >
           <AuthProvider>
             <DashboardNavBar />
-            {children}
+            <Container>{children}</Container>
           </AuthProvider>
         </Theme>
       </body>

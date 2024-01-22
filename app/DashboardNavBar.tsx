@@ -33,7 +33,6 @@ import QuizImage from "../public/icons/005-quiz.png";
 import PeopleImage from "../public/icons/006-people.png";
 import HomeImage from "../public/icons/007-home.png";
 import { RiHome4Fill } from "react-icons/ri";
-import { FaHome } from "react-icons/fa";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { FaTasks } from "react-icons/fa";
 import { MdOutlineQuiz } from "react-icons/md";
