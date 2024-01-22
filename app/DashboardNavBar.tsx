@@ -101,7 +101,7 @@ const DashboardNavBar = () => {
   const currentPath = usePathname();
   // we don't want this nav bar on home page, home page has it's own
   if (currentPath === "/") return null;
-  if (currentPath === "/api/auth/signin") return null;
+  if (currentPath.startsWith("/api/auth")) return null;
   console.log(currentPath);
   return (
     <nav>

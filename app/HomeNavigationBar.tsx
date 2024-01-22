@@ -38,7 +38,7 @@ const HomeNavBar = () => {
     <nav className="text-white bg-[#0D7070] mt-2">
       <Container className="">
         <Flex justify="between">
-          <Flex align="center" gap="3" className="py-2 lg:py-4 px-3 lg:px-0">
+          <Flex align="center" gap="3" className="py-2 px-3 lg:px-0">
             <Link href="/">LOGO</Link>
           </Flex>
           <Flex
