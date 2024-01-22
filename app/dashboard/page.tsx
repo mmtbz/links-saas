@@ -61,7 +61,7 @@ const DashboardPage = () => {
 
         <Grid
           columns={{ sm: "1", lg: "4" }}
-          className="grid-cols-3 py-4"
+          className="grid-cols-4 py-4"
           gap="4"
         >
           <Box className=" col-span-1 shadow-lg border border-solid border-[#E4E5E7] rounded-[5px] hidden lg:block">
