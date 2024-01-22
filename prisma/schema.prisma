@@ -11,6 +11,22 @@ datasource db {
   relationMode = "prisma"
 }
 
+model Project {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String
+  slug        String
+  company     Company @relation(fields: [companyId], references: [id])
+  companyId   Int
+}
+
+model Company {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  description String
+  Project     Project[]
+}
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
