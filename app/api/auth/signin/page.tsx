@@ -45,7 +45,7 @@ const LoginPage = () => {
     <Flex
       justify="between"
       direction="column"
-      className="shadow-lg max-w-[25rem] mx-auto bg-gradient-to-br from-teal-500 to-green-700 min-h-screen"
+      className="shadow-lg max-w-[25rem] m-auto bg-gradient-to-br from-teal-500 to-green-700"
     >
       <Flex
         className="text-center text-3xl font-bold p-7"
