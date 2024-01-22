@@ -14,6 +14,10 @@ import { useSession } from "next-auth/react";
 import { IoStar } from "react-icons/io5";
 import { Progress } from "@/components/ui/progress";
 import Link from "next/link";
+import Image from "next/image";
+import NoticedIcon from "../../public/svg/getNoticed.svg";
+import LearnIcon from "../../public/svg/learn.svg";
+import SuccessfullIcon from "../../public/svg/successfull.svg";
 
 const DashboardPage = () => {
   const { data: session } = useSession();
@@ -60,7 +64,7 @@ const DashboardPage = () => {
           className="grid-cols-3 py-4"
           gap="4"
         >
-          <Box className=" col-span-1 shadow-lg  border border-solid border-[#E4E5E7] rounded-[5px] hidden lg:block">
+          <Box className=" col-span-1 shadow-lg border border-solid border-[#E4E5E7] rounded-[5px] hidden lg:block">
             <Box className=" bg-white">
               <text className="opacity-0">a</text>
             </Box>
@@ -215,6 +219,91 @@ const DashboardPage = () => {
                   </Text>
                 </Box>
                 <Separator size="4" />
+              </Flex>
+            </Box>
+            <Box className="mt-4 p-4 shadow-lg border border-solid border-[#E4E5E7] rounded-[5px]">
+              <Text size="4" className=" font-semibold block py-2">
+                3 steps to become a top candidate on Hakka
+              </Text>
+              <Text size="2" className="text-gray-500">
+                The key to your success on Fiverr is the brand you build for
+                yourself through your Fiverr reputation. We gathered some tips
+                and resources to help you become a leading seller on Fiverr.
+              </Text>
+
+              <Flex className="mt-6" gap="4">
+                <Flex className=" flex-1" direction="column" gap="3">
+                  <Box>
+                    <Image
+                      src={NoticedIcon}
+                      alt="get noticed"
+                      priority={false}
+                      height={45}
+                      width={45}
+                    />
+                    <Text className="font-semibold">Get Noticed</Text>
+                  </Box>
+
+                  <Box>
+                    <p className="text-gray-500 text-sm">
+                      Tap into the power of social media by sharing your Gig,
+                      and get expert help to grow your impact.
+                    </p>
+                  </Box>
+                  <Flex>
+                    <button className="min-w-[10rem] text-blue-700 font-semibold p-2 border border-solid border-blue-700 rounded-[5px]">
+                      Apply for Jobs
+                    </button>
+                  </Flex>
+                </Flex>
+                <Flex className=" flex-1" direction="column" gap="3">
+                  <Box>
+                    <Image
+                      src={LearnIcon}
+                      alt="learn"
+                      priority={false}
+                      height={45}
+                      width={45}
+                    />
+                    <Text className="font-semibold">Get Noticed</Text>
+                  </Box>
+
+                  <Box>
+                    <p className="text-gray-500 text-sm">
+                      Tap into the power of social media by sharing your Gig,
+                      and get expert help to grow your impact.
+                    </p>
+                  </Box>
+                  <Flex>
+                    <button className="min-w-[10rem] text-blue-700 font-semibold p-2 border border-solid border-blue-700 rounded-[5px]">
+                      Take Quiz
+                    </button>
+                  </Flex>
+                </Flex>
+                <Flex className=" flex-1" direction="column" gap="3">
+                  <Box>
+                    <Image
+                      src={SuccessfullIcon}
+                      alt="be successfull"
+                      priority={false}
+                      height={45}
+                      width={45}
+                    />
+                    <Text className="font-semibold">Get Noticed</Text>
+                  </Box>
+
+                  <Box>
+                    <p className="text-gray-500 text-sm">
+                      Tap into the power of social media by sharing your Gig,
+                      and get expert help to grow your impact.
+                    </p>
+                  </Box>
+                  <Flex>
+                    <button className="min-w-[10rem] text-blue-700 font-semibold p-2 border border-solid border-blue-700 rounded-[5px]">
+                      Learn for free
+                    </button>
+                  </Flex>
+                </Flex>
               </Flex>
             </Box>
           </Box>
