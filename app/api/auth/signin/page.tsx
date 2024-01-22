@@ -1,11 +1,10 @@
 "use client";
-import { Button, Flex, Grid, Text } from "@radix-ui/themes";
+import { Box, Button, Flex, Text } from "@radix-ui/themes";
 import { signIn } from "next-auth/react";
-import Image from "next/image";
-import { FcGoogle } from "react-icons/fc";
-import WorkPerson from "../../../../public/svg/working_person.svg";
-import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -43,8 +42,14 @@ const LoginPage = () => {
   };
 
   return (
-    <Grid columns={{ sm: "1", lg: "2" }}>
-      <Flex direction="column" className="px-2 lg:mx-auto">
+    <Flex 
+    justify="between"
+    direction="column"
+    className="shadow-lg border border-solid border-[#E4E5E7] rounded-[5px] max-w-[25rem] mx-auto h-screen">
+      <Box className=" bg-white text-center text-3xl font-bold mt-7">
+        <Link href="/">HAKKA</Link>
+      </Box>
+      <Flex direction="column" className="rounded-t-[10px] p-3 bg-gray-50 mx-1">
         <Text size="8" mb="5" mt="5">
           Welcome back 👋
         </Text>
@@ -105,26 +110,20 @@ const LoginPage = () => {
           <Text>Sign In with Google</Text>
         </button>
 
-        <Flex gap="2" align="center" justify="end" mb="5">
+        <Flex gap="2" align="center" justify="center" mb="5">
           <Text>Don&lsquo;t have an account?</Text>
           <a className="outline-none hover:bg-inherit hover:cursor-pointer text-sky-600">
             Sign Up
           </a>
         </Flex>
 
-        <Flex justify="center" align="center">
-          <Text color="gray" className="opacity-50 mt-9" size="2">
+        <Flex justify="center" align="center" className="mb-3 mt-9">
+          <Text color="gray" className="opacity-50" size="2">
             © 2024 ALL RIGHTS RESERVED
           </Text>
         </Flex>
       </Flex>
-      <Image
-        src={WorkPerson}
-        alt="My Happy SVG"
-        className="hidden lg:block"
-        priority={false}
-      />
-    </Grid>
+    </Flex>
   );
 };
 

@@ -101,6 +101,8 @@ const DashboardNavBar = () => {
   const currentPath = usePathname();
   // we don't want this nav bar on home page, home page has it's own
   if (currentPath === "/") return null;
+  if (currentPath === "/api/auth/signin") return null;
+  console.log(currentPath);
   return (
     <nav>
       <Box className="max-h-[0.5rem] lg:max-h-[0.5rem] opacity-0">a</Box>
@@ -157,7 +159,7 @@ const DashboardNavBar = () => {
           </Flex>
         </Flex>
       </Box>
-      <Container >
+      <Container>
         <Box className="hidden lg:block">
           <Flex
             className="text-white bg-[#0D7070] my-2 rounded-[0.5rem] px-4  text-sm"
