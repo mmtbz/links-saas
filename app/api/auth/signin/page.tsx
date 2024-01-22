@@ -42,10 +42,11 @@ const LoginPage = () => {
   };
 
   return (
-    <Flex 
-    justify="between"
-    direction="column"
-    className="shadow-lg border border-solid border-[#E4E5E7] rounded-[5px] max-w-[25rem] mx-auto h-screen">
+    <Flex
+      justify="between"
+      direction="column"
+      className="shadow-lg border border-solid border-[#E4E5E7] rounded-[5px] max-w-[25rem] mx-auto h-screen"
+    >
       <Box className=" bg-white text-center text-3xl font-bold mt-7">
         <Link href="/">HAKKA</Link>
       </Box>
@@ -53,16 +54,15 @@ const LoginPage = () => {
         <Text size="8" mb="5" mt="5">
           Welcome back 👋
         </Text>
-        <Text size="3">
-          Today is a new day. It&lsquo;s your day. You shape it.
-        </Text>
-        <Text size="3" mb="3">
-          Sign in to manage your projects
+        <Text size="3" mb="4" className="text-gray-500">
+          Today is a new day. It&lsquo;s your day. You shape it. Sign in to
+          manage your projects
         </Text>
         <form>
           <Flex direction="column" mb="3">
             <label>Email</label>
             <input
+              type="email"
               placeholder="example@email.com"
               className="border border-solid border-grey px-3 py-2 rounded-xl bg-blue-50 outline-none"
               onChange={(e) => setEmail(e.target.value)}
@@ -80,13 +80,11 @@ const LoginPage = () => {
           </Flex>
         </form>
         <Flex justify="end" className="mb-3">
-          <Button
-            variant="ghost"
-            color="blue"
-            className="outline-none hover:bg-inherit hover:cursor-pointer"
+          <button
+            className="outline-none hover:bg-inherit hover:cursor-pointer text-blue-800 text-sm"
           >
             Forgot Password?
-          </Button>
+          </button>
         </Flex>
 
         <button
@@ -112,12 +110,12 @@ const LoginPage = () => {
 
         <Flex gap="2" align="center" justify="center" mb="5">
           <Text>Don&lsquo;t have an account?</Text>
-          <a className="outline-none hover:bg-inherit hover:cursor-pointer text-sky-600">
+          <a className="outline-none hover:bg-inherit hover:cursor-pointer text-blue-800">
             Sign Up
           </a>
         </Flex>
 
-        <Flex justify="center" align="center" className="mb-3 mt-9">
+        <Flex justify="center" align="center" className="mb-1 mt-9">
           <Text color="gray" className="opacity-50" size="2">
             © 2024 ALL RIGHTS RESERVED
           </Text>
