@@ -172,7 +172,12 @@ const DashboardNavBar = () => {
             gap="4"
           >
             {navLinks.map((link) => (
-              <Flex key={link.href} className="p-1 capitalize" gap="1" align="center">
+              <Flex
+                key={link.href}
+                className="p-1 capitalize"
+                gap="1"
+                align="center"
+              >
                 {link.icon &&
                   React.createElement(link.icon, { className: "icon-class" })}
                 <Link href={link.href}>{link.label}</Link>
@@ -191,6 +196,13 @@ const MobileNavigationBar = () => {
   const navigateToRoute = (href: string): void => {
     router.push(href);
     router.refresh();
+  };
+
+  const handleSignOut = async () => {
+    const signOutData = {
+      callbackUrl: "/",
+    };
+    const result = await signOut(signOutData);
   };
 
   return (
@@ -221,7 +233,7 @@ const MobileNavigationBar = () => {
               className="p-2 border border-solid rounded-[5px] mt-9"
             >
               <CiLogout />
-              <Link href="/">Sign Out</Link>
+              <button onClick={handleSignOut}>Sign Out</button>
             </Flex>
           </SheetDescription>
         </SheetHeader>
@@ -243,13 +255,7 @@ const AuthStatus = () => {
 
   if (status === "loading") return <p>loading</p>;
   if (status === "unauthenticated")
-    if (currentPath === "/api/auth/signin") return null;
-    else
-      return (
-        <Box className="px-6 py-2 rounded-2xl text-orange-300 border border-solid border-orange-300 hover:bg-orange-200 hover:text-white">
-          <Link href="/api/auth/signin">Login</Link>
-        </Box>
-      );
+    if (currentPath.startsWith("/api/auth")) return null;
   return (
     <Box>
       <DropdownMenu.Root>
@@ -259,7 +265,7 @@ const AuthStatus = () => {
             fallback="?"
             size="2"
             radius="full"
-            className="cursor-pointer"
+            className="cursor-pointer bg-white"
           />
         </DropdownMenu.Trigger>
         <DropdownMenu.Content>
@@ -268,7 +274,6 @@ const AuthStatus = () => {
           </DropdownMenu.Label>
           <DropdownMenu.Item>
             <Button onClick={handleSignOut}>Sign Out</Button>
-            {/* <Link href="/api/auth/signout">Log Out</Link> */}
           </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Root>

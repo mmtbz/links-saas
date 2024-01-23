@@ -18,15 +18,22 @@ import Image from "next/image";
 import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
+import { useRouter } from "next/navigation";
 
 const DashboardPage = () => {
+  const router = useRouter();
   const { data: session } = useSession();
+  console.log("user: " + session?.user?.name);
+
+  if (!session?.user?.name) {
+    return router.push("/api/auth/signin");
+  }
 
   return (
     <Container>
       <Box className="mt-4 px-3 lg:px-0">
         <Text size="6" className="font-semibold">
-          Morning David,
+          Morning {session?.user?.name},
         </Text>
         <Flex gap="4" className="mt-4 flex-col lg:flex-row">
           <Flex
@@ -36,7 +43,7 @@ const DashboardPage = () => {
             className="flex-1 bg-gradient-to-br from-teal-500 to-green-700 p-6 text-white rounded-[0.5rem]"
           >
             <Box>
-              <Text className="block" size="4">
+              <Text className="block font-semibold text-lg" size="4">
                 Get a perfect Candidate for your Project
               </Text>
               <Text size="2">Tell us what service you need</Text>
@@ -50,7 +57,7 @@ const DashboardPage = () => {
             className="flex-1 bg-gradient-to-br from-green-700 to-teal-500 p-6 text-white rounded-[0.5rem]"
           >
             <Box>
-              <Text className="block" size="4">
+              <Text className="block font-semibold text-lg" size="4">
                 Get a perfect Candidate for your Project
               </Text>
               <Text size="2">Tell us what service you need</Text>
@@ -72,16 +79,16 @@ const DashboardPage = () => {
               <Flex justify="between" align="center">
                 <Flex align="center" gap="3">
                   <Avatar
-                    src=""
+                    src={session.user.image!}
                     fallback="?"
                     size="2"
                     radius="full"
                     className="cursor-pointer"
                   />
                   <Box>
-                    <Text className="block">David Mutabazi</Text>
+                    <Text className="block">{session.user.name}</Text>
                     <Text className=" text-gray-500" size="1">
-                      mmdavid0@gmail.com
+                      {session.user.email}
                     </Text>
                   </Box>
                 </Flex>
@@ -171,7 +178,7 @@ const DashboardPage = () => {
                 </Text>
                 <Box>
                   <Text size="5" className=" font-semibold">
-                  🫣 Unseen Tasks - 5
+                    🫣 Unseen Tasks - 5
                   </Text>
                 </Box>
 
