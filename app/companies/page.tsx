@@ -23,11 +23,10 @@ const CompanyPage = async () => {
           }}
         >
           {companies.map((company) => (
-            <Link href={"/companies/" + company.id}>
+            <Link href={"/companies/" + company.id} key={company.id}>
               <CompanyCard
                 name={company.name}
                 descrption={company.description}
-                key={company.id}
               />
             </Link>
           ))}
