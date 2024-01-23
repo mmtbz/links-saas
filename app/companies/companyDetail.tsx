@@ -1,65 +1,80 @@
 "use client";
-import { Tabs, Flex, Box, Text, Badge, Button } from "@radix-ui/themes";
+import {
+  Tabs,
+  Flex,
+  Box,
+  Text,
+  Badge,
+  Button,
+  Separator,
+} from "@radix-ui/themes";
 import React from "react";
 import Image from "next/image";
-import GoogleLogo from "../../public/images/google.png";
+import MicrosoftLogo from "../../public/images/msft.png";
 import { FiPlus } from "react-icons/fi";
 import { TbExternalLink } from "react-icons/tb";
 import AboutCompany from "./AboutCompany";
 import CompanyPosts from "./CompanyPosts";
 import CompanyJobs from "./CompanyJobs";
+import { FaBell } from "react-icons/fa";
 
 const CompanyPage = () => {
   return (
     <>
-      <Flex align="center" direction="column" gap="3">
-        <Image
-          src={GoogleLogo}
-          height="150"
-          width="150"
-          alt="Company Picture"
-          className="rounded-full object-cover"
-        />
-        <Text as="p" size="7" className="text-center font-bold">
-          Google
-        </Text>
-
-        <Flex align="center" gap="3">
-          <Badge size="2" color="orange">
-            Software
-          </Badge>
-          <Badge size="2" color="blue">
-            California, USA
-          </Badge>
-          <Badge size="2" color="green">
-            1 week ago
-          </Badge>
-        </Flex>
-
-        <Flex align="center" gap="3">
-          <Button color="orange">
-            <FiPlus /> Follow
-          </Button>
-          <Button color="orange">
-            <TbExternalLink /> Visit
-          </Button>
-        </Flex>
-      </Flex>
-
       <Tabs.Root defaultValue="about">
-        <Tabs.List className="justify-center">
-          <Tabs.Trigger value="about">
-            <Text className="text-xl font-medium">About Us</Text>
-          </Tabs.Trigger>
-          <Tabs.Trigger value="posts">
-            <Text className="text-xl font-medium">Posts</Text>
-          </Tabs.Trigger>
-          <Tabs.Trigger value="jobs">
-            <Text className="text-xl font-medium">Jobs</Text>
-          </Tabs.Trigger>
-        </Tabs.List>
+        <Flex
+          direction="column"
+          gap="3"
+          className="p-4 border border-solid rounded-[5px]"
+        >
+          <Flex justify="between">
+            <Flex direction="column" gap="3">
+              <Image
+                src={MicrosoftLogo}
+                height="150"
+                width="150"
+                alt="Company Picture"
+                className="rounded-full object-cover"
+              />
+              <Text as="p" size="7" className="font-bold">
+                Microsoft
+              </Text>
 
-        <Box pt="2">
+              <Flex align="center" gap="3">
+                <Badge size="2" color="orange">
+                  Software
+                </Badge>
+                <Badge size="2" color="blue">
+                  California, USA
+                </Badge>
+                <Badge size="2" color="green">
+                  1 week ago
+                </Badge>
+              </Flex>
+            </Flex>
+
+            <Flex gap="3">
+              <Button color="orange">
+                <FaBell />
+                <Text>Follow</Text>
+              </Button>
+            </Flex>
+          </Flex>
+          <Separator size="4" />
+          <Tabs.List className=" shadow-none">
+            <Tabs.Trigger value="about">
+              <Text className="text-xl font-medium">About</Text>
+            </Tabs.Trigger>
+            <Tabs.Trigger value="posts">
+              <Text className="text-xl font-medium">Posts</Text>
+            </Tabs.Trigger>
+            <Tabs.Trigger value="jobs">
+              <Text className="text-xl font-medium">Jobs</Text>
+            </Tabs.Trigger>
+          </Tabs.List>
+        </Flex>
+
+        <Box className="pt-5 bg-white">
           <Tabs.Content value="about">
             <AboutCompany />
           </Tabs.Content>
