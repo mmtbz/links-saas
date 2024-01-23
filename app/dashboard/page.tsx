@@ -171,7 +171,7 @@ const DashboardPage = () => {
                 </Text>
                 <Box>
                   <Text size="5" className=" font-semibold">
-                    Unseen Tasks - 5
+                  🫣 Unseen Tasks - 5
                   </Text>
                 </Box>
 
@@ -211,7 +211,7 @@ const DashboardPage = () => {
                 </Text>
                 <Box>
                   <Text size="5" className=" font-semibold opacity-70">
-                    Finished Tasks - 75
+                    👍 Finished Tasks - 75
                   </Text>
                 </Box>
 
