@@ -19,21 +19,15 @@ import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
 import { useRouter } from "next/navigation";
+import { getServerSessions } from "../auth/getSession";
 
 const DashboardPage = () => {
-  const router = useRouter();
-  const { data: session } = useSession();
-  console.log("user: " + session?.user?.name);
-
-  if (!session?.user?.name) {
-    return router.push("/api/auth/signin");
-  }
 
   return (
     <Container>
       <Box className="mt-4 px-3 lg:px-0">
         <Text size="6" className="font-semibold">
-          Morning {session?.user?.name},
+          Morning David,
         </Text>
         <Flex gap="4" className="mt-4 flex-col lg:flex-row">
           <Flex
@@ -79,16 +73,16 @@ const DashboardPage = () => {
               <Flex justify="between" align="center">
                 <Flex align="center" gap="3">
                   <Avatar
-                    src={session.user.image!}
+                    src=""
                     fallback="?"
                     size="2"
                     radius="full"
                     className="cursor-pointer"
                   />
                   <Box>
-                    <Text className="block">{session.user.name}</Text>
+                    <Text className="block">Admin</Text>
                     <Text className=" text-gray-500" size="1">
-                      {session.user.email}
+                      admin@hakka.io
                     </Text>
                   </Box>
                 </Flex>
