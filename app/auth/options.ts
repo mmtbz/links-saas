@@ -1,41 +1,39 @@
-import GoogleProvider from "next-auth/providers/google";
-import CredentialsProvider from "next-auth/providers/credentials";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "@/prisma/client";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { NextAuthOptions } from "next-auth";
-import bcrypt from "bcrypt";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        email: { label: "Email", type: "email", placeholder: "Email" },
-        password: {
-          label: "Password",
-          type: "password",
-          placeholder: "Password",
-        },
-      },
-      async authorize(credentials, req) {
-        if (!credentials?.email || !credentials.password) return null;
+    // CredentialsProvider({
+    //   name: "Credentials",
+    //   credentials: {
+    //     email: { label: "Email", type: "email", placeholder: "Email" },
+    //     password: {
+    //       label: "Password",
+    //       type: "password",
+    //       placeholder: "Password",
+    //     },
+    //   },
+    //   async authorize(credentials, req) {
+    //     if (!credentials?.email || !credentials.password) return null;
 
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
-        });
+    //     const user = await prisma.user.findUnique({
+    //       where: { email: credentials.email },
+    //     });
 
-        if (!user) return null;
+    //     if (!user) return null;
 
-        // todo needs fix -- user may login with an already registered email from google
-        const passwordMatch = await bcrypt.compare(
-          credentials.password,
-          user.hashedPassword!
-        );
+    //     // todo needs fix -- user may login with an already registered email from google
+    //     const passwordMatch = await bcrypt.compare(
+    //       credentials.password,
+    //       user.hashedPassword!
+    //     );
 
-        return passwordMatch ? user : null;
-      },
-    }),
+    //     return passwordMatch ? user : null;
+    //   },
+    // }),
 
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -51,11 +49,24 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async redirect({ url, baseUrl }: { url: string; baseUrl: string }) {
-      console.log("url: " + url + " , baseUrl: " + baseUrl);
       if (url.startsWith("/")) return `${baseUrl}${url}`;
-      // Allows callback URLs on the same origin
       else if (new URL(url).origin === baseUrl) return url;
       return baseUrl;
+    },
+    // add custom fields to session
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = user.role;
+        token.id = user.id;
+      }
+      return token;
+    },
+    session({ session, token }) {
+      if (token && session.user) {
+        session.user.role = token.role;
+        session.user.id = token.id;
+      }
+      return session;
     },
   },
 };

@@ -25,6 +25,7 @@ const DashboardPage = () => {
 
   const { status, data: session } = useSession();
 
+  console.log(session);
   if (status === "loading") return <div>Loading ....</div>;
   if (status === "unauthenticated") {
     router.push("/api/auth/signin");
