@@ -14,6 +14,7 @@ import {
   Container,
   DropdownMenu,
   Flex,
+  Separator,
   Text,
 } from "@radix-ui/themes";
 import { signOut, useSession } from "next-auth/react";
@@ -227,13 +228,14 @@ const MobileNavigationBar = () => {
               ))}
             </Flex>
             <Flex
-              gap="6"
+              gap="2"
               align="center"
               justify="center"
               className="p-2 border border-solid rounded-[5px] mt-9"
+              onClick={handleSignOut}
             >
               <CiLogout />
-              <button onClick={handleSignOut}>Sign Out</button>
+              <button>Sign Out</button>
             </Flex>
           </SheetDescription>
         </SheetHeader>
@@ -269,12 +271,28 @@ const AuthStatus = () => {
           />
         </DropdownMenu.Trigger>
         <DropdownMenu.Content>
-          <DropdownMenu.Label>
-            <Text size="2">{session?.user?.email}</Text>
-          </DropdownMenu.Label>
-          <DropdownMenu.Item>
-            <Button onClick={handleSignOut}>Sign Out</Button>
-          </DropdownMenu.Item>
+          <Flex direction="column" gap="3" className="p-3">
+            <Box>
+              <Text className="font-bold text-xl block">
+                {session?.user?.name}
+              </Text>
+              <Text className="font-semibold text-normal opacity-60">
+                {session?.user?.email}
+              </Text>
+            </Box>
+
+            <Separator size="4" />
+            <Flex
+              gap="2"
+              align="center"
+              justify="center"
+              className="p-2 border border-solid border-[#145959] rounded-[5px] text-[#145959] hover:cursor-pointer"
+              onClick={handleSignOut}
+            >
+              <CiLogout />
+              <button>Sign Out</button>
+            </Flex>
+          </Flex>
         </DropdownMenu.Content>
       </DropdownMenu.Root>
     </Box>
