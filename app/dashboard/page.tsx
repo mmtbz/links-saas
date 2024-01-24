@@ -8,6 +8,7 @@ import {
   Avatar,
   Separator,
   Button,
+  AlertDialog,
 } from "@radix-ui/themes";
 import { FaAngleRight, FaSortDown } from "react-icons/fa";
 import { useSession } from "next-auth/react";
@@ -19,6 +20,8 @@ import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
 import { useRouter } from "next/navigation";
+import MyAlertDialog from "../components/AlertDialog";
+import UpdateRoleModal from "./UpdateRoleModal";
 
 const DashboardPage = () => {
   const router = useRouter();
@@ -33,6 +36,7 @@ const DashboardPage = () => {
   }
   return (
     <Container>
+      {session?.user?.role === "NONE" && <UpdateRoleModal />}
       <Box className="mt-4 px-3 lg:px-0">
         <Text size="6" className="font-semibold">
           Morning {session?.user?.name},
