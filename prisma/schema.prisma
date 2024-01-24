@@ -63,6 +63,16 @@ model User {
   image          String?
   accounts       Account[]
   sessions       Session[]
+  role           Role      @default(NONE)
+  active         Boolean   @default(true)
+}
+
+enum Role {
+  JOB_SEEKER
+  EMPLOYEE
+  ADMIN
+  TESTER
+  NONE
 }
 
 model VerificationToken {
