@@ -49,9 +49,9 @@ body {
   & + * {
     margin-top: 24px;
   }
-  & + .extra-space {
+  /* & + .extra-space {
     margin-top: 48px;
-  }
+  } */
 }
 
 .new-comment {
