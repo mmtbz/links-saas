@@ -36,7 +36,7 @@ const DashboardPage = () => {
   }
   return (
     <Container>
-      {session?.user?.role === "ADMIN" && <UpdateRoleModal />}
+      {session?.user?.role === "NONE" && <UpdateRoleModal />}
       <Box className="mt-4 px-3 lg:px-0">
         <Text size="6" className="font-semibold">
           Morning {session?.user?.name},
@@ -189,7 +189,7 @@ const DashboardPage = () => {
                 </Box>
 
                 <Flex gap="1" className="p-2 border border-solid rounded-[5px]">
-                  <Link href="/">Unseen Tasks</Link>
+                  <Link href="/tasks">Unseen Tasks</Link>
                   <FaSortDown />
                 </Flex>
               </Flex>
@@ -209,7 +209,7 @@ const DashboardPage = () => {
                 </Box>
 
                 <Flex gap="1" className="p-2 border border-solid rounded-[5px]">
-                  <Link href="/">Active Tasks</Link>
+                  <Link href="/tasks">Active Tasks</Link>
                   <FaSortDown />
                 </Flex>
               </Flex>
@@ -229,7 +229,7 @@ const DashboardPage = () => {
                 </Box>
 
                 <Flex gap="1" className="p-2 border border-solid rounded-[5px]">
-                  <Link href="/">Finished Tasks</Link>
+                  <Link href="/tasks">Finished Tasks</Link>
                   <FaSortDown />
                 </Flex>
               </Flex>
