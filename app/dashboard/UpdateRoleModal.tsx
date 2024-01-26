@@ -17,9 +17,9 @@ const UpdateRoleModal = () => {
 
         <Flex gap="3" mt="4" justify="end">
           <AlertDialog.Action>
-            <Button variant="solid" onClick={() => setIsOpen(!isOpen)}>
+            <button className="bg-[#145959] px-6 py-2 rounded-[5px] text-white" onClick={() => setIsOpen(!isOpen)}>
               Next
-            </Button>
+            </button>
           </AlertDialog.Action>
         </Flex>
       </AlertDialog.Content>

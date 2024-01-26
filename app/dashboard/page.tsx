@@ -36,7 +36,7 @@ const DashboardPage = () => {
   }
   return (
     <Container>
-      {session?.user?.role === "NONE" && <UpdateRoleModal />}
+      {session?.user?.role === "ADMIN" && <UpdateRoleModal />}
       <Box className="mt-4 px-3 lg:px-0">
         <Text size="6" className="font-semibold">
           Morning {session?.user?.name},
