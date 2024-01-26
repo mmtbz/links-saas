@@ -8,7 +8,7 @@ interface Props {
 
 const ProfileCard = ({ prop, value }: Props) => {
   return (
-    <Flex gap="2" className="my-4">
+    <Flex gap="2" className="m-4">
       {/* <Flex align="center" justify="center" className="bg-slate-900">
         <FaLocationDot />
       </Flex> */}

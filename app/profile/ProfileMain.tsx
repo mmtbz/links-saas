@@ -17,13 +17,13 @@ const ProfileMain = () => {
   ];
   return (
     <div className="max-h-screen">
-      <Flex align="center" direction="column" gap="3">
+      <Flex align="center" direction="column" gap="3" className="p-2">
         <Image
           src="https://randomuser.me/api/portraits/men/75.jpg"
           height="150"
           width="150"
           alt="Profile Picture"
-          className="rounded-3xl mt-3"
+          className="rounded-3xl"
         />
         <Text as="p" size="7" className="text-center font-bold">
           Michael Blackson Emanuel
