@@ -5,8 +5,14 @@ import React from "react";
 import AboutTab from "./AboutTab";
 import Title from "../components/Title";
 import ResumeTab from "./ResumeTab";
+import { Skill } from "@prisma/client";
 
-const ProfileTabs = () => {
+interface Props {
+  about: string;
+  skills: Skill[]
+}
+
+const ProfileTabs = ({about, skills}: Props) => {
   return (
     <Tabs.Root defaultValue="about">
       <Flex align="center" justify="between" className="p-2">
@@ -23,7 +29,7 @@ const ProfileTabs = () => {
 
       <Box pt="2" className="p-2">
         <Tabs.Content value="about">
-          <AboutTab />
+          <AboutTab about={about} skills={skills}/>
         </Tabs.Content>
 
         <Tabs.Content value="resume">

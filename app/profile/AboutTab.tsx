@@ -1,11 +1,12 @@
 import { Badge, Flex, Grid, Text } from "@radix-ui/themes";
 import Card from "../components/Card";
 import Testimonial from "./Testimonial";
+import { Skill } from "@prisma/client";
 
-type Skill = {
-  skill: string;
-  color: string;
-};
+interface Props {
+  about: string;
+  skills: Skill[];
+}
 
 type Testimonial = {
   testimonial: string;
@@ -13,25 +14,25 @@ type Testimonial = {
   photo: string;
 };
 
-const AboutTab = () => {
-  const skills: Skill[] = [
-    {
-      skill: "java",
-      color: "teal",
-    },
-    {
-      skill: "HTML",
-      color: "red",
-    },
-    {
-      skill: "spring boot",
-      color: "yellow",
-    },
-    {
-      skill: "python",
-      color: "blue",
-    },
-  ];
+const AboutTab = ({ about, skills }: Props) => {
+  // const skills: Skill[] = [
+  //   {
+  //     skill: "java",
+  //     color: "teal",
+  //   },
+  //   {
+  //     skill: "HTML",
+  //     color: "red",
+  //   },
+  //   {
+  //     skill: "spring boot",
+  //     color: "yellow",
+  //   },
+  //   {
+  //     skill: "python",
+  //     color: "blue",
+  //   },
+  // ];
 
   const testimonials: Testimonial[] = [
     {
@@ -50,29 +51,14 @@ const AboutTab = () => {
   return (
     <Flex gap="2" direction="column">
       <Flex className="bg-white p-2 rounded-[5px] bg-opacity-25 border border-black">
-          <span className="text-lg leading-7">
-            I&apos;m Creative Director and UI/UX Designer from Sydney,
-            Australia, working in web development and print media. I enjoy
-            turning complex problems into simple, beautiful and intuitive
-            designs. My job is to build your website so that it is functional
-            and user-friendly but at the same time attractive. Moreover, I add
-            personal touch to your product and make sure that is eye-catching
-            and easy to use. My aim is to bring across your message and identity
-            in the most creative way. I created web design for many famous brand
-            companies.
-          </span>
+        <span className="text-lg leading-7">{about}</span>
       </Flex>
 
       <Card title="Skills">
         <Flex gap="2">
           {skills.map((skill) => (
-            <Badge
-              size="2"
-              color={skill.color as any}
-              key={skill.skill}
-              className="capitalize"
-            >
-              {skill.skill}
+            <Badge size="2" color="red" key={skill.id} className="capitalize">
+              {skill.name}
             </Badge>
           ))}
         </Flex>
