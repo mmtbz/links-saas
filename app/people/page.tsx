@@ -13,6 +13,7 @@ import {
 import DialogBox from "../components/general/DialogBox";
 import ProfileMain from "../profile/ProfileMain";
 import ProfileTabs from "../profile/ProfileTabs";
+import PeopleListItem from "./_components/PeopleListItem";
 
 const PeoplePage = async () => {
   const users = await prisma.user.findMany();
@@ -25,25 +26,21 @@ const PeoplePage = async () => {
         </Text>
         <Box className="mt-3">
           {users.map((user) => (
-            <>
+            <Box key={user.id}>
               <DialogBox
                 trigger={
                   <PeopleListItem
-                    id={""}
-                    name={user.name}
-                    email={null}
-                    hashedPassword={null}
-                    emailVerified={null}
-                    image={user.image}
-                    role={"JOB_SEEKER"}
-                    active={true}
+                    profileId={user.userProfileId!}
+                    userId={user.id}
+                    image={user.image || ""}
+                    name={user.name || ""}
                   />
                 }
                 title={user.name || "User"}
                 content={<PersonDescription />}
               />
               <Separator size="4" className="my-3" />
-            </>
+            </Box>
           ))}
         </Box>
       </Box>
@@ -52,33 +49,6 @@ const PeoplePage = async () => {
 };
 
 export default PeoplePage;
-
-const PeopleListItem = (user: User) => {
-  return (
-    <Flex gap="4" className=" hover:cursor-pointer">
-      <Avatar fallback={"?"} size="5" radius="full" src={user.image || ""} />
-      <Box>
-        <Flex direction="column">
-          <Flex gap="3">
-            <Text size="5" className="font-bold">
-              {user.name}
-            </Text>
-            <Badge color="green" className="capitalize">
-              Open for project
-            </Badge>
-          </Flex>
-
-          <Text> Kigali, Rwanda</Text>
-          <Flex gap="2">
-            <Badge color="red">Java</Badge>
-            <Badge>Python</Badge>
-            <Badge color="blue">HTML</Badge>
-          </Flex>
-        </Flex>
-      </Box>
-    </Flex>
-  );
-};
 
 const PersonDescription = () => {
   return (

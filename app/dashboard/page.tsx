@@ -1,34 +1,30 @@
 "use client";
+import { Progress } from "@/components/ui/progress";
 import {
+  Avatar,
   Box,
+  Button,
   Container,
-  Text,
   Flex,
   Grid,
-  Avatar,
   Separator,
-  Button,
-  AlertDialog,
+  Text
 } from "@radix-ui/themes";
-import { FaAngleRight, FaSortDown } from "react-icons/fa";
 import { useSession } from "next-auth/react";
-import { IoStar } from "react-icons/io5";
-import { Progress } from "@/components/ui/progress";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { FaAngleRight, FaSortDown } from "react-icons/fa";
+import { IoStar } from "react-icons/io5";
 import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
-import { useRouter } from "next/navigation";
-import MyAlertDialog from "../components/AlertDialog";
 import UpdateRoleModal from "./UpdateRoleModal";
 
 const DashboardPage = () => {
   const router = useRouter();
 
   const { status, data: session } = useSession();
-
-  console.log(session);
   if (status === "loading") return <div>Loading ....</div>;
   if (status === "unauthenticated") {
     router.push("/api/auth/signin");

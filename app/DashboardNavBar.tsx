@@ -10,12 +10,11 @@ import {
 import {
   Avatar,
   Box,
-  Button,
   Container,
   DropdownMenu,
   Flex,
   Separator,
-  Text,
+  Text
 } from "@radix-ui/themes";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
@@ -48,6 +47,7 @@ const links = [
   { label: "Tasks", href: "/tasks" },
   { label: "Jobs", href: "/job" },
   { label: "Quiz", href: "/quiz" },
+  { label: "People", href: "/people" },
   { label: "Settings", href: "/profile" },
 ];
 
@@ -102,14 +102,11 @@ const navLinks = [
   },
 ];
 
-const loginUrl = "/api/auth/signin";
-
 const DashboardNavBar = () => {
   const currentPath = usePathname();
   // we don't want this nav bar on home page, home page has it's own
   if (currentPath === "/") return null;
   if (currentPath.startsWith("/api/auth")) return null;
-  console.log(currentPath);
   return (
     <nav>
       <Box className="max-h-[0.5rem] lg:max-h-[0.5rem] opacity-0">a</Box>
