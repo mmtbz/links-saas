@@ -166,13 +166,13 @@ const DashboardNavBar = () => {
       <Container>
         <Box className="hidden lg:block">
           <Flex
-            className="text-white bg-[#0D7070] my-2 rounded-[0.5rem] px-4  text-sm"
+            className="text-white bg-[#0D7070] my-2 rounded-[0.5rem] px-4 text-sm"
             gap="4"
           >
             {navLinks.map((link) => (
               <Flex
                 key={link.href}
-                className="p-1 capitalize"
+                className="p-2 capitalize"
                 gap="1"
                 align="center"
               >
