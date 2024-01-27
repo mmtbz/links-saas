@@ -26,13 +26,9 @@ const findSkills = cache((userId: string) =>
 const PersonDetailsPage = async ({ params }: Props) => {
   if (params.id === "null") notFound();
   const profile = await findUserProfile(parseInt(params.id));
-
   if (!profile) notFound();
-
   const skills = await findSkills(profile?.userId).then((res) => res?.skills);
-
-  console.log(profile);
-  console.log(skills);
+  
   return (
     <Container>
       <Grid gap="3" columns={{ md: "1fr 2fr", lg: "1fr 3fr", sm: "1fr" }}>

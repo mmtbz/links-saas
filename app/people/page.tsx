@@ -1,12 +1,9 @@
 import prisma from "@/prisma/client";
-import { Box, Container, Grid, Separator, Text } from "@radix-ui/themes";
-import DialogBox from "../components/general/DialogBox";
-import ProfileMain from "../profile/ProfileMain";
-import ProfileTabs from "../profile/ProfileTabs";
+import { Box, Container, Separator, Text } from "@radix-ui/themes";
 import PeopleListItem from "./_components/PeopleListItem";
 
 const PeoplePage = async () => {
-  const users = await prisma.user.findMany();
+  const users = await prisma.user.findMany({ include: { skills: true } });
 
   return (
     <Container>
@@ -22,6 +19,7 @@ const PeoplePage = async () => {
                 userId={user.id}
                 image={user.image || ""}
                 name={user.name || ""}
+                skills={user.skills || []}
               />
               <Separator size="4" className="my-3" />
             </Box>
@@ -34,15 +32,15 @@ const PeoplePage = async () => {
 
 export default PeoplePage;
 
-const PersonDescription = () => {
-  return (
-    <Grid gap="3" columns={{ md: "1fr 2fr", lg: "1fr 3fr", sm: "1fr" }}>
-      <Box className="bg-white bg-opacity-40 rounded-[5px]">
-        <ProfileMain />
-      </Box>
-      <Box className="bg-white bg-opacity-40 rounded-[5px]">
-        <ProfileTabs />
-      </Box>
-    </Grid>
-  );
-};
+// const PersonDescription = () => {
+//   return (
+//     <Grid gap="3" columns={{ md: "1fr 2fr", lg: "1fr 3fr", sm: "1fr" }}>
+//       <Box className="bg-white bg-opacity-40 rounded-[5px]">
+//         <ProfileMain />
+//       </Box>
+//       <Box className="bg-white bg-opacity-40 rounded-[5px]">
+//         <ProfileTabs />
+//       </Box>
+//     </Grid>
+//   );
+// };

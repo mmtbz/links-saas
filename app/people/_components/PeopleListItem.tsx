@@ -1,9 +1,6 @@
 "use client";
-import prisma from "@/prisma/client";
-import { Skill, UserProfile, UserSkill } from "@prisma/client";
+import { Skill } from "@prisma/client";
 import { Avatar, Badge, Box, Flex, Text } from "@radix-ui/themes";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FaAngleRight } from "react-icons/fa";
 
@@ -12,23 +9,11 @@ interface Props {
   userId: string;
   image: string;
   name: string;
+  skills: Skill[];
 }
 
 const PeopleListItem = (user: Props) => {
-  const [userSkills, setUserSkills] = useState<Skill[]>([]);
   const router = useRouter();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const userSkillsData = await axios
-        .get<Skill[]>("/api/skills/" + user.userId)
-        .then((res) => res.data);
-
-      setUserSkills(userSkillsData);
-    };
-
-    fetchData();
-  }, [user.userId]);
 
   return (
     <Flex
@@ -55,7 +40,7 @@ const PeopleListItem = (user: Props) => {
               <Text> Kigali, Rwanda</Text>
             </Box>
             <Flex gap="2">
-              {userSkills.map((skill) => (
+              {user.skills.map((skill) => (
                 <Badge color="red" key={skill.id}>
                   {skill.name}
                 </Badge>
