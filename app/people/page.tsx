@@ -1,15 +1,5 @@
 import prisma from "@/prisma/client";
-import { User } from "@prisma/client";
-import {
-  Avatar,
-  Badge,
-  Box,
-  Container,
-  Flex,
-  Grid,
-  Separator,
-  Text,
-} from "@radix-ui/themes";
+import { Box, Container, Grid, Separator, Text } from "@radix-ui/themes";
 import DialogBox from "../components/general/DialogBox";
 import ProfileMain from "../profile/ProfileMain";
 import ProfileTabs from "../profile/ProfileTabs";
@@ -27,17 +17,11 @@ const PeoplePage = async () => {
         <Box className="mt-3">
           {users.map((user) => (
             <Box key={user.id}>
-              <DialogBox
-                trigger={
-                  <PeopleListItem
-                    profileId={user.userProfileId!}
-                    userId={user.id}
-                    image={user.image || ""}
-                    name={user.name || ""}
-                  />
-                }
-                title={user.name || "User"}
-                content={<PersonDescription />}
+              <PeopleListItem
+                profileId={user.userProfileId!}
+                userId={user.id}
+                image={user.image || ""}
+                name={user.name || ""}
               />
               <Separator size="4" className="my-3" />
             </Box>
