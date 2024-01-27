@@ -1,9 +1,16 @@
-import { Flex, Badge, Separator, Text } from "@radix-ui/themes";
+import { Flex, Badge, Separator, Text, Avatar } from "@radix-ui/themes";
 import React from "react";
 import ProfileCard from "./ProfileCard";
 import Image from "next/image";
 
-const ProfileMain = () => {
+interface Props {
+  name: string;
+  photo: string;
+  title: string;
+  location: string;
+}
+
+const ProfileMain = ({ name, photo, title, location }: Props) => {
   const tags = [
     {
       prop: "Location",
@@ -18,23 +25,21 @@ const ProfileMain = () => {
   return (
     <div className="max-h-screen">
       <Flex align="center" direction="column" gap="3" className="p-2">
-        <Image
-          src="https://randomuser.me/api/portraits/men/75.jpg"
-          height="150"
-          width="150"
-          alt="Profile Picture"
-          className="rounded-3xl"
+        <Avatar
+          src={photo}
+          fallback="?"
+          size="8"
+          radius="small"
+          className="cursor-pointer"
         />
         <Text as="p" size="7" className="text-center font-bold">
-          Michael Blackson Emanuel
+          {name}
         </Text>
 
-        <Badge size="2">Senior Software Engineer</Badge>
+        <Badge size="2">{title}</Badge>
       </Flex>
       <Separator my="3" size="4" />
-      {tags.map((tag) => (
-        <ProfileCard key={tag.prop} value={tag.value} prop={tag.prop} />
-      ))}
+      <ProfileCard value={location} prop="Location" />
     </div>
   );
 };

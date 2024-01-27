@@ -9,10 +9,7 @@ interface Props {
 const ProfileCard = ({ prop, value }: Props) => {
   return (
     <Flex gap="2" className="m-4">
-      {/* <Flex align="center" justify="center" className="bg-slate-900">
-        <FaLocationDot />
-      </Flex> */}
-      <Badge className="flex items-center p-2 bg-red-500 rounded-full" size="2">
+      <Badge className="flex items-center p-2 rounded-full" size="2">
         <FaLocationDot />
       </Badge>
       <Flex direction="column">
