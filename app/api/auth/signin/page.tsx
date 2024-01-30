@@ -32,7 +32,6 @@ const LoginPage = () => {
       redirect: false,
     };
     const result = await signIn("credentials", loginData);
-    console.log(result);
 
     if (result?.error) {
       console.error("Sign-in failed:", result.error);

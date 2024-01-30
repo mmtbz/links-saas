@@ -6,7 +6,6 @@ import CompanyCard from "./CompanyCard";
 const CompanyPage = async () => {
   const companies = await prisma.company.findMany();
 
-  console.log(companies);
   return (
     <Container>
       <Box className="mt-4 px-3 lg:px-0">

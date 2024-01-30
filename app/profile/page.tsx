@@ -11,16 +11,23 @@ const ProfilePage = () => {
   return (
     <>
       <Flex align="center" gap="3" mb="3">
-        <Switch onCheckedChange={() => setShowNewProfile(!showNewProfile)} defaultChecked />
+        <Switch
+          onCheckedChange={() => setShowNewProfile(!showNewProfile)}
+          defaultChecked
+        />
         <Text> Switch Profiles</Text>
       </Flex>
 
       <Grid gap="3" columns={{ md: "1fr 2fr", lg: "1fr 3fr", sm: "1fr" }}>
         <Box className="bg-white">
-          {showNewProfile ? <ProfileMainExp/> : <ProfileMain />}
+          {showNewProfile ? (
+            <ProfileMainExp />
+          ) : (
+            <ProfileMain name={""} photo={""} title={""} location={""} />
+          )}
         </Box>
         <Box className="inherit">
-          <ProfileTabs />
+          <ProfileTabs about={""} skills={[]} />
         </Box>
       </Grid>
     </>

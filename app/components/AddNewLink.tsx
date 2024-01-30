@@ -17,8 +17,6 @@ const AddNewLink = () => {
     addUrl(newUrl);
   };
 
-  console.log(urls);
-
   return (
     <Card>
       <Flex gap="2" direction="column">
