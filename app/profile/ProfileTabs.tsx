@@ -1,11 +1,10 @@
 "use client";
 
-import { Tabs, Box, Text, Flex } from "@radix-ui/themes";
-import React from "react";
-import AboutTab from "./AboutTab";
-import Title from "../components/Title";
-import ResumeTab from "./ResumeTab";
 import { Skill } from "@prisma/client";
+import { Box, Flex, Tabs, Text } from "@radix-ui/themes";
+import Title from "../components/Title";
+import AboutTab from "./AboutTab";
+import ResumeTab from "./ResumeTab";
 
 interface Props {
   about: string;
@@ -29,7 +28,7 @@ const ProfileTabs = ({about, skills}: Props) => {
 
       <Box pt="2" className="p-2">
         <Tabs.Content value="about">
-          <AboutTab about={about} skills={skills}/>
+          <AboutTab about={about} skills={skills || []}/>
         </Tabs.Content>
 
         <Tabs.Content value="resume">

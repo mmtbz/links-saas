@@ -10,7 +10,6 @@ import {
 import {
   Avatar,
   Box,
-  Container,
   DropdownMenu,
   Flex,
   Separator,
@@ -20,13 +19,16 @@ import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { FaTasks } from "react-icons/fa";
+import { FaBook, FaTasks } from "react-icons/fa";
 import { FaPeopleGroup } from "react-icons/fa6";
-import { FiPlus } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GoOrganization, GoStack } from "react-icons/go";
 import { LuLayoutDashboard } from "react-icons/lu";
-import { MdInsights, MdOutlineQuiz } from "react-icons/md";
+import {
+  MdInsights,
+  MdOutlineQuiz,
+  MdOutlineWork
+} from "react-icons/md";
 import { RiHome4Fill } from "react-icons/ri";
 import LayersImage from "../public/icons/001-layers.png";
 import ProjectsImage from "../public/icons/002-research.png";
@@ -39,7 +41,6 @@ import HeartIcon from "../public/svg/favorite.svg";
 import MessageIcon from "../public/svg/message.svg";
 import NotificationIcon from "../public/svg/notification.svg";
 
-import React from "react";
 import { CiLogout } from "react-icons/ci";
 
 const links = [
@@ -120,7 +121,7 @@ const DashboardNavBar = () => {
               LOGO
             </Link>
           </Flex>
-          <Flex align="center" gap="3" className="py-2 px-2">
+          <Flex align="center" gap="5" className="py-2 px-2">
             <Flex gap="2" align="center">
               <Image
                 src={NotificationIcon}
@@ -147,23 +148,23 @@ const DashboardNavBar = () => {
                 width={20}
               />
             </Flex>
-
-            <Box className="hidden lg:block">
-              <Flex
-                gap="1"
-                align="center"
-                className="px-3 py-1 border border-solid rounded-[5px]"
-              >
-                <FiPlus />
-                <Link href="/">Add a Project</Link>
+            <Flex gap="4">
+              <Flex gap="2" align="center">
+                <FaBook />
+                <Text>Learn</Text>
               </Flex>
-            </Box>
-            <AuthStatus />
+              <Flex gap="2" align="center">
+                <MdOutlineWork />
+                <Text>Jobs</Text>
+              </Flex>
+              <AuthStatus />
+            </Flex>
+
             <MobileNavigationBar />
           </Flex>
         </Flex>
       </Box>
-      <Container>
+      {/* <Container>
         <Box className="hidden lg:block">
           <Flex
             className="text-white bg-[#0D7070] my-2 rounded-[0.5rem] px-4 text-sm"
@@ -183,7 +184,7 @@ const DashboardNavBar = () => {
             ))}
           </Flex>
         </Box>
-      </Container>
+      </Container> */}
     </nav>
   );
 };

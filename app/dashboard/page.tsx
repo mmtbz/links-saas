@@ -8,7 +8,7 @@ import {
   Flex,
   Grid,
   Separator,
-  Text
+  Text,
 } from "@radix-ui/themes";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
@@ -34,7 +34,10 @@ const DashboardPage = () => {
     <Container>
       {session?.user?.role === "NONE" && <UpdateRoleModal />}
       <Box className="mt-4 px-3 lg:px-0">
-        <Text size="6" className="font-semibold">
+        <Text
+          size="6"
+          className="font-semibold bg-gradient-to-r from-teal-500 to-green-700 text-transparent bg-clip-text"
+        >
           Morning {session?.user?.name},
         </Text>
         <Flex gap="4" className="mt-4 flex-col lg:flex-row">
@@ -46,9 +49,9 @@ const DashboardPage = () => {
           >
             <Box>
               <Text className="block font-semibold text-lg" size="4">
-                Get a perfect Candidate for your Project
+                Get a perfect Remote job
               </Text>
-              <Text size="2">Tell us what service you need</Text>
+              <Text size="2">Tell us your preference</Text>
             </Box>
             <FaAngleRight size={24} />
           </Flex>
@@ -56,13 +59,13 @@ const DashboardPage = () => {
             align="center"
             gap="3"
             justify="between"
-            className="flex-1 bg-gradient-to-br from-green-700 to-teal-500 p-6 text-white rounded-[0.5rem]"
+            className="flex-1 bg-gradient-to-br from-purple-500 to-pink-500 p-6 text-white rounded-[0.5rem]"
           >
             <Box>
               <Text className="block font-semibold text-lg" size="4">
-                Get a perfect Candidate for your Project
+                Take One time quiz for your skills
               </Text>
-              <Text size="2">Tell us what service you need</Text>
+              <Text size="2">Take one time quiz valid for all your job application</Text>
             </Box>
             <FaAngleRight size={24} />
           </Flex>
