@@ -1,4 +1,5 @@
 "use client";
+import { FEATURES } from "@/app/feature";
 import { Box, Button, Flex, Text } from "@radix-ui/themes";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
@@ -40,6 +41,8 @@ const LoginPage = () => {
     }
   };
 
+  const hideCustomLoginForm = !FEATURES.HIDE_CUSTOM_LOGIN.enabled;
+
   return (
     <Flex
       justify="between"
@@ -56,7 +59,7 @@ const LoginPage = () => {
       <Box className="rounded-t-[10px]">
         <Flex
           direction="column"
-          className="rounded-t-[10px] p-3 bg-gray-50 mx-1 mt-1"
+          className="rounded-[10px] p-3 bg-gray-50 m-1"
         >
           <Text size="8" mb="5" mt="5">
             Welcome back 👋
@@ -73,45 +76,48 @@ const LoginPage = () => {
             <FcGoogle size={20} />
             <Text>Sign In with Google</Text>
           </button>
+          {hideCustomLoginForm && (
+            <>
+              <div className="flex items-center my-4">
+                <hr className="flex-1 border-t border-gray-300" />
+                <span className="mx-4 text-gray-500">Or</span>
+                <hr className="flex-1 border-t border-gray-300" />
+              </div>
+              <form>
+                <Flex direction="column" mb="3">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    placeholder="example@email.com"
+                    className="border border-solid border-grey px-3 py-2 rounded-xl bg-blue-50 outline-none"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </Flex>
+                <Flex direction="column" mb="3">
+                  <label>Password</label>
+                  <input
+                    placeholder="At least 8 characters"
+                    type="password"
+                    autoComplete="true"
+                    className="border border-solid border-grey px-3 py-2 rounded-xl bg-blue-50 outline-none"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Flex>
+              </form>
+              <Flex justify="end" className="mb-3">
+                <button className="outline-none hover:bg-inherit hover:cursor-pointer text-blue-800 text-sm">
+                  Forgot Password?
+                </button>
+              </Flex>
 
-          <div className="flex items-center my-4">
-            <hr className="flex-1 border-t border-gray-300" />
-            <span className="mx-4 text-gray-500">Or</span>
-            <hr className="flex-1 border-t border-gray-300" />
-          </div>
-          <form>
-            <Flex direction="column" mb="3">
-              <label>Email</label>
-              <input
-                type="email"
-                placeholder="example@email.com"
-                className="border border-solid border-grey px-3 py-2 rounded-xl bg-blue-50 outline-none"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </Flex>
-            <Flex direction="column" mb="3">
-              <label>Password</label>
-              <input
-                placeholder="At least 8 characters"
-                type="password"
-                autoComplete="true"
-                className="border border-solid border-grey px-3 py-2 rounded-xl bg-blue-50 outline-none"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Flex>
-          </form>
-          <Flex justify="end" className="mb-3">
-            <button className="outline-none hover:bg-inherit hover:cursor-pointer text-blue-800 text-sm">
-              Forgot Password?
-            </button>
-          </Flex>
-
-          <button
-            className="px-3 py-2 bg-slate-800 text-white rounded-xl mb-5"
-            onClick={handleCustomSignIn}
-          >
-            Sign In
-          </button>
+              <button
+                className="px-3 py-2 bg-slate-800 text-white rounded-xl mb-5"
+                onClick={handleCustomSignIn}
+              >
+                Sign In
+              </button>
+            </>
+          )}
 
           <Flex gap="2" align="center" justify="center" mb="5">
             <Text>Don&lsquo;t have an account?</Text>
