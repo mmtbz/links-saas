@@ -10,19 +10,28 @@ import {
   Separator,
   Text,
 } from "@radix-ui/themes";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FaAngleRight, FaSortDown } from "react-icons/fa";
+import { FaAngleRight, FaSortDown, FaUserAlt } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
 import UpdateRoleModal from "./UpdateRoleModal";
+import { CiLogout } from "react-icons/ci";
+import { IoMdSettings } from "react-icons/io";
 
 const DashboardPage = () => {
   const router = useRouter();
+
+  const handleSignOut = async () => {
+    const signOutData = {
+      callbackUrl: "/",
+    };
+    const result = await signOut(signOutData);
+  };
 
   const { status, data: session } = useSession();
   if (status === "loading") return <div>Loading ....</div>;
@@ -65,7 +74,9 @@ const DashboardPage = () => {
               <Text className="block font-semibold text-lg" size="4">
                 Take One time quiz for your skills
               </Text>
-              <Text size="2">Take one time quiz valid for all your job application</Text>
+              <Text size="2">
+                Take one time quiz valid for all your job application
+              </Text>
             </Box>
             <FaAngleRight size={24} />
           </Flex>
@@ -156,7 +167,37 @@ const DashboardPage = () => {
               </Flex>
 
               <Box className="mt-4 bg-white p-4 border-y border-solid border-[#E4E5E7]">
-                <Text>Link your social networks</Text>
+                <Text>Account</Text>
+              </Box>
+              <Box className=" bg-white ">
+                <Flex
+                  gap="2"
+                  align="center"
+                  justify="start"
+                  className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                >
+                  <FaUserAlt />
+                  <Text>Profile</Text>
+                </Flex>
+                <Flex
+                  gap="2"
+                  align="center"
+                  justify="start"
+                  className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                >
+                  <IoMdSettings />
+                  <Text>Settings</Text>
+                </Flex>
+                <Flex
+                  gap="2"
+                  align="center"
+                  justify="start"
+                  className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                  onClick={handleSignOut}
+                >
+                  <CiLogout />
+                  <Text>Sign Out</Text>
+                </Flex>
               </Box>
             </Box>
           </Box>
