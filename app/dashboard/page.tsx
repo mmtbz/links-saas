@@ -14,14 +14,14 @@ import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { CiLogout } from "react-icons/ci";
 import { FaAngleRight, FaSortDown, FaUserAlt } from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
 import { IoStar } from "react-icons/io5";
 import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
 import UpdateRoleModal from "./UpdateRoleModal";
-import { CiLogout } from "react-icons/ci";
-import { IoMdSettings } from "react-icons/io";
 
 const DashboardPage = () => {
   const router = useRouter();
@@ -170,29 +170,33 @@ const DashboardPage = () => {
                 <Text>Account</Text>
               </Box>
               <Box className=" bg-white ">
+                <Link href={"/people/" + session?.user?.userProfileId}>
+                  <Flex
+                    gap="2"
+                    align="center"
+                    justify="start"
+                    className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                  >
+                    <FaUserAlt />
+                    <Text>Profile</Text>
+                  </Flex>
+                </Link>
+                <Link href={"/settings"}>
+                  <Flex
+                    gap="2"
+                    align="center"
+                    justify="start"
+                    className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                  >
+                    <IoMdSettings />
+                    <Text>Settings</Text>
+                  </Flex>
+                </Link>
                 <Flex
                   gap="2"
                   align="center"
                   justify="start"
-                  className="p-2 text-[#145959] hover:bg-[#19948c30]"
-                >
-                  <FaUserAlt />
-                  <Text>Profile</Text>
-                </Flex>
-                <Flex
-                  gap="2"
-                  align="center"
-                  justify="start"
-                  className="p-2 text-[#145959] hover:bg-[#19948c30]"
-                >
-                  <IoMdSettings />
-                  <Text>Settings</Text>
-                </Flex>
-                <Flex
-                  gap="2"
-                  align="center"
-                  justify="start"
-                  className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                  className="p-2 text-[#145959] hover:bg-[#19948c30] hover:cursor-pointer"
                   onClick={handleSignOut}
                 >
                   <CiLogout />

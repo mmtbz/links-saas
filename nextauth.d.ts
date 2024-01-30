@@ -16,6 +16,11 @@ interface IUser extends DefaultUser {
    * Field to check whether a user is active
    */
   active?: boolean;
+
+  /**
+   * ProfileId, used in dashboard page
+   */
+  userProfileId?: number | null;
 }
 
 declare module "next-auth" {
