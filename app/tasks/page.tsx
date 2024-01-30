@@ -198,7 +198,7 @@ const TasksPage = () => {
                   <IoIosMore />
                 </Flex>
                 <Text className="font-semibold block">Figma Design - V1</Text>
-                <Text className="text-sm leading-[0.25rem]">
+                <Text className="text-sm leading-[1rem]">
                   Create a design system for a hero section in 2 different
                   variants. Create a simple presentation with these components.
                 </Text>
@@ -228,7 +228,7 @@ const TasksPage = () => {
                   <IoIosMore />
                 </Flex>
                 <Text className="font-semibold block">Figma Design - V1</Text>
-                <Text className="text-sm leading-[0.25rem]">
+                <Text className="text-sm leading-[1rem]">
                   Create a design system for a hero section in 2 different
                   variants. Create a simple presentation with these components.
                 </Text>
@@ -249,7 +249,7 @@ const TasksPage = () => {
                   <IoIosMore />
                 </Flex>
                 <Text className="font-semibold block">Figma Design - V1</Text>
-                <Text className="text-sm leading-[0.25rem]">
+                <Text className="text-sm leading-[1rem]">
                   Create a design system for a hero section in 2 different
                   variants. Create a simple presentation with these components.
                 </Text>
@@ -283,7 +283,7 @@ const TasksPage = () => {
                 <Text className="font-semibold block">
                   Database design - MySQL
                 </Text>
-                <Text className="text-sm leading-[0.25rem]">
+                <Text className="text-sm leading-[1rem]">
                   Create a design system for a hero section in 2 different
                   variants. Create a simple presentation with these components.
                 </Text>
