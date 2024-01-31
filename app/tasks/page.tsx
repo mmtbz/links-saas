@@ -133,7 +133,7 @@ const TasksPage = () => {
               <Text>Account</Text>
             </Box>
             <Box className=" bg-white ">
-              <Link href={"/people/"}>
+              <Link href={"/profile/"}>
                 <Flex
                   gap="2"
                   align="center"

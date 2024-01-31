@@ -170,7 +170,7 @@ const DashboardPage = () => {
                 <Text>Account</Text>
               </Box>
               <Box className=" bg-white ">
-                <Link href={"/people/" + session?.user?.userProfileId}>
+                <Link href="/profile">
                   <Flex
                     gap="2"
                     align="center"
