@@ -1,4 +1,5 @@
 import { Avatar, Box, Container, Flex, Grid, Text } from "@radix-ui/themes";
+import Link from "next/link";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 const ProfilePage = () => {
@@ -23,10 +24,10 @@ const ProfilePage = () => {
           direction="column"
         >
           <Box className="text-[#145959] hover:bg-[#19948c30] py-2 rounded-[5px]">
-            <Text>Profile</Text>
+            <Link href="/profile">Profile</Link>
           </Box>
           <Box className="text-[#145959] hover:bg-[#19948c30] py-2 rounded-[5px]">
-            <Text>Work History</Text>
+            <Link href="/profile/workHistory">Work History</Link>
           </Box>
           <Box className="text-[#145959] hover:bg-[#19948c30] py-2 rounded-[5px]">
             <Text>Education History</Text>
@@ -44,7 +45,7 @@ const ProfilePage = () => {
             <Box className="col-span-1 lg:col-span-2">
               <Flex gap="4" align="center">
                 <Avatar fallback="DM" size="6" color="green" radius="full" />
-                <button className=" border py-1 px-3 border-solid border-[#145959] rounded-[10px]">
+                <button className="border py-1 px-3 border-solid border-[#145959] rounded-[10px]">
                   Update
                 </button>
                 <Flex align="center" gap="1">
@@ -91,10 +92,16 @@ const ProfilePage = () => {
             </Box>
             <Flex className="col-span-1 lg:col-span-3" justify="between">
               <Flex gap="3">
-                <button className="p-2 bg-[#145959] text-white rounded-[10px]">Save Changes</button>
-                <button className="p-2 border border-black rounded-[10px]">Cancel</button>
+                <button className="p-2 bg-[#145959] text-white rounded-[10px]">
+                  Save Changes
+                </button>
+                <button className="p-2 border border-black rounded-[10px]">
+                  Cancel
+                </button>
               </Flex>
-              <button className="p-2 bg-[#C84545] text-white rounded-[10px]">Delete Account</button>
+              <button className="p-2 bg-[#C84545] text-white rounded-[10px]">
+                Delete Account
+              </button>
             </Flex>
           </Grid>
         </Box>
