@@ -144,28 +144,29 @@ const DashboardNavBar = () => {
                 width={20}
               />
             </Flex>
-            <Flex gap="4" align="center">
-              <Link href="/quiz">
-                <Flex gap="2" align="center">
-                  <FaBook />
-                  <Text>Learn</Text>
-                </Flex>
-              </Link>
-              <Link href="/tasks">
-                <Flex gap="2" align="center">
-                  <FaTasks />
-                  <Text>Tasks</Text>
-                </Flex>
-              </Link>
-              <Link href="/jobs">
-                <Flex gap="2" align="center">
-                  <MdOutlineWork />
-                  <Text>Jobs</Text>
-                </Flex>
-              </Link>
-              <AuthStatus />
-            </Flex>
-
+            <Box className="hidden lg:block">
+              <Flex gap="4" align="center">
+                <Link href="/quiz">
+                  <Flex gap="2" align="center">
+                    <FaBook />
+                    <Text>Learn</Text>
+                  </Flex>
+                </Link>
+                <Link href="/tasks">
+                  <Flex gap="2" align="center">
+                    <FaTasks />
+                    <Text>Tasks</Text>
+                  </Flex>
+                </Link>
+                <Link href="/jobs">
+                  <Flex gap="2" align="center">
+                    <MdOutlineWork />
+                    <Text>Jobs</Text>
+                  </Flex>
+                </Link>
+                <AuthStatus />
+              </Flex>
+            </Box>
             <MobileNavigationBar />
           </Flex>
         </Flex>
