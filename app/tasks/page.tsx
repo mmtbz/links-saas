@@ -169,9 +169,9 @@ const TasksPage = () => {
           </Box>
         </Box>
         <Box className="col-span-1 lg:col-span-3">
-          <Flex align="center" justify="between">
+          <Flex align="center" justify="between" className="mb-1">
             <Text className="font-semibold text-lg">Board</Text>
-            <select className="text-sm p-1">
+            <select className="text-sm py-1 px-2 outline-none border border-solid rounded-[5px]">
               <option>This week</option>
               <option>This month</option>
             </select>
