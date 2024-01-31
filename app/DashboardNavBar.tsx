@@ -13,7 +13,7 @@ import {
   DropdownMenu,
   Flex,
   Separator,
-  Text
+  Text,
 } from "@radix-ui/themes";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
@@ -24,11 +24,7 @@ import { FaPeopleGroup } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GoOrganization, GoStack } from "react-icons/go";
 import { LuLayoutDashboard } from "react-icons/lu";
-import {
-  MdInsights,
-  MdOutlineQuiz,
-  MdOutlineWork
-} from "react-icons/md";
+import { MdInsights, MdOutlineQuiz, MdOutlineWork } from "react-icons/md";
 import { RiHome4Fill } from "react-icons/ri";
 import LayersImage from "../public/icons/001-layers.png";
 import ProjectsImage from "../public/icons/002-research.png";
@@ -148,15 +144,25 @@ const DashboardNavBar = () => {
                 width={20}
               />
             </Flex>
-            <Flex gap="4">
-              <Flex gap="2" align="center">
-                <FaBook />
-                <Text>Learn</Text>
-              </Flex>
-              <Flex gap="2" align="center">
-                <MdOutlineWork />
-                <Text>Jobs</Text>
-              </Flex>
+            <Flex gap="4" align="center">
+              <Link href="/quiz">
+                <Flex gap="2" align="center">
+                  <FaBook />
+                  <Text>Learn</Text>
+                </Flex>
+              </Link>
+              <Link href="/tasks">
+                <Flex gap="2" align="center">
+                  <FaTasks />
+                  <Text>Tasks</Text>
+                </Flex>
+              </Link>
+              <Link href="/jobs">
+                <Flex gap="2" align="center">
+                  <MdOutlineWork />
+                  <Text>Jobs</Text>
+                </Flex>
+              </Link>
               <AuthStatus />
             </Flex>
 
