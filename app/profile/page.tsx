@@ -1,15 +1,16 @@
 "use client";
-import { Avatar, Box, Container, Flex, Text } from "@radix-ui/themes";
+import { Avatar, Box, Flex, Text } from "@radix-ui/themes";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FaRegTrashAlt } from "react-icons/fa";
+import Spinner from "../components/Spinner";
 
 const ProfilePage = () => {
   const { status, data: session } = useSession();
   const router = useRouter();
 
   if (status === "loading") {
-    return <Container>... loading</Container>;
+    return <Spinner />;
   }
 
   if (status === "unauthenticated") {

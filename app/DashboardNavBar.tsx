@@ -260,7 +260,8 @@ const AuthStatus = () => {
     const result = await signOut(signOutData);
   };
 
-  if (status === "loading") return <p>loading</p>;
+  if (status === "loading")
+    return <Avatar src="" fallback="?" size="2" radius="full" />;
   if (status === "unauthenticated")
     if (currentPath.startsWith("/api/auth")) return null;
   return (
