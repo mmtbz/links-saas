@@ -1,3 +1,4 @@
+"use client";
 import Spinner from "@/app/components/Spinner";
 import { Box, Checkbox, Flex, Text } from "@radix-ui/themes";
 import { useSession } from "next-auth/react";
@@ -19,7 +20,7 @@ const WorkHistoryPage = () => {
     <>
       <Box className="col-span-1 lg:col-span-2">
         <Flex
-          className="border py-1 px-3 border-solid border-[#145959] text-[#145959] rounded-[10px] hover:cursor-pointer mx-8"
+          className="border p-2 border-solid border-[#145959] text-[#145959] rounded-[10px] hover:cursor-pointer"
           align="center"
           justify="center"
           gap="1"
@@ -105,7 +106,7 @@ const WorkHistoryPage = () => {
           </Flex>
         </form>
       </Box>
-      <Flex className="col-span-1 lg:col-span-3" justify="between">
+      <Flex className="col-span-1 lg:col-span-2" justify="between">
         <button className="p-2 bg-[#145959] text-white rounded-[10px]">
           Save Changes
         </button>

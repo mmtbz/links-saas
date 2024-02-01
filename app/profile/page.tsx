@@ -82,18 +82,16 @@ const ProfilePage = () => {
           </Flex>
         </form>
       </Box>
-      <Flex className="col-span-1 lg:col-span-3" justify="between">
-        <Flex gap="3">
-          <button className="p-2 px-4 bg-[#145959] text-white rounded-[10px]">
-            Save Changes
-          </button>
-          <button className="py-2 px-4 border border-black rounded-[10px]">
-            Cancel
-          </button>
-        </Flex>
-        <button className="py-2 px-4 bg-[#C84545] text-white rounded-[10px]">
-          Delete Account
+      <Flex className="col-span-1 lg:col-span-2" justify="between">
+        <button className="p-2 px-4 bg-[#145959] text-white rounded-[10px]">
+          Save Changes
         </button>
+        <button className="py-2 px-4 border border-black rounded-[10px]">
+          Cancel
+        </button>
+        {/* <button className="py-2 px-4 bg-[#C84545] text-white rounded-[10px]">
+          Delete Account
+        </button> */}
       </Flex>
     </>
   );

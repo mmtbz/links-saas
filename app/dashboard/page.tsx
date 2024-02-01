@@ -15,7 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CiLogout } from "react-icons/ci";
-import { FaAngleRight, FaSortDown, FaUserAlt } from "react-icons/fa";
+import { FaAngleRight, FaSortDown, FaTasks, FaUserAlt } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { IoStar } from "react-icons/io5";
 import NoticedIcon from "../../public/svg/getNoticed.svg";
@@ -52,41 +52,8 @@ const DashboardPage = () => {
           size="6"
           className="font-semibold bg-gradient-to-r from-teal-500 to-green-700 text-transparent bg-clip-text"
         >
-          Morning {session?.user?.name},
+          Morning {session?.user?.name}
         </Text>
-        <Flex gap="4" className="mt-4 flex-col lg:flex-row">
-          <Flex
-            align="center"
-            gap="3"
-            justify="between"
-            className="flex-1 bg-gradient-to-br from-teal-500 to-green-700 p-6 text-white rounded-[0.5rem]"
-          >
-            <Box>
-              <Text className="block font-semibold text-lg" size="4">
-                Get a perfect Remote job
-              </Text>
-              <Text size="2">Tell us your preference</Text>
-            </Box>
-            <FaAngleRight size={24} />
-          </Flex>
-          <Flex
-            align="center"
-            gap="3"
-            justify="between"
-            className="flex-1 bg-gradient-to-br from-purple-500 to-pink-500 p-6 text-white rounded-[0.5rem]"
-          >
-            <Box>
-              <Text className="block font-semibold text-lg" size="4">
-                Take One time quiz for your skills
-              </Text>
-              <Text size="2">
-                Take one time quiz valid for all your job application
-              </Text>
-            </Box>
-            <FaAngleRight size={24} />
-          </Flex>
-        </Flex>
-
         <Grid
           columns={{ sm: "1", lg: "4" }}
           className=" grid-cols-1 lg:grid-cols-4 py-4"
@@ -175,6 +142,17 @@ const DashboardPage = () => {
                 <Text>Account</Text>
               </Box>
               <Box className=" bg-white ">
+                <Link href={"/tasks"}>
+                  <Flex
+                    gap="2"
+                    align="center"
+                    justify="start"
+                    className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                  >
+                    <FaTasks />
+                    <Text>Tasks</Text>
+                  </Flex>
+                </Link>
                 <Link href="/profile">
                   <Flex
                     gap="2"
@@ -197,6 +175,7 @@ const DashboardPage = () => {
                     <Text>Settings</Text>
                   </Flex>
                 </Link>
+                <Separator size="4" />
                 <Flex
                   gap="2"
                   align="center"
@@ -211,7 +190,39 @@ const DashboardPage = () => {
             </Box>
           </Box>
           <Box className="col-span-1 lg:col-span-3">
-            <Box className="my-4 lg:hidden">
+          <Flex gap="4" className="mb-4 flex-col lg:flex-row">
+          <Flex
+            align="center"
+            gap="3"
+            justify="between"
+            className="flex-1 bg-gradient-to-br from-teal-500 to-green-700 p-6 text-white rounded-[0.5rem]"
+          >
+            <Box>
+              <Text className="block font-semibold text-lg" size="4">
+                Get a perfect Remote job
+              </Text>
+              <Text size="2">Tell us your preference</Text>
+            </Box>
+            <FaAngleRight size={24} />
+          </Flex>
+          <Flex
+            align="center"
+            gap="3"
+            justify="between"
+            className="flex-1 bg-gradient-to-br from-purple-500 to-pink-500 p-6 text-white rounded-[0.5rem]"
+          >
+            <Box>
+              <Text className="block font-semibold text-lg" size="4">
+                Take One time quiz for your skills
+              </Text>
+              <Text size="2">
+                Take one time quiz valid for all your job application
+              </Text>
+            </Box>
+            <FaAngleRight size={24} />
+          </Flex>
+        </Flex>
+            <Box className="my-4">
               <Flex align="center">
                 <Box className="bg-gray-100 px-2 py-[2px] text-gray-600 font-semibold rounded-[5px] capitalize">
                   <Text size="2" className=" whitespace-nowrap">

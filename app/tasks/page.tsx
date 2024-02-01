@@ -18,6 +18,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
 import { IoIosMore, IoMdSettings } from "react-icons/io";
 import { IoStar } from "react-icons/io5";
+import { MdDashboard } from "react-icons/md";
 
 const TasksPage = () => {
   const router = useRouter();
@@ -133,6 +134,17 @@ const TasksPage = () => {
               <Text>Account</Text>
             </Box>
             <Box className=" bg-white ">
+              <Link href={"/dashboard"}>
+                <Flex
+                  gap="2"
+                  align="center"
+                  justify="start"
+                  className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                >
+                  <MdDashboard />
+                  <Text>Dashboard</Text>
+                </Flex>
+              </Link>
               <Link href={"/profile/"}>
                 <Flex
                   gap="2"
@@ -155,6 +167,7 @@ const TasksPage = () => {
                   <Text>Settings</Text>
                 </Flex>
               </Link>
+              <Separator size="4" />
               <Flex
                 gap="2"
                 align="center"
