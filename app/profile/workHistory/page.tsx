@@ -10,7 +10,7 @@ const WorkHistoryPage = () => {
   const router = useRouter();
 
   if (status === "loading") {
-    return <Spinner />;
+    return <Spinner header={"Work History"}/>;
   }
 
   if (status === "unauthenticated") {

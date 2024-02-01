@@ -38,7 +38,7 @@ const DashboardPage = () => {
   if (status === "loading")
     return (
       <Container>
-        <Spinner />
+        <Spinner header={"Dashaboard"} />
       </Container>
     );
   if (status === "unauthenticated") {
@@ -190,38 +190,38 @@ const DashboardPage = () => {
             </Box>
           </Box>
           <Box className="col-span-1 lg:col-span-3">
-          <Flex gap="4" className="mb-4 flex-col lg:flex-row">
-          <Flex
-            align="center"
-            gap="3"
-            justify="between"
-            className="flex-1 bg-gradient-to-br from-teal-500 to-green-700 p-6 text-white rounded-[0.5rem]"
-          >
-            <Box>
-              <Text className="block font-semibold text-lg" size="4">
-                Get a perfect Remote job
-              </Text>
-              <Text size="2">Tell us your preference</Text>
-            </Box>
-            <FaAngleRight size={24} />
-          </Flex>
-          <Flex
-            align="center"
-            gap="3"
-            justify="between"
-            className="flex-1 bg-gradient-to-br from-purple-500 to-pink-500 p-6 text-white rounded-[0.5rem]"
-          >
-            <Box>
-              <Text className="block font-semibold text-lg" size="4">
-                Take One time quiz for your skills
-              </Text>
-              <Text size="2">
-                Take one time quiz valid for all your job application
-              </Text>
-            </Box>
-            <FaAngleRight size={24} />
-          </Flex>
-        </Flex>
+            <Flex gap="4" className="mb-4 flex-col lg:flex-row">
+              <Flex
+                align="center"
+                gap="3"
+                justify="between"
+                className="flex-1 bg-gradient-to-br from-teal-500 to-green-700 p-6 text-white rounded-[0.5rem]"
+              >
+                <Box>
+                  <Text className="block font-semibold text-lg" size="4">
+                    Get a perfect Remote job
+                  </Text>
+                  <Text size="2">Tell us your preference</Text>
+                </Box>
+                <FaAngleRight size={24} />
+              </Flex>
+              <Flex
+                align="center"
+                gap="3"
+                justify="between"
+                className="flex-1 bg-gradient-to-br from-purple-500 to-pink-500 p-6 text-white rounded-[0.5rem]"
+              >
+                <Box>
+                  <Text className="block font-semibold text-lg" size="4">
+                    Take One time quiz for your skills
+                  </Text>
+                  <Text size="2">
+                    Take one time quiz valid for all your job application
+                  </Text>
+                </Box>
+                <FaAngleRight size={24} />
+              </Flex>
+            </Flex>
             <Box className="my-4">
               <Flex align="center">
                 <Box className="bg-gray-100 px-2 py-[2px] text-gray-600 font-semibold rounded-[5px] capitalize">

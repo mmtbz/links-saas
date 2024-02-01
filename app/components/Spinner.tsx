@@ -1,14 +1,20 @@
 import React from "react";
 import SpinnerImg from "../../public/spinner-2.svg";
 import Image from "next/image";
+import { Text, Flex } from "@radix-ui/themes";
 
-const Spinner = () => {
+const Spinner = ({ header }: { header: String }) => {
   return (
-    <div className="col-span-3 relative">
-      <div className="absolute top-[5rem] left-[9rem] lg:left-[20rem] flex items-center justify-center">
-        <Image src={SpinnerImg} alt="loading..." height={100} width={100} />
-      </div>
-    </div>
+    <Flex
+      className="col-span-3 min-w-full"
+      justify="center"
+      direction="column"
+      align="center"
+      gap="4"
+    >
+      <Image src={SpinnerImg} alt="loading..." height={80} width={80} />
+      <Text>Loading {header}, Please wait...</Text>
+    </Flex>
   );
 };
 

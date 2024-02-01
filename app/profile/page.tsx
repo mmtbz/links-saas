@@ -10,7 +10,7 @@ const ProfilePage = () => {
   const router = useRouter();
 
   if (status === "loading") {
-    return <Spinner />;
+    return <Spinner header={"Profile"} />;
   }
 
   if (status === "unauthenticated") {
@@ -89,9 +89,6 @@ const ProfilePage = () => {
         <button className="py-2 px-4 border border-black rounded-[10px]">
           Cancel
         </button>
-        {/* <button className="py-2 px-4 bg-[#C84545] text-white rounded-[10px]">
-          Delete Account
-        </button> */}
       </Flex>
     </>
   );
