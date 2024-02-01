@@ -1,5 +1,4 @@
-import { Avatar, Box, Container, Flex, Grid, Text } from "@radix-ui/themes";
-import Link from "next/link";
+import { Avatar, Box, Flex, Text } from "@radix-ui/themes";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 const ProfilePage = () => {
@@ -11,7 +10,7 @@ const ProfilePage = () => {
           <button className="border py-1 px-3 border-solid border-[#145959] rounded-[10px]">
             Update
           </button>
-          <Flex align="center" gap="1">
+          <Flex align="center" gap="1" className="hover:cursor-pointer">
             <FaRegTrashAlt />
             <Text>Remove</Text>
           </Flex>

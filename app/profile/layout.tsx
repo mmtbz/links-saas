@@ -27,18 +27,26 @@ const layout = ({ children }: { children: React.ReactNode }) => {
           className="col-span-1 hidden lg:block font-semibold"
           direction="column"
         >
-          <Box className="text-[#145959] hover:bg-[#19948c30] p-2 rounded-[5px]">
-            <Link href="/profile">Profile</Link>
-          </Box>
-          <Box className="text-[#145959] hover:bg-[#19948c30] p-2 rounded-[5px]">
-            <Link href="/profile/workHistory">Work History</Link>
-          </Box>
-          <Box className="text-[#145959] hover:bg-[#19948c30] p-2 rounded-[5px]">
-            <Text>Education History</Text>
-          </Box>
-          <Box className="text-[#145959] hover:bg-[#19948c30] p-2 rounded-[5px]">
-            <Text>Resume Template</Text>
-          </Box>
+          <Link href="/profile">
+            <Box className="text-[#145959] hover:bg-[#19948c30] p-2 rounded-[5px]">
+              <Text>Profile</Text>
+            </Box>
+          </Link>
+          <Link href="/profile/workHistory">
+            <Box className="text-[#145959] hover:bg-[#19948c30] p-2 rounded-[5px]">
+              <Text>Work History</Text>
+            </Box>
+          </Link>
+          <Link href="/profile/educationHistory">
+            <Box className="text-[#145959] hover:bg-[#19948c30] p-2 rounded-[5px]">
+              <Text>Education History</Text>
+            </Box>
+          </Link>
+          <Link href="/profile/templates">
+            <Box className="text-[#145959] hover:bg-[#19948c30] p-2 rounded-[5px]">
+              <Text>Resume Template</Text>
+            </Box>
+          </Link>
 
           <Flex
             align="center"
