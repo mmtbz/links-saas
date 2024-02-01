@@ -1,8 +1,20 @@
-import { Box, Checkbox, Container, Flex, Grid, Text } from "@radix-ui/themes";
-import Link from "next/link";
+import Spinner from "@/app/components/Spinner";
+import { Box, Checkbox, Flex, Text } from "@radix-ui/themes";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { FiPlus } from "react-icons/fi";
 
 const WorkHistoryPage = () => {
+  const { status, data: session } = useSession();
+  const router = useRouter();
+
+  if (status === "loading") {
+    return <Spinner />;
+  }
+
+  if (status === "unauthenticated") {
+    router.push("/api/auth/signin");
+  }
   return (
     <>
       <Box className="col-span-1 lg:col-span-2">

@@ -22,6 +22,7 @@ import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
 import UpdateRoleModal from "./UpdateRoleModal";
+import Spinner from "../components/Spinner";
 
 const DashboardPage = () => {
   const router = useRouter();
@@ -30,14 +31,18 @@ const DashboardPage = () => {
     const signOutData = {
       callbackUrl: "/",
     };
-    const result = await signOut(signOutData);
+    await signOut(signOutData);
   };
 
   const { status, data: session } = useSession();
-  if (status === "loading") return <div>Loading ....</div>;
+  if (status === "loading")
+    return (
+      <Container>
+        <Spinner />
+      </Container>
+    );
   if (status === "unauthenticated") {
     router.push("/api/auth/signin");
-    return null;
   }
   return (
     <Container>
