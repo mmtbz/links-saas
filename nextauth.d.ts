@@ -20,7 +20,17 @@ interface IUser extends DefaultUser {
   /**
    * ProfileId, used in dashboard page
    */
-  userProfileId?: number | null;
+  userProfileId?: number;
+
+  /**
+   * user country
+   */
+  country?: string;
+
+  /**
+   * user timezone
+   */
+  timezone?: string;
 }
 
 declare module "next-auth" {

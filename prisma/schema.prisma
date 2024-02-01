@@ -67,8 +67,10 @@ model User {
   active         Boolean      @default(true)
   profile        UserProfile?
   skills         Skill[]      @relation("UserSkills")
-  userProfileId  Int? 
+  userProfileId  Int?
   UserSkill      UserSkill[]
+  country        String?
+  timezone       String?
 }
 
 enum Role {
