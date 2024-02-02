@@ -14,11 +14,6 @@ interface IUser extends DefaultUser {
   role?: Role;
 
   /**
-   * User displayName -- we should not edit the name 
-   */
-  displayName?: string;
-
-  /**
    * Field to check whether a user is active
    */
   active?: boolean;
@@ -27,16 +22,6 @@ interface IUser extends DefaultUser {
    * ProfileId, used in dashboard page
    */
   userProfileId?: number;
-
-  /**
-   * user country
-   */
-  country?: string;
-
-  /**
-   * user timezone
-   */
-  timezone?: string;
 }
 
 declare module "next-auth" {

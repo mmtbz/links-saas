@@ -59,9 +59,6 @@ export const authOptions: NextAuthOptions = {
         token.role = user.role;
         token.id = user.id;
         token.userProfileId = user.userProfileId;
-        token.country = user.country;
-        token.timezone = user.timezone;
-        user.displayName = user.displayName;
       }
       return token;
     },
@@ -70,9 +67,6 @@ export const authOptions: NextAuthOptions = {
         session.user.role = token.role;
         session.user.id = token.id;
         session.user.userProfileId = token.userProfileId;
-        session.user.country = token.country;
-        session.user.timezone = token.timezone;
-        session.user.displayName = token.displayName;
       }
       return session;
     },

@@ -59,7 +59,7 @@ const ProfilePage = () => {
               <Text>Country</Text>
               <select
                 className="border border-solid py-2 px-4 rounded-[10px]"
-                defaultValue={session?.user?.country}
+                defaultValue= "United States"
               >
                 <option>United States</option>
                 <option>Rwanda</option>
@@ -73,7 +73,7 @@ const ProfilePage = () => {
 
               <select
                 className="border border-solid py-2 px-4 rounded-[10px]"
-                defaultValue={session?.user?.timezone}
+                defaultValue="Central TIme US & Canada<"
               >
                 <option>Central TIme US & Canada</option>
                 <option>Rwanda</option>

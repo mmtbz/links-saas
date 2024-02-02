@@ -37,7 +37,7 @@ const PersonDetailsPage = async ({ params }: Props) => {
             name={profile.user.name || ""}
             photo={profile.user.image || ""}
             title={profile.professionalTitle || ""}
-            location={profile.location || ""}
+            location={profile.country || ""}
           />
         </Box>
         <Box className="bg-white bg-opacity-40 rounded-[5px]">
