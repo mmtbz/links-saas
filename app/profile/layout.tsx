@@ -74,7 +74,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
                 <Text>Dashboard</Text>
               </Flex>
             </Link>
-            <Link href={"/settings"}>
+            <Link href={"/profile/settings"}>
               <Flex
                 gap="2"
                 align="center"

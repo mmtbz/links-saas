@@ -16,9 +16,8 @@ import CoinsImage from "../../../public/icons/coins.png";
 import JsImage from "../../../public/images/js-banner.webp";
 import OptionSelection from "./_components/option";
 
-import classNames from "classnames";
-import { CiHeart } from "react-icons/ci";
 import Title from "@/app/components/Title";
+import classNames from "classnames";
 
 const QuizPage = () => {
   const [selected, setSelected] = useState("");

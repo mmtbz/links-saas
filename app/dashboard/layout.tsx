@@ -1,27 +1,27 @@
 "use client";
 import { Progress } from "@radix-ui/react-progress";
 import {
-  Container,
-  Box,
-  Text,
-  Grid,
-  Avatar,
-  Button,
-  Flex,
-  Link,
-  Separator,
+    Avatar,
+    Box,
+    Button,
+    Container,
+    Flex,
+    Grid,
+    Link,
+    Separator,
+    Text,
 } from "@radix-ui/themes";
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { CiLogout } from "react-icons/ci";
 import { FaBook, FaTasks, FaUserAlt } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { IoStar } from "react-icons/io5";
-import Spinner from "../components/Spinner";
-import { useRouter } from "next/navigation";
 import { MdDashboard } from "react-icons/md";
+import Spinner from "../components/Spinner";
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const { status, data: session } = useSession();
   if (status === "loading")
@@ -152,7 +152,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
                     <Text>Learn</Text>
                   </Flex>
                 </Link>
-                <Link href={"/tasks"}>
+                <Link href={"/dashboard/tasks"}>
                   <Flex
                     gap="2"
                     align="center"
@@ -207,4 +207,4 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default layout;
+export default Layout;

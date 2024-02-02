@@ -1,35 +1,25 @@
 "use client";
-import { Progress } from "@/components/ui/progress";
 import {
-  Avatar,
   Box,
-  Button,
   Container,
   Flex,
-  Grid,
   Separator,
-  Text,
+  Text
 } from "@radix-ui/themes";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { CiLogout } from "react-icons/ci";
 import {
   FaAngleRight,
-  FaBook,
-  FaSortDown,
-  FaTasks,
-  FaUserAlt,
+  FaSortDown
 } from "react-icons/fa";
-import { IoMdSettings } from "react-icons/io";
-import { IoStar } from "react-icons/io5";
 import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
-import UpdateRoleModal from "./UpdateRoleModal";
 import Spinner from "../components/Spinner";
 import Title from "../components/Title";
+import UpdateRoleModal from "./UpdateRoleModal";
 
 const DashboardPage = () => {
   const router = useRouter();
