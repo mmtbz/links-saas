@@ -57,7 +57,7 @@ const WorkHistoryPage = () => {
               />
             </Flex>
             <Flex gap="2" align="center">
-              <Checkbox defaultChecked size="3" color="cyan" />
+              <input type="checkbox"/>
               <Text>I am currently working in this position</Text>
             </Flex>
 
