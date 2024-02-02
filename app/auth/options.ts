@@ -55,13 +55,13 @@ export const authOptions: NextAuthOptions = {
     },
     // add custom fields to session
     async jwt({ token, user }) {
-
       if (user) {
         token.role = user.role;
         token.id = user.id;
         token.userProfileId = user.userProfileId;
         token.country = user.country;
         token.timezone = user.timezone;
+        user.displayName = user.displayName;
       }
       return token;
     },
@@ -72,6 +72,7 @@ export const authOptions: NextAuthOptions = {
         session.user.userProfileId = token.userProfileId;
         session.user.country = token.country;
         session.user.timezone = token.timezone;
+        session.user.displayName = token.displayName;
       }
       return session;
     },

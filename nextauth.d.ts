@@ -12,6 +12,12 @@ interface IUser extends DefaultUser {
    * Role of user
    */
   role?: Role;
+
+  /**
+   * User displayName -- we should not edit the name 
+   */
+  displayName?: string;
+
   /**
    * Field to check whether a user is active
    */
