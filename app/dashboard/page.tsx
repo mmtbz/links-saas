@@ -15,7 +15,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CiLogout } from "react-icons/ci";
-import { FaAngleRight, FaSortDown, FaTasks, FaUserAlt } from "react-icons/fa";
+import {
+  FaAngleRight,
+  FaBook,
+  FaSortDown,
+  FaTasks,
+  FaUserAlt,
+} from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { IoStar } from "react-icons/io5";
 import NoticedIcon from "../../public/svg/getNoticed.svg";
@@ -139,26 +145,38 @@ const DashboardPage = () => {
               </Flex>
 
               <Box className="mt-4 bg-white p-4 border-y border-solid border-[#E4E5E7]">
-                <Text>Account</Text>
+                <Text>Menu</Text>
               </Box>
-              <Box className=" bg-white ">
+              <Box className=" bg-white">
+                <Link href={"/quiz"}>
+                  <Flex
+                    gap="2"
+                    align="center"
+                    justify="start"
+                    className="py-2 px-4 text-[#145959] hover:bg-[#19948c30]"
+                  >
+                    <FaBook />
+                    <Text>Learn</Text>
+                  </Flex>
+                </Link>
                 <Link href={"/tasks"}>
                   <Flex
                     gap="2"
                     align="center"
                     justify="start"
-                    className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                    className="py-2 px-4 text-[#145959] hover:bg-[#19948c30]"
                   >
                     <FaTasks />
                     <Text>Tasks</Text>
                   </Flex>
                 </Link>
+                <Separator size="4" />
                 <Link href="/profile">
                   <Flex
                     gap="2"
                     align="center"
                     justify="start"
-                    className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                    className="py-2 px-4 text-[#145959] hover:bg-[#19948c30]"
                   >
                     <FaUserAlt />
                     <Text>Profile</Text>
@@ -169,7 +187,7 @@ const DashboardPage = () => {
                     gap="2"
                     align="center"
                     justify="start"
-                    className="p-2 text-[#145959] hover:bg-[#19948c30]"
+                    className="py-2 px-4 text-[#145959] hover:bg-[#19948c30]"
                   >
                     <IoMdSettings />
                     <Text>Settings</Text>
@@ -180,7 +198,7 @@ const DashboardPage = () => {
                   gap="2"
                   align="center"
                   justify="start"
-                  className="p-2 text-[#145959] hover:bg-[#19948c30] hover:cursor-pointer"
+                  className="py-2 px-4 text-[#145959] hover:bg-[#19948c30] hover:cursor-pointer"
                   onClick={handleSignOut}
                 >
                   <CiLogout />
