@@ -12,7 +12,6 @@ const ProfilePage = () => {
   if (status === "loading") {
     return <Spinner header={"Profile"} />;
   }
-
   if (status === "unauthenticated") {
     router.push("/api/auth/signin");
   }
@@ -55,15 +54,21 @@ const ProfilePage = () => {
                 <option>English</option>
               </select>
             </Flex>
-            <Flex direction="column" gap="2">
-              <Text>Country</Text>
-              <select
-                className="border border-solid py-2 px-4 rounded-[10px]"
-                defaultValue= "United States"
-              >
-                <option>United States</option>
-                <option>Rwanda</option>
-              </select>
+            <Flex gap="4">
+              <Flex direction="column" gap="2" className="flex-1">
+                <Text>Country</Text>
+                <select
+                  className="border border-solid py-2 px-4 rounded-[10px]"
+                  defaultValue="United States"
+                >
+                  <option>United States</option>
+                  <option>Rwanda</option>
+                </select>
+              </Flex>
+              <Flex direction="column" gap="2" className="flex-1">
+                <Text>City</Text>
+                <input className="border border-solid py-2 px-4 rounded-[10px]" />
+              </Flex>
             </Flex>
             <Flex direction="column" gap="2">
               <Flex justify="between">
