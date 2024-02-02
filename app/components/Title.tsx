@@ -1,11 +1,15 @@
-import { Text, Separator, Box } from "@radix-ui/themes";
+import { Box, Text } from "@radix-ui/themes";
 
 const Title = ({ title }: { title?: string }) => {
   if (!title) return null;
   return (
-    <Box className="mb-2">
-      <Text className="text-xl font-bold">{title}</Text>
-      {/* <Separator my="1" size="2" /> */}
+    <Box className="pb-2">
+      <Text
+        size="6"
+        className="font-semibold bg-gradient-to-r from-teal-500 to-green-700 text-transparent bg-clip-text"
+      >
+        {title}
+      </Text>
     </Box>
   );
 };

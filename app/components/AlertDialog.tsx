@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import CoinsImage from "../../public/icons/coins.png";
 import JsImage from "../../public/icons/js.png";
-import OptionSelection from "../quiz/_components/option";
+import OptionSelection from "../dashboard/quiz/_components/option";
 import classNames from "classnames";
 
 const MyAlertDialog = () => {
