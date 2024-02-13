@@ -1,27 +1,29 @@
-import prisma from "@/prisma/client";
+"use client";
 import { Avatar, Box, Flex, Text } from "@radix-ui/themes";
-import { getServerSession } from "next-auth";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { authOptions } from "../auth/options";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "@/components/ui/use-toast";
 
-const ProfilePage = async () => {
-  const session = await getServerSession(authOptions);
+interface ProfileForm {
+  userId: string;
+  displayName: string;
+  professionalTitle: string;
+  about: string;
+  language: string;
+  country: string;
+  city: string;
+  timezone: string;
+}
 
-  const profile = await prisma.userProfile.findUnique({
-    where: { id: session?.user?.userProfileId },
-  });
+const ProfilePage = () => {
+  const { register, handleSubmit } = useForm<ProfileForm>();
 
   return (
     <>
       <Box className="col-span-1 lg:col-span-2">
         <Flex gap="4" align="center">
-          <Avatar
-            fallback="DM"
-            size="6"
-            color="green"
-            radius="full"
-            src={session?.user?.image || ""}
-          />
+          <Avatar fallback="DM" size="6" color="green" radius="full" src={""} />
           <button className="border py-1 px-3 border-solid border-[#145959] rounded-[10px]">
             Update
           </button>
@@ -30,32 +32,46 @@ const ProfilePage = async () => {
             <Text>Remove</Text>
           </Flex>
         </Flex>
-        <form>
+        <form
+          onSubmit={handleSubmit(async (data) => {
+            // TODO add real userId
+            data.userId = Math.random().toString();
+            await axios.post("/api/profile", data);
+
+            await toast({
+              title: "Profile Updated Successfully",
+              description: "Your Profile was updated successfully.",
+            });
+          })}
+        >
           <Flex direction="column" gap="4" className="my-4">
             <Flex direction="column" gap="2">
               <Text>Name</Text>
               <input
                 className="border border-solid py-2 px-4 rounded-[10px]"
-                value={profile?.displayName || ""}
+                {...register("displayName")}
               />
             </Flex>
             <Flex direction="column" gap="2">
               <Text>Professional Title</Text>
               <input
                 className="border border-solid py-2 px-4 rounded-[10px]"
-                value={profile?.professionalTitle || ""}
+                {...register("professionalTitle")}
               />
             </Flex>
             <Flex direction="column" gap="2">
               <Text>About Me</Text>
               <textarea
                 className="border border-solid py-2 px-4 rounded-[10px] "
-                value={profile?.about || ""}
+                {...register("about")}
               />
             </Flex>
             <Flex direction="column" gap="2">
               <Text>Language</Text>
-              <select className="border border-solid py-2 px-4 rounded-[10px]">
+              <select
+                className="border border-solid py-2 px-4 rounded-[10px]"
+                {...register("language")}
+              >
                 <option>English</option>
                 <option>French</option>
               </select>
@@ -65,7 +81,7 @@ const ProfilePage = async () => {
                 <Text>Country</Text>
                 <select
                   className="border border-solid py-2 px-4 rounded-[10px]"
-                  defaultValue={profile?.country || ""}
+                  {...register("country")}
                 >
                   <option>United States</option>
                   <option>Rwanda</option>
@@ -75,7 +91,7 @@ const ProfilePage = async () => {
                 <Text>City</Text>
                 <input
                   className="border border-solid py-2 px-4 rounded-[10px]"
-                  value={profile?.city || ""}
+                  {...register("city")}
                 />
               </Flex>
             </Flex>
@@ -87,23 +103,26 @@ const ProfilePage = async () => {
 
               <select
                 className="border border-solid py-2 px-4 rounded-[10px]"
-                defaultValue={profile?.timezone || ""}
+                {...register("timezone")}
               >
                 <option>Central TIme US & Canada</option>
                 <option>Central Africa Timezone</option>
               </select>
             </Flex>
           </Flex>
+          <Flex className="col-span-1 lg:col-span-2" justify="between">
+            <button className="p-2 px-4 bg-[#145959] text-white rounded-[10px]">
+              Save Changes
+            </button>
+            <button
+              className="py-2 px-4 border border-black rounded-[10px]"
+              onClick={() => console.log("clear")}
+            >
+              Cancel
+            </button>
+          </Flex>
         </form>
       </Box>
-      <Flex className="col-span-1 lg:col-span-2" justify="between">
-        <button className="p-2 px-4 bg-[#145959] text-white rounded-[10px]">
-          Save Changes
-        </button>
-        <button className="py-2 px-4 border border-black rounded-[10px]">
-          Cancel
-        </button>
-      </Flex>
     </>
   );
 };
