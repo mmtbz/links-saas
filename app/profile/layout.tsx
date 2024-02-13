@@ -68,7 +68,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
                 gap="2"
                 align="center"
                 justify="start"
-                className="p-2 text-[#145959] hover:bg-[#19948c30] rounded-[5px]"
+                className="p-2 text-[#145959] hover:bg-[#19948c30]"
               >
                 <MdDashboard />
                 <Text>Dashboard</Text>
@@ -79,7 +79,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
                 gap="2"
                 align="center"
                 justify="start"
-                className="p-2 text-[#145959] hover:bg-[#19948c30] rounded-[5px]"
+                className="p-2 text-[#145959] hover:bg-[#19948c30]"
               >
                 <IoMdSettings />
                 <Text>Settings</Text>
@@ -89,7 +89,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
               gap="2"
               align="center"
               justify="start"
-              className="p-2 text-[#145959] hover:bg-[#19948c30] hover:cursor-pointer rounded-[5px]"
+              className="p-2 text-[#145959] hover:bg-[#19948c30] hover:cursor-pointer"
               onClick={() => console.log("sign out")}
             >
               <CiLogout />

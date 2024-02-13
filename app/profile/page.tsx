@@ -1,10 +1,15 @@
-"use client";
+import prisma from "@/prisma/client";
 import { Avatar, Box, Flex, Text } from "@radix-ui/themes";
-import { useSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { authOptions } from "../auth/options";
 
-const ProfilePage = () => {
-  const { status, data: session } = useSession();
+const ProfilePage = async () => {
+  const session = await getServerSession(authOptions);
+
+  const profile = await prisma.userProfile.findUnique({
+    where: { id: session?.user?.userProfileId },
+  });
 
   return (
     <>
@@ -31,17 +36,28 @@ const ProfilePage = () => {
               <Text>Name</Text>
               <input
                 className="border border-solid py-2 px-4 rounded-[10px]"
-                value={session?.user?.name || ""}
+                value={profile?.displayName || ""}
+              />
+            </Flex>
+            <Flex direction="column" gap="2">
+              <Text>Professional Title</Text>
+              <input
+                className="border border-solid py-2 px-4 rounded-[10px]"
+                value={profile?.professionalTitle || ""}
               />
             </Flex>
             <Flex direction="column" gap="2">
               <Text>About Me</Text>
-              <textarea className="border border-solid py-2 px-4 rounded-[10px] " />
+              <textarea
+                className="border border-solid py-2 px-4 rounded-[10px] "
+                value={profile?.about || ""}
+              />
             </Flex>
             <Flex direction="column" gap="2">
               <Text>Language</Text>
               <select className="border border-solid py-2 px-4 rounded-[10px]">
                 <option>English</option>
+                <option>French</option>
               </select>
             </Flex>
             <Flex gap="4">
@@ -49,7 +65,7 @@ const ProfilePage = () => {
                 <Text>Country</Text>
                 <select
                   className="border border-solid py-2 px-4 rounded-[10px]"
-                  defaultValue="United States"
+                  defaultValue={profile?.country || ""}
                 >
                   <option>United States</option>
                   <option>Rwanda</option>
@@ -57,7 +73,10 @@ const ProfilePage = () => {
               </Flex>
               <Flex direction="column" gap="2" className="flex-1">
                 <Text>City</Text>
-                <input className="border border-solid py-2 px-4 rounded-[10px]" />
+                <input
+                  className="border border-solid py-2 px-4 rounded-[10px]"
+                  value={profile?.city || ""}
+                />
               </Flex>
             </Flex>
             <Flex direction="column" gap="2">
@@ -68,10 +87,10 @@ const ProfilePage = () => {
 
               <select
                 className="border border-solid py-2 px-4 rounded-[10px]"
-                defaultValue="Central TIme US & Canada<"
+                defaultValue={profile?.timezone || ""}
               >
                 <option>Central TIme US & Canada</option>
-                <option>Rwanda</option>
+                <option>Central Africa Timezone</option>
               </select>
             </Flex>
           </Flex>

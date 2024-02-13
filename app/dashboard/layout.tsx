@@ -135,7 +135,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     gap="2"
                     align="center"
                     justify="start"
-                    className="py-2 px-4 text-[#145959] hover:bg-[#19948c30] rounded-[5px]"
+                    className="py-2 px-4 text-[#145959] hover:bg-[#19948c30]"
                   >
                     <MdDashboard />
                     <Text>Dashboard</Text>
