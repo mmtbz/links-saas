@@ -1,23 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
 import prisma from "@/prisma/client";
-
-const createProdileSchema = z.object({
-  userId: z.string().min(1, "UserId is required.").max(255),
-  professionalTitle: z
-    .string()
-    .min(1, "Professional Title is required.")
-    .max(255),
-  about: z.string().min(1, "About is required.").max(255),
-  displayName: z.string().min(1, "Display name is required.").max(255),
-  country: z.string().min(1, "Country is required.").max(255),
-  timezone: z.string().min(1, "Timezone is required.").max(255),
-  city: z.string().min(1, "City is required.").max(255),
-});
+import { createProfileSchema } from "../../SchemaValidation";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const validation = createProdileSchema.safeParse(body);
+  const validation = createProfileSchema.safeParse(body);
 
   if (!validation.success)
     return NextResponse.json(validation.error.errors, { status: 400 });
