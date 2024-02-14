@@ -3,13 +3,16 @@ import { z } from "zod";
 import prisma from "@/prisma/client";
 
 const createProdileSchema = z.object({
-  userId: z.string().min(1).max(255),
-  professionalTitle: z.string().min(1).max(255),
-  about: z.string().min(1).max(255),
-  displayName: z.string().min(1).max(255),
-  country: z.string().min(1).max(255),
-  timezone: z.string().min(1).max(255),
-  city: z.string().min(1).max(255),
+  userId: z.string().min(1, "UserId is required.").max(255),
+  professionalTitle: z
+    .string()
+    .min(1, "Professional Title is required.")
+    .max(255),
+  about: z.string().min(1, "About is required.").max(255),
+  displayName: z.string().min(1, "Display name is required.").max(255),
+  country: z.string().min(1, "Country is required.").max(255),
+  timezone: z.string().min(1, "Timezone is required.").max(255),
+  city: z.string().min(1, "City is required.").max(255),
 });
 
 export async function POST(request: NextRequest) {
@@ -19,7 +22,7 @@ export async function POST(request: NextRequest) {
   if (!validation.success)
     return NextResponse.json(validation.error.errors, { status: 400 });
 
-    // todo add check to verify if the userId exist before creating a profile
+  // todo add check to verify if the userId exist before creating a profile
 
   const newProfile = await prisma.userProfile.create({
     data: {
