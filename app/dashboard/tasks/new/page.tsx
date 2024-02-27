@@ -1,6 +1,5 @@
 import Title from "@/app/components/Title";
-import { Flex, TextArea, Text } from "@radix-ui/themes";
-import React from "react";
+import { Flex, Text } from "@radix-ui/themes";
 
 const CreateTaskPage = () => {
   return (
