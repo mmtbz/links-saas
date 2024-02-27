@@ -2,11 +2,11 @@ import "@radix-ui/themes/styles.css";
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Container, Theme } from "@radix-ui/themes";
+import { Theme } from "@radix-ui/themes";
 
 import { Inter, Outfit } from "next/font/google";
-import AuthProvider from "./auth/Provider";
 import DashboardNavBar from "./DashboardNavBar";
+import AuthProvider from "./auth/Provider";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -32,7 +32,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Theme
-          appearance="light"
           accentColor="iris"
           panelBackground="solid"
           radius="large"
