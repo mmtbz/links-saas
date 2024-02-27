@@ -1,19 +1,23 @@
 "use client";
-import Title from "@/app/components/Title";
-import { Flex, Text, Box, Callout } from "@radix-ui/themes";
-import { Controller, useForm } from "react-hook-form";
-import SimpleMDE from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
-import axios from "axios";
-import { useRouter } from "next/navigation";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { createTaskSchema } from "@/app/SchemaValidation";
-import { z } from "zod";
-import { useState } from "react";
-import { IoMdInformationCircleOutline } from "react-icons/io";
 import ButtonSpinner from "@/app/components/ButtonSpinner";
+import Title from "@/app/components/Title";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Box, Callout, Flex, Text } from "@radix-ui/themes";
+import axios from "axios";
+import "easymde/dist/easymde.min.css";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { IoMdInformationCircleOutline } from "react-icons/io";
+import { z } from "zod";
 
 type NewTaskForm = z.infer<typeof createTaskSchema>;
+
+const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
+  ssr: false,
+});
 
 const CreateTaskPage = () => {
   const router = useRouter();
@@ -39,7 +43,7 @@ const CreateTaskPage = () => {
       setError("Something happened, please try again later");
     }
   });
-  
+
   return (
     <Box>
       <Title title="Create a new task" />
