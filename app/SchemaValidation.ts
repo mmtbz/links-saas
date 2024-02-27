@@ -22,6 +22,11 @@ export const patchUserSchema = z.object({
     .nullable(),
 });
 
+export const createTaskSchema = z.object({
+  title: z.string().min(1, "Title is required").max(255),
+  description: z.string().min(1, "Description is required"),
+});
+
 export const createProfileSchema = z.object({
   userId: z.string().min(1, "UserId is required.").max(255),
   professionalTitle: z
@@ -34,4 +39,3 @@ export const createProfileSchema = z.object({
   timezone: z.string().min(1, "Timezone is required.").max(255),
   city: z.string().min(1, "City is required.").max(255),
 });
-

@@ -82,28 +82,24 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <Separator size="4" />
               </Box>
               <Flex gap="3" direction="column">
-                <Flex align="center" gap="2">
+                <Flex align="center" gap="2" justify="between">
                   <Text size="1">Inbox response rate</Text>
-                  <Progress value={100} className="max-w-[4rem] h-2" />
                   <Text size="1">100%</Text>
                 </Flex>
-                <Flex align="center" gap="2">
+                <Flex align="center" gap="2" justify="between">
                   <Text size="1">Inbox response time</Text>
                   <Text size="1">5hrs</Text>
                 </Flex>
-                <Flex align="center" gap="2">
+                <Flex align="center" gap="2" justify="between">
                   <Text size="1">Order response rate</Text>
-                  <Progress value={45} className="max-w-[4rem] h-2" />
                   <Text size="1">45%</Text>
                 </Flex>
-                <Flex align="center" gap="2">
+                <Flex align="center" gap="2" justify="between">
                   <Text size="1">Delivered on time</Text>
-                  <Progress value={90} className="max-w-[4rem] h-2" />
                   <Text size="1">90%</Text>
                 </Flex>
-                <Flex align="center" gap="2">
+                <Flex align="center" gap="2" justify="between">
                   <Text size="1">Delivery rate</Text>
-                  <Progress value={100} className="max-w-[4rem] h-2" />
                   <Text size="1">100%</Text>
                 </Flex>
               </Flex>

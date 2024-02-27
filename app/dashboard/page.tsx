@@ -1,19 +1,10 @@
 "use client";
-import {
-  Box,
-  Container,
-  Flex,
-  Separator,
-  Text
-} from "@radix-ui/themes";
+import { Box, Container, Flex, Separator, Text } from "@radix-ui/themes";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  FaAngleRight,
-  FaSortDown
-} from "react-icons/fa";
+import { FaAngleRight, FaSortDown } from "react-icons/fa";
 import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
@@ -37,7 +28,7 @@ const DashboardPage = () => {
   return (
     <>
       {session?.user?.role === "NONE" && <UpdateRoleModal />}
-      <Title title={`Hello ${session?.user?.name}`}/>
+      <Title title={`Hello ${session?.user?.name}`} />
 
       <Flex gap="4" className="mb-4 flex-col lg:flex-row">
         <Flex
@@ -98,7 +89,7 @@ const DashboardPage = () => {
           </Box>
 
           <Flex gap="1" className="p-2 border border-solid rounded-[5px]">
-            <Link href="/tasks">Unseen Tasks</Link>
+            <Link href="/dashboard/tasks">Unseen Tasks</Link>
             <FaSortDown />
           </Flex>
         </Flex>
@@ -118,7 +109,7 @@ const DashboardPage = () => {
           </Box>
 
           <Flex gap="1" className="p-2 border border-solid rounded-[5px]">
-            <Link href="/tasks">Active Tasks</Link>
+            <Link href="/dashboard/tasks">Active Tasks</Link>
             <FaSortDown />
           </Flex>
         </Flex>
@@ -138,7 +129,7 @@ const DashboardPage = () => {
           </Box>
 
           <Flex gap="1" className="p-2 border border-solid rounded-[5px]">
-            <Link href="/tasks">Finished Tasks</Link>
+            <Link href="/dashboard/tasks">Finished Tasks</Link>
             <FaSortDown />
           </Flex>
         </Flex>
@@ -183,9 +174,12 @@ const DashboardPage = () => {
               </p>
             </Box>
             <Flex>
-              <button className="min-w-[10rem] text-blue-700 font-semibold p-2 border border-solid border-blue-700 rounded-[5px]">
+              <Link
+                href="/dashboard/jobs"
+                className="min-w-[10rem] text-blue-700 font-semibold p-2 border border-solid border-blue-700 rounded-[5px]"
+              >
                 Apply for Jobs
-              </button>
+              </Link>
             </Flex>
           </Flex>
           <Flex className=" flex-1" direction="column" gap="3">
@@ -207,9 +201,12 @@ const DashboardPage = () => {
               </p>
             </Box>
             <Flex>
-              <button className="min-w-[10rem] text-blue-700 font-semibold p-2 border border-solid border-blue-700 rounded-[5px]">
+              <Link
+                href="/dashboard/quiz"
+                className="min-w-[10rem] text-blue-700 font-semibold p-2 border border-solid border-blue-700 rounded-[5px]"
+              >
                 Take Quiz
-              </button>
+              </Link>
             </Flex>
           </Flex>
           <Flex className=" flex-1" direction="column" gap="3">
@@ -231,9 +228,12 @@ const DashboardPage = () => {
               </p>
             </Box>
             <Flex>
-              <button className="min-w-[10rem] text-blue-700 font-semibold p-2 border border-solid border-blue-700 rounded-[5px]">
+              <Link
+                href="/dashboard/quiz"
+                className="min-w-[10rem] text-blue-700 font-semibold p-2 border border-solid border-blue-700 rounded-[5px]"
+              >
                 Learn for free
-              </button>
+              </Link>
             </Flex>
           </Flex>
         </Flex>

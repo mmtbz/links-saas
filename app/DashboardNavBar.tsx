@@ -10,6 +10,7 @@ import {
 import {
   Avatar,
   Box,
+  Container,
   DropdownMenu,
   Flex,
   Separator,
@@ -20,19 +21,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { FaBook, FaTasks } from "react-icons/fa";
-import { FaPeopleGroup } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { GoOrganization, GoStack } from "react-icons/go";
-import { LuLayoutDashboard } from "react-icons/lu";
-import { MdInsights, MdOutlineQuiz, MdOutlineWork } from "react-icons/md";
-import { RiHome4Fill } from "react-icons/ri";
-import LayersImage from "../public/icons/001-layers.png";
-import ProjectsImage from "../public/icons/002-research.png";
-import DashboardImage from "../public/icons/003-layout.png";
-import ListImage from "../public/icons/004-list.png";
-import QuizImage from "../public/icons/005-quiz.png";
-import PeopleImage from "../public/icons/006-people.png";
-import HomeImage from "../public/icons/007-home.png";
+import { MdOutlineWork } from "react-icons/md";
 import HeartIcon from "../public/svg/favorite.svg";
 import MessageIcon from "../public/svg/message.svg";
 import NotificationIcon from "../public/svg/notification.svg";
@@ -41,62 +31,11 @@ import { CiLogout } from "react-icons/ci";
 
 const links = [
   { label: "Dashboard", href: "/dashboard" },
-  { label: "Tasks", href: "/tasks" },
+  { label: "Tasks", href: "/dashboard/tasks" },
   { label: "Jobs", href: "/job" },
-  { label: "Quiz", href: "/quiz" },
+  { label: "Quiz", href: "/dashboard/quiz" },
   { label: "People", href: "/people" },
   { label: "Settings", href: "/profile" },
-];
-
-const navLinks = [
-  {
-    href: "/",
-    label: "Home",
-    image: HomeImage,
-    icon: RiHome4Fill,
-  },
-  {
-    href: "/dashboard",
-    label: "dashboard",
-    image: DashboardImage,
-    icon: LuLayoutDashboard,
-  },
-  {
-    href: "/tasks",
-    label: "Tasks",
-    image: ListImage,
-    icon: FaTasks,
-  },
-  {
-    href: "/quiz",
-    label: "quiz",
-    image: QuizImage,
-    icon: MdOutlineQuiz,
-  },
-  {
-    href: "/people",
-    label: "people",
-    image: PeopleImage,
-    icon: FaPeopleGroup,
-  },
-  {
-    href: "/projects",
-    label: "projects",
-    image: LayersImage,
-    icon: GoStack,
-  },
-  {
-    href: "/insights",
-    label: "insights",
-    image: ProjectsImage,
-    icon: MdInsights,
-  },
-  {
-    href: "/companies",
-    label: "companies",
-    image: GoOrganization,
-    icon: GoOrganization,
-  },
 ];
 
 const DashboardNavBar = () => {
@@ -107,11 +46,8 @@ const DashboardNavBar = () => {
   return (
     <nav>
       <Box className="max-h-[0.5rem] lg:max-h-[0.5rem] opacity-0">a</Box>
-      <Box className="max-w-[74rem] mx-auto">
-        <Flex
-          justify="between"
-          className="text-white bg-[#145959] lg:rounded-[1rem]"
-        >
+      <Container className="text-white bg-[#145959]">
+        <Flex justify="between">
           <Flex align="center" gap="3">
             <Link href="/" className="pl-2">
               LOGO
@@ -146,19 +82,19 @@ const DashboardNavBar = () => {
             </Flex>
             <Box className="hidden lg:block">
               <Flex gap="4" align="center">
-                <Link href="/quiz">
+                <Link href="/dashboard/quiz">
                   <Flex gap="2" align="center">
                     <FaBook />
                     <Text>Learn</Text>
                   </Flex>
                 </Link>
-                <Link href="/tasks">
+                <Link href="/dashboard/tasks">
                   <Flex gap="2" align="center">
                     <FaTasks />
                     <Text>Tasks</Text>
                   </Flex>
                 </Link>
-                <Link href="/jobs">
+                <Link href="/job">
                   <Flex gap="2" align="center">
                     <MdOutlineWork />
                     <Text>Jobs</Text>
@@ -170,7 +106,7 @@ const DashboardNavBar = () => {
             <MobileNavigationBar />
           </Flex>
         </Flex>
-      </Box>
+      </Container>
       {/* <Container>
         <Box className="hidden lg:block">
           <Flex
