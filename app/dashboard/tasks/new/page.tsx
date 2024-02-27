@@ -11,6 +11,7 @@ import { createTaskSchema } from "@/app/SchemaValidation";
 import { z } from "zod";
 import { useState } from "react";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import ButtonSpinner from "@/app/components/ButtonSpinner";
 
 type NewTaskForm = z.infer<typeof createTaskSchema>;
 
@@ -26,6 +27,19 @@ const CreateTaskPage = () => {
   });
 
   const [error, setError] = useState("");
+  const [isSubmitting, setSubmittng] = useState(false);
+
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      setSubmittng(true);
+      await axios.post("/api/task", data);
+      router.push("/dashboard/tasks");
+    } catch (error) {
+      setSubmittng(false);
+      setError("Something happened, please try again later");
+    }
+  });
+  
   return (
     <Box>
       <Title title="Create a new task" />
@@ -37,17 +51,7 @@ const CreateTaskPage = () => {
           <Callout.Text>{error}</Callout.Text>
         </Callout.Root>
       )}
-      <form
-        className=" space-y-3"
-        onSubmit={handleSubmit(async (data) => {
-          try {
-            await axios.post("/api/task", data);
-            router.push("/dashboard/tasks");
-          } catch (error) {
-            setError("Something happened, please try again later");
-          }
-        })}
-      >
+      <form className=" space-y-3" onSubmit={onSubmit}>
         <Flex direction="column" gap="2">
           <Text>Title</Text>
           <input
@@ -72,10 +76,12 @@ const CreateTaskPage = () => {
         </Flex>
         <Flex direction="column" gap="2" align="start">
           <button
-            className="py-2 px-6 bg-[#19948c30] rounded-[5px]"
+            disabled={isSubmitting}
+            className="flex py-2 px-6 bg-[#19948c30] rounded-[5px] gap-1 items-center disabled:bg-gray-400"
             type="submit"
           >
             Submit new Task
+            {isSubmitting && <ButtonSpinner />}
           </button>
         </Flex>
       </form>
