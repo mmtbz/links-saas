@@ -81,10 +81,10 @@ const CreateTaskPage = () => {
         <Flex direction="column" gap="2" align="start">
           <button
             disabled={isSubmitting}
-            className="flex py-2 px-6 bg-[#19948c30] rounded-[5px] gap-1 items-center disabled:bg-gray-400"
+            className="flex py-2 px-6 bg-[#145959] text-white rounded-[5px] gap-1 items-center disabled:bg-gray-400"
             type="submit"
           >
-            Submit new Task
+            Submit
             {isSubmitting && <ButtonSpinner />}
           </button>
         </Flex>
