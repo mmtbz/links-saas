@@ -3,6 +3,7 @@ import { Box, Table, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import prisma from "@/prisma/client";
 import { ArrowUpIcon } from "lucide-react";
+import TaskStatusBadge from "@/app/components/TaskStatusBadge";
 
 const TasksPage = async () => {
   const tasks = await prisma.task.findMany();
@@ -36,10 +37,12 @@ const TasksPage = async () => {
             <Table.Row key={task.id}>
               <Table.Cell>
                 {task.title}
-                <div className="block md:hidden">{task.status}</div>
+                <div className="block md:hidden">
+                  <TaskStatusBadge status={task.status} />
+                </div>
               </Table.Cell>
               <Table.Cell className="hidden md:table-cell">
-                {task.status}
+                <TaskStatusBadge status={task.status} />
               </Table.Cell>
               <Table.Cell className="hidden md:table-cell">
                 {task.createdAt.toDateString()}

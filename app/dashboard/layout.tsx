@@ -1,15 +1,14 @@
 "use client";
-import { Progress } from "@radix-ui/react-progress";
 import {
-    Avatar,
-    Box,
-    Button,
-    Container,
-    Flex,
-    Grid,
-    Link,
-    Separator,
-    Text,
+  Avatar,
+  Box,
+  Button,
+  Container,
+  Flex,
+  Grid,
+  Link,
+  Separator,
+  Text,
 } from "@radix-ui/themes";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -19,7 +18,7 @@ import { FaBook, FaTasks, FaUserAlt } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { IoStar } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
-import Spinner from "../components/Spinner";
+import DashboardLoading from "./loading";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
@@ -27,7 +26,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   if (status === "loading")
     return (
       <Container>
-        <Spinner header={"Dashaboard"} />
+        <DashboardLoading />
       </Container>
     );
   if (status === "unauthenticated") {
