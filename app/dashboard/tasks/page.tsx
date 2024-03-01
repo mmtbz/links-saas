@@ -1,9 +1,9 @@
-import Title from "@/app/components/Title";
-import { Box, Table, Text } from "@radix-ui/themes";
-import Link from "next/link";
-import prisma from "@/prisma/client";
-import { ArrowUpIcon } from "lucide-react";
 import TaskStatusBadge from "@/app/components/TaskStatusBadge";
+import Title from "@/app/components/Title";
+import prisma from "@/prisma/client";
+import { Box, Flex, Table, Text } from "@radix-ui/themes";
+import Link from "next/link";
+import { IoMdAdd } from "react-icons/io";
 
 const TasksPage = async () => {
   const tasks = await prisma.task.findMany();
@@ -14,9 +14,9 @@ const TasksPage = async () => {
       <Box>
         <Link
           href="/dashboard/tasks/new"
-          className="p-2 bg-[#19948c30] rounded-[5px]"
+          className="p-2 bg-[#145959] rounded-[5px] text-white"
         >
-          Create new Task
+          Create a new Task
         </Link>
       </Box>
 
