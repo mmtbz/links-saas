@@ -23,7 +23,7 @@ const TasksPage = async () => {
       <Table.Root className="border rounded-[5px]">
         <Table.Header className="bg-gray-200">
           <Table.Row>
-            <Table.ColumnHeaderCell>Task</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>Tasks</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className="hidden md:table-cell">
               Status
             </Table.ColumnHeaderCell>
@@ -34,7 +34,7 @@ const TasksPage = async () => {
         </Table.Header>
         <Table.Body>
           {tasks.map((task) => (
-            <Table.Row key={task.id}>
+            <Table.Row key={task.id} className="even:bg-[#19948c30] bg-opacity-50">
               <Table.Cell>
                 {task.title}
                 <div className="block md:hidden">

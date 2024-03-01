@@ -3,16 +3,16 @@ import { Badge } from "@radix-ui/themes";
 
 const statusMap: Record<
   Status,
-  { label: string; color: "red" | "violet" | "green" }
+  { label: string; color: "red" | "violet" | "green" | "gray" | "blue" }
 > = {
-  OPEN: { label: "open", color: "red" },
+  OPEN: { label: "open", color: "blue" },
   IN_PROGRESS: { label: "In Progress", color: "violet" },
   CLOSED: { label: "Closed", color: "green" },
 };
 
 const TaskStatusBadge = ({ status }: { status: Status }) => {
   return (
-    <Badge color={statusMap[status].color}>{statusMap[status].label}</Badge>
+    <Badge color={statusMap[status].color} className="p-1">{statusMap[status].label}</Badge>
   );
 };
 
