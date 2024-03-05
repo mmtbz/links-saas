@@ -59,7 +59,7 @@ const CreateTaskPage = () => {
         <Flex direction="column" gap="2">
           <Text>Title</Text>
           <input
-            className="border border-solid py-2 px-4 rounded-[10px]"
+            className="border border-solid py-2 px-4 rounded-[5px]"
             placeholder="Title"
             {...register("title")}
           />

@@ -20,7 +20,7 @@ const WorkHistoryPage = () => {
     <>
       <Box className="col-span-1 lg:col-span-2">
         <Flex
-          className="border p-2 border-solid border-[#145959] text-[#145959] rounded-[10px] hover:cursor-pointer"
+          className="border p-2 border-solid border-[#145959] text-[#145959] rounded-[5px] hover:cursor-pointer"
           align="center"
           justify="center"
           gap="1"
@@ -34,25 +34,25 @@ const WorkHistoryPage = () => {
             <Flex direction="column" gap="2">
               <Text>Title</Text>
               <input
-                className="border border-solid py-2 px-4 rounded-[10px] outline-none"
+                className="border border-solid py-2 px-4 rounded-[5px] outline-none"
                 placeholder="Ex: Sr Software Engineer"
               />
             </Flex>
             <Flex direction="column" gap="2">
               <Text>Company Name</Text>
               <input
-                className="border border-solid py-2 px-4 rounded-[10px] outline-none"
+                className="border border-solid py-2 px-4 rounded-[5px] outline-none"
                 placeholder="Ex: Google"
               />
             </Flex>
             <Flex direction="column" gap="2">
               <Text>Description</Text>
-              <textarea className="border border-solid py-2 px-4 rounded-[10px] " />
+              <textarea className="border border-solid py-2 px-4 rounded-[5px] " />
             </Flex>
             <Flex direction="column" gap="2">
               <Text>Location</Text>
               <input
-                className="border border-solid py-2 px-4 rounded-[10px] outline-none"
+                className="border border-solid py-2 px-4 rounded-[5px] outline-none"
                 placeholder="Ex: United States"
               />
             </Flex>
@@ -65,7 +65,7 @@ const WorkHistoryPage = () => {
               <Text>Start Date</Text>
               <Flex gap="4">
                 <select
-                  className="flex-1 border border-solid py-2 px-4 rounded-[10px] outline-none"
+                  className="flex-1 border border-solid py-2 px-4 rounded-[5px] outline-none"
                   placeholder="Month"
                 >
                   <option>January</option>
@@ -73,7 +73,7 @@ const WorkHistoryPage = () => {
                   <option>March</option>
                 </select>
                 <select
-                  className="flex-1 border border-solid py-2 px-4 rounded-[10px] outline-none"
+                  className="flex-1 border border-solid py-2 px-4 rounded-[5px] outline-none"
                   placeholder="Year"
                 >
                   <option>2024</option>
@@ -86,7 +86,7 @@ const WorkHistoryPage = () => {
               <Text>End Date</Text>
               <Flex gap="4">
                 <select
-                  className="flex-1 border border-solid py-2 px-4 rounded-[10px] outline-none"
+                  className="flex-1 border border-solid py-2 px-4 rounded-[5px] outline-none"
                   placeholder="Month"
                 >
                   <option>January</option>
@@ -94,7 +94,7 @@ const WorkHistoryPage = () => {
                   <option>March</option>
                 </select>
                 <select
-                  className="flex-1 border border-solid py-2 px-4 rounded-[10px] outline-none"
+                  className="flex-1 border border-solid py-2 px-4 rounded-[5px] outline-none"
                   placeholder="Year"
                 >
                   <option>2024</option>
@@ -107,10 +107,10 @@ const WorkHistoryPage = () => {
         </form>
       </Box>
       <Flex className="col-span-1 lg:col-span-2" justify="between">
-        <button className="p-2 bg-[#145959] text-white rounded-[10px]">
+        <button className="p-2 bg-[#145959] text-white rounded-[5px]">
           Save Changes
         </button>
-        <button className="py-2 px-6 border border-black rounded-[10px]">
+        <button className="py-2 px-6 border border-black rounded-[5px]">
           Cancel
         </button>
       </Flex>
