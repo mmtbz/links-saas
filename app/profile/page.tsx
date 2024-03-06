@@ -27,7 +27,7 @@ const ProfilePage = () => {
     <Box className="col-span-1 lg:col-span-2 space-y-3">
       <Flex gap="4" align="center">
         <Avatar fallback="DM" size="6" color="green" radius="full" src={""} />
-        <button className="border py-1 px-3 border-solid border-[#145959] rounded-[10px]">
+        <button className="border py-1 px-3 border-solid border-[#145959] rounded-[5px]">
           Update
         </button>
         <Flex align="center" gap="1" className="hover:cursor-pointer">
@@ -65,7 +65,7 @@ const ProfilePage = () => {
             <Text color={errors.displayName ? "red" : undefined}>Name *</Text>
             <input
               className={classNames({
-                "border border-solid py-2 px-4 rounded-[10px]": true,
+                "border border-solid py-2 px-4 rounded-[5px]": true,
                 "border-red-500": errors.displayName,
               })}
               {...register("displayName")}
@@ -77,7 +77,7 @@ const ProfilePage = () => {
             </Text>
             <input
               className={classNames({
-                "border border-solid py-2 px-4 rounded-[10px]": true,
+                "border border-solid py-2 px-4 rounded-[5px]": true,
                 "border-red-500": errors.professionalTitle,
               })}
               {...register("professionalTitle")}
@@ -87,7 +87,7 @@ const ProfilePage = () => {
             <Text color={errors.about ? "red" : undefined}>About Me *</Text>
             <textarea
               className={classNames({
-                "border border-solid py-2 px-4 rounded-[10px]": true,
+                "border border-solid py-2 px-4 rounded-[5px]": true,
                 "border-red-500": errors.about,
               })}
               {...register("about")}
@@ -98,7 +98,7 @@ const ProfilePage = () => {
               <Text color={errors.country ? "red" : undefined}>Country *</Text>
               <select
                 className={classNames({
-                  "border border-solid py-2 px-4 rounded-[10px]": true,
+                  "border border-solid py-2 px-4 rounded-[5px]": true,
                   "border-red-500": errors.country,
                 })}
                 {...register("country")}
@@ -111,7 +111,7 @@ const ProfilePage = () => {
               <Text color={errors.city ? "red" : undefined}>City *</Text>
               <input
                 className={classNames({
-                  "border border-solid py-2 px-4 rounded-[10px]": true,
+                  "border border-solid py-2 px-4 rounded-[5px]": true,
                   "border-red-500": errors.city,
                 })}
                 {...register("city")}
@@ -128,7 +128,7 @@ const ProfilePage = () => {
 
             <select
               className={classNames({
-                "border border-solid py-2 px-4 rounded-[10px]": true,
+                "border border-solid py-2 px-4 rounded-[5px]": true,
                 "border-red-500": errors.timezone,
               })}
               {...register("timezone")}
@@ -139,11 +139,11 @@ const ProfilePage = () => {
           </Flex>
         </Flex>
         <Flex className="col-span-1 lg:col-span-2" justify="between">
-          <button className="p-2 px-4 bg-[#145959] text-white rounded-[10px]">
+          <button className="p-2 px-4 bg-[#145959] text-white rounded-[5px]">
             Save Changes
           </button>
           <button
-            className="py-2 px-4 border border-black rounded-[10px]"
+            className="py-2 px-4 border border-black rounded-[5px]"
             onClick={() => console.log("clear")}
           >
             Cancel
