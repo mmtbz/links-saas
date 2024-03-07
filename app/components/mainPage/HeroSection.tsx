@@ -1,30 +1,36 @@
-import {
-  Container,
-  Flex,
-  Text,
-  TextField
-} from "@radix-ui/themes";
+import { Container, Flex, Text, TextField } from "@radix-ui/themes";
 import Image from "next/image";
 import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
 import RemoteWork from "../../../public/images/remote-working.png";
 import Trending from "../../../public/svg/trending.svg";
+import Typewriter from "typewriter-effect";
 
 const HeroSection = () => {
   return (
     <Flex direction="column">
       <div className="bg-[#145959] pt-5">
         <Container>
-          <Flex
-            justify="between"
-            align="center"
-            className="px-3 lg:px-0"
-          >
+          <Flex justify="between" align="center" className="px-3 lg:px-0">
             <div className="mb-6 space-y-4">
               <div className="capitalize font-extrabold lg:font-black text-[3.3rem] lg:text-[4.3rem] leading-[4.3rem] lg:leading-[5.3rem]  text-[#F5F5F5]">
-                Hire the best <br />
+                Hire best <br />
                 candidates in <br />
-                Africa
+                <Text>
+                  <Typewriter
+                    options={{
+                      strings: [
+                        "Africa",
+                        "America",
+                        "Asia",
+                        "Europe",
+                        "Australia",
+                      ],
+                      autoStart: true,
+                      loop: true,
+                    }}
+                  />
+                </Text>
               </div>
 
               <p className="font-normal text-base text-[#D5D5D5] leading-6  max-w-xl">
@@ -90,7 +96,9 @@ const HeroSection = () => {
               </TextField.Root>
 
               <Flex className="text-[#D5D5D5]" justify="between" align="center">
-                <Text className="underline font-semibold">Looking for a job instead? </Text>
+                <Text className="underline font-semibold">
+                  Looking for a job instead?{" "}
+                </Text>
                 <Link
                   href={"/dashboard"}
                   className="px-4 py-2 bg-orange-400 rounded-[10px] text-black"
