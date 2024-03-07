@@ -18,6 +18,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        headings: "#353E6C",
+        second: "#19948c30",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -73,5 +75,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography'),],
 }
