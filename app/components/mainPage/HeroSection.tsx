@@ -1,27 +1,22 @@
 import {
   Container,
-  Grid,
   Flex,
-  Box,
-  TextField,
   Text,
-  Button,
+  TextField
 } from "@radix-ui/themes";
 import Image from "next/image";
-import WomanImage from "../../../public/images/businesswoman.png";
-import { IoSearch } from "react-icons/io5";
-import Trending from "../../../public/svg/trending.svg";
 import Link from "next/link";
+import { IoSearch } from "react-icons/io5";
+import RemoteWork from "../../../public/images/remote-working.png";
+import Trending from "../../../public/svg/trending.svg";
 
 const HeroSection = () => {
   return (
     <Flex direction="column">
       <div className="bg-[#145959] pt-5">
         <Container>
-          <Grid
-            columns={{ sm: "1", md: "2" }}
-            gap="5"
-            justify="center"
+          <Flex
+            justify="between"
             align="center"
             className="px-3 lg:px-0"
           >
@@ -95,7 +90,7 @@ const HeroSection = () => {
               </TextField.Root>
 
               <Flex className="text-[#D5D5D5]" justify="between" align="center">
-                <Text>Looking for a job instead? </Text>
+                <Text className="underline font-semibold">Looking for a job instead? </Text>
                 <Link
                   href={"/dashboard"}
                   className="px-4 py-2 bg-orange-400 rounded-[10px] text-black"
@@ -105,13 +100,11 @@ const HeroSection = () => {
               </Flex>
             </div>
             <Image
-              src={WomanImage}
+              src={RemoteWork}
               alt="business-woman"
-              height={150}
-              width={150}
               className="hidden lg:block"
             />
-          </Grid>
+          </Flex>
         </Container>
       </div>
     </Flex>
