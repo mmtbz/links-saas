@@ -27,47 +27,35 @@ const HomeNavBar = () => {
   const currentPath = usePathname();
   return (
     <nav className="text-white bg-[#0D7070] mt-2">
-      <Container className="">
-        <Flex justify="between">
-          <Flex align="center" gap="3" className="py-2 px-3 lg:px-0">
+      <Container className="py-2 lg:py-3 lg:px-0 mx-3 lg:mx-0">
+        <Flex justify="between" align="center">
+          <Flex align="center" gap="3">
             <Link href="/">LOGO</Link>
           </Flex>
-          <Flex
-            align="center"
-            gap="3"
-            className="py-2 lg:py-3 lg:px-0 mx-3 lg:mx-0"
-          >
+
+          <Flex align="center" gap="3">
             <Box className="hidden lg:block">
-              <Flex gap="1">
-                <Link href="/">For Companies</Link>
-                <FaSortDown />
-              </Flex>
-            </Box>
-
-            <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-[5px] hover:opacity-80 hover:text-black hidden lg:block">
-              <Link href="/">Find a Job</Link>
-            </Box>
-
-            <Flex
-              align="center"
-              gap="2"
-              className="border border-solid rounded-[5px] px-4 py-2 bg-sky-100 text-black opacity-90"
-            >
-              <PiUsersFill />
-              <Link href="/api/auth/signup">Sign Up</Link>
-            </Flex>
-
-            <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-[5px] hover:opacity-80 hover:text-black hidden lg:block">
               <Link href="/dashboard">Get a Demo</Link>
             </Box>
             <Box className="hidden lg:block">
               <Flex
-                gap="1"
                 align="center"
-                className="p-2 border border-solid rounded-[5px]"
+                gap="2"
+                className="py-2 px-3 border border-solid rounded-custom"
               >
-                <FiPlus />
-                <Link href="/">Add a Project</Link>
+                <CiLogin />
+                <Link href="/api/auth/signin">Log In</Link>
+              </Flex>
+            </Box>
+            <Box className="hidden lg:block">
+              <Flex
+                align="center"
+                gap="2"
+                className=" rounded-custom px-3 py-2 bg-orange-400 text-black border border-orange-400
+            "
+              >
+                <PiUsersFill />
+                <Link href="/api/auth/signup">Sign Up</Link>
               </Flex>
             </Box>
 
@@ -90,7 +78,7 @@ const MobileNavigationBar = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Box className="lg:hidden border border-solid rounded-xl p-2 focus:outline-none">
+        <Box className="lg:hidden border border-solid rounded-[10px] p-2 focus:outline-none">
           <GiHamburgerMenu className="lg:hidden focus:outline-none" size={18} />
         </Box>
       </SheetTrigger>
@@ -117,7 +105,7 @@ const MobileNavigationBar = () => {
                 gap="6"
                 align="center"
                 justify="center"
-                className="p-2 border border-solid rounded-[5px] mt-9"
+                className="p-2 border border-solid rounded-custom mt-9"
               >
                 <FiPlus />
                 <Link href="/">Add a Project</Link>
@@ -127,7 +115,7 @@ const MobileNavigationBar = () => {
                 gap="2"
                 align="center"
                 justify="center"
-                className="bg-gray-200 p-2 border border-solid rounded-[5px] mt-3 text-black font-bold"
+                className="bg-gray-200 p-2 border border-solid rounded-custom mt-3 text-black font-bold"
               >
                 <CiLogin />
                 <Link href="/api/auth/signin">Log In</Link>

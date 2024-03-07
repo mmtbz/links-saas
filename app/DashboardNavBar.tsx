@@ -45,7 +45,6 @@ const DashboardNavBar = () => {
   if (currentPath.startsWith("/api/auth")) return null;
   return (
     <nav>
-      <Box className="max-h-[0.5rem] lg:max-h-[0.5rem] opacity-0">a</Box>
       <Container className="text-white bg-[#145959]">
         <Flex justify="between">
           <Flex align="center" gap="3">
@@ -172,7 +171,7 @@ const MobileNavigationBar = () => {
               gap="2"
               align="center"
               justify="center"
-              className="p-2 border border-solid rounded-[5px] mt-9"
+              className="p-2 border border-solid rounded-custom mt-9"
               onClick={handleSignOut}
             >
               <CiLogout />
@@ -228,7 +227,7 @@ const AuthStatus = () => {
               gap="2"
               align="center"
               justify="center"
-              className="p-2 border border-solid border-[#145959] rounded-[5px] text-[#145959] hover:cursor-pointer"
+              className="p-2 border border-solid border-[#145959] rounded-custom text-[#145959] hover:cursor-pointer"
               onClick={handleSignOut}
             >
               <CiLogout />

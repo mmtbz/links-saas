@@ -19,9 +19,11 @@ const Breadcrumbs = () => {
             <FaAngleRight />
 
             {isLast ? (
-              <Box className="bg-second px-2 rounded-[5px]">{name}</Box>
+              <Box className="bg-second px-3 rounded-custom">{name}</Box>
             ) : (
-              <Link href={routeTo} className="hover:underline">{name}</Link>
+              <Link href={routeTo} className="hover:underline">
+                {name}
+              </Link>
             )}
           </Flex>
         );
