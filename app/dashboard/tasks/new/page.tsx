@@ -1,5 +1,6 @@
 "use client";
 import { createTaskSchema } from "@/app/SchemaValidation";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 import ButtonSpinner from "@/app/components/ButtonSpinner";
 import Title from "@/app/components/Title";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,6 +47,7 @@ const CreateTaskPage = () => {
 
   return (
     <Box>
+      <Breadcrumbs />
       <Title title="Create a new task" />
       {error && (
         <Callout.Root color="red" className="mb-3">

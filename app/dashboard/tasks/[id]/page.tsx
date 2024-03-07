@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 import TaskStatusBadge from "@/app/components/TaskStatusBadge";
 import prisma from "@/prisma/client";
 import { Card, Flex, Heading, Text } from "@radix-ui/themes";
@@ -17,6 +18,7 @@ const TaskDetailsPage = async ({ params }: Props) => {
 
   return (
     <div className="space-y-3">
+      <Breadcrumbs />
       <Heading>{task.title}</Heading>
       <Flex gap="2">
         <Text className=" text-sm font-semibold">Status: </Text>

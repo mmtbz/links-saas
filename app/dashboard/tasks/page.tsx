@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 import TaskStatusBadge from "@/app/components/TaskStatusBadge";
 import Title from "@/app/components/Title";
 import prisma from "@/prisma/client";
@@ -9,6 +10,7 @@ const TasksPage = async () => {
 
   return (
     <Box className="space-y-4">
+      <Breadcrumbs />
       <Title title="Your Tasks" />
       <Box>
         <Link
