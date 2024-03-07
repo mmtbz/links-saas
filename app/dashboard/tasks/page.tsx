@@ -3,7 +3,6 @@ import Title from "@/app/components/Title";
 import prisma from "@/prisma/client";
 import { Box, Flex, Table, Text } from "@radix-ui/themes";
 import Link from "next/link";
-import { IoMdAdd } from "react-icons/io";
 
 const TasksPage = async () => {
   const tasks = await prisma.task.findMany();
@@ -34,9 +33,12 @@ const TasksPage = async () => {
         </Table.Header>
         <Table.Body>
           {tasks.map((task) => (
-            <Table.Row key={task.id} className="even:bg-[#19948c30] bg-opacity-50">
+            <Table.Row
+              key={task.id}
+              className="even:bg-[#19948c30] bg-opacity-50"
+            >
               <Table.Cell>
-                {task.title}
+                <Link href={`/dashboard/tasks/${task.id}`}>{task.title}</Link>
                 <div className="block md:hidden">
                   <TaskStatusBadge status={task.status} />
                 </div>
