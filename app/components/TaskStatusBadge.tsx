@@ -12,7 +12,7 @@ const statusMap: Record<
 
 const TaskStatusBadge = ({ status }: { status: Status }) => {
   return (
-    <Badge color={statusMap[status].color} className="p-1">{statusMap[status].label}</Badge>
+    <Badge color={statusMap[status].color} className="p-1 capitalize">{statusMap[status].label}</Badge>
   );
 };
 

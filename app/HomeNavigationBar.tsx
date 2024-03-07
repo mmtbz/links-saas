@@ -44,27 +44,27 @@ const HomeNavBar = () => {
               </Flex>
             </Box>
 
-            <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-[5px] hover:opacity-80 hover:text-black hidden lg:block">
+            <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-custom hover:opacity-80 hover:text-black hidden lg:block">
               <Link href="/">Find a Job</Link>
             </Box>
 
             <Flex
               align="center"
               gap="2"
-              className="border border-solid rounded-[5px] px-4 py-2 bg-sky-100 text-black opacity-90"
+              className="border border-solid rounded-custom px-4 py-2 bg-sky-100 text-black opacity-90"
             >
               <PiUsersFill />
               <Link href="/api/auth/signup">Sign Up</Link>
             </Flex>
 
-            <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-[5px] hover:opacity-80 hover:text-black hidden lg:block">
+            <Box className="p-2 hover:bg-white hover:p-2 hover:rounded-custom hover:opacity-80 hover:text-black hidden lg:block">
               <Link href="/dashboard">Get a Demo</Link>
             </Box>
             <Box className="hidden lg:block">
               <Flex
                 gap="1"
                 align="center"
-                className="p-2 border border-solid rounded-[5px]"
+                className="p-2 border border-solid rounded-custom"
               >
                 <FiPlus />
                 <Link href="/">Add a Project</Link>
@@ -117,7 +117,7 @@ const MobileNavigationBar = () => {
                 gap="6"
                 align="center"
                 justify="center"
-                className="p-2 border border-solid rounded-[5px] mt-9"
+                className="p-2 border border-solid rounded-custom mt-9"
               >
                 <FiPlus />
                 <Link href="/">Add a Project</Link>
@@ -127,7 +127,7 @@ const MobileNavigationBar = () => {
                 gap="2"
                 align="center"
                 justify="center"
-                className="bg-gray-200 p-2 border border-solid rounded-[5px] mt-3 text-black font-bold"
+                className="bg-gray-200 p-2 border border-solid rounded-custom mt-3 text-black font-bold"
               >
                 <CiLogin />
                 <Link href="/api/auth/signin">Log In</Link>
