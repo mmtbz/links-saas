@@ -57,7 +57,7 @@ const StepsSection = () => {
                   <Text className="block font-bold py-2">
                     Interview best match
                   </Text>
-                  <Text>We'll recomend you suitable candidate for your case, interview them.</Text>
+                  <Text>We&aposll recomend you suitable candidate for your case, interview them.</Text>
                   <Flex justify="center">
                     <Image src={InterviewImage} alt="interview" height={100} width={100} className=" object-cover"/>
                   </Flex>
