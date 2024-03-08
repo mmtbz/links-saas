@@ -9,9 +9,12 @@ const TasksPage = async () => {
   const tasks = await prisma.task.findMany();
 
   return (
-    <Box className="space-y-4">
-      <Breadcrumbs />
-      <Title title="Your Tasks" />
+    <Box className="space-y-3">
+      <Box>
+        <Breadcrumbs />
+        <Title title="Your Tasks" />
+      </Box>
+
       <Box>
         <Link
           href="/dashboard/tasks/new"

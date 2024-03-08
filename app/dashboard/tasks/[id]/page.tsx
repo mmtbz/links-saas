@@ -1,5 +1,6 @@
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import TaskStatusBadge from "@/app/components/TaskStatusBadge";
+import Title from "@/app/components/Title";
 import prisma from "@/prisma/client";
 import { Card, Flex, Heading, Text, Box } from "@radix-ui/themes";
 import Link from "next/link";
@@ -19,13 +20,16 @@ const TaskDetailsPage = async ({ params }: Props) => {
   if (!task) notFound();
 
   return (
-    <div className="space-y-3">
-      <Breadcrumbs />
-      <Heading>{task.title}</Heading>
+    <div>
+      <Box>
+        <Breadcrumbs />
+        <Title title={task.title} />
+      </Box>
+
       <Flex gap="2" justify="between">
         <Flex className="space-x-3">
           <Flex align={"center"} gap="1">
-            <Text className=" text-sm font-semibold">Status: </Text>
+            <Text className="text-sm font-semibold">Status: </Text>
             <TaskStatusBadge status={task.status} />
           </Flex>
           <Flex align={"center"} gap="1">
@@ -45,10 +49,10 @@ const TaskDetailsPage = async ({ params }: Props) => {
           <Link href={`/dashboard/tasks/${task.id}/edit`}>Edit Task</Link>
         </Flex>
       </Flex>
-
-      <Card className="prose">
+      <Text className="text-sm font-semibold">Description: </Text>
+      <Box className="prose py-2">
         <ReactMarkdown>{task.description}</ReactMarkdown>
-      </Card>
+      </Box>
     </div>
   );
 };
