@@ -10,7 +10,7 @@ const Breadcrumbs = () => {
   const pathnames = pathName.split("/").filter((x) => x);
 
   return (
-    <Flex gap="2">
+    <Flex gap="2" className="pb-2">
       {pathnames.map((name, index) => {
         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
         const isLast = index === pathnames.length - 1;

@@ -2,16 +2,19 @@ import Breadcrumbs from "@/app/components/Breadcrumbs";
 import TaskStatusBadge from "@/app/components/TaskStatusBadge";
 import Title from "@/app/components/Title";
 import prisma from "@/prisma/client";
-import { Box, Flex, Table, Text } from "@radix-ui/themes";
+import { Box, Table } from "@radix-ui/themes";
 import Link from "next/link";
 
 const TasksPage = async () => {
   const tasks = await prisma.task.findMany();
 
   return (
-    <Box className="space-y-4">
-      <Breadcrumbs />
-      <Title title="Your Tasks" />
+    <Box className="space-y-3">
+      <Box>
+        <Breadcrumbs />
+        <Title title="Your Tasks" />
+      </Box>
+
       <Box>
         <Link
           href="/dashboard/tasks/new"
