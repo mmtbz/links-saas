@@ -11,7 +11,6 @@ import { Box, Container, Flex } from "@radix-ui/themes";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { CiLogin } from "react-icons/ci";
-import { FaSortDown } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { PiUsersFill } from "react-icons/pi";

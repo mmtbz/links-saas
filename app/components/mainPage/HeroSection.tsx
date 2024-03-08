@@ -2,9 +2,9 @@ import { Container, Flex, Text, TextField } from "@radix-ui/themes";
 import Image from "next/image";
 import Link from "next/link";
 import { IoSearch } from "react-icons/io5";
+import Typewriter from "typewriter-effect";
 import RemoteWork from "../../../public/images/remote-working.png";
 import Trending from "../../../public/svg/trending.svg";
-import Typewriter from "typewriter-effect";
 
 const HeroSection = () => {
   return (

@@ -4,6 +4,7 @@ import Title from "@/app/components/Title";
 import prisma from "@/prisma/client";
 import { Box, Table } from "@radix-ui/themes";
 import Link from "next/link";
+import { MdAdd } from "react-icons/md";
 
 const TasksPage = async () => {
   const tasks = await prisma.task.findMany();
@@ -15,17 +16,15 @@ const TasksPage = async () => {
         <Title title="Your Tasks" />
       </Box>
 
-      <Box>
-        <Link
-          href="/dashboard/tasks/new"
-          className="p-2 bg-[#145959] rounded-[5px] text-white"
-        >
-          Create a new Task
-        </Link>
+      <Box className="p-2 bg-[#145959] rounded-custom text-white inline-flex items-center gap-1">
+      <MdAdd />
+
+
+        <Link href="/dashboard/tasks/new">Create a Task</Link>
       </Box>
 
       <Table.Root className="border rounded-[5px]">
-        <Table.Header className="bg-gray-200">
+        <Table.Header className="bg-[#19948c30] ">
           <Table.Row>
             <Table.ColumnHeaderCell>Tasks</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell className="hidden md:table-cell">
@@ -40,7 +39,7 @@ const TasksPage = async () => {
           {tasks.map((task) => (
             <Table.Row
               key={task.id}
-              className="even:bg-[#19948c30] bg-opacity-50"
+              className="even:bg-gray-100 bg-opacity-50"
             >
               <Table.Cell>
                 <Link href={`/dashboard/tasks/${task.id}`}>{task.title}</Link>

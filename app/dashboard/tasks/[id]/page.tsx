@@ -6,6 +6,7 @@ import { Card, Flex, Heading, Text, Box } from "@radix-ui/themes";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FiEdit } from "react-icons/fi";
+import { MdDelete } from "react-icons/md";
 import ReactMarkdown from "react-markdown";
 
 interface Props {
@@ -27,7 +28,7 @@ const TaskDetailsPage = async ({ params }: Props) => {
       </Box>
 
       <Flex gap="2" justify="between">
-        <Flex className="space-x-3">
+        <Flex className="flex-col lg:flex-row" gap="1">
           <Flex align={"center"} gap="1">
             <Text className="text-sm font-semibold">Status: </Text>
             <TaskStatusBadge status={task.status} />
@@ -43,15 +44,19 @@ const TaskDetailsPage = async ({ params }: Props) => {
         <Flex
           align="center"
           gap="2"
-          className="py-1 px-3 bg-[#145959] rounded-[5px] text-white"
+          className="py-1 px-3 bg-[#145959] rounded-custom text-white self-end"
         >
           <FiEdit />
           <Link href={`/dashboard/tasks/${task.id}/edit`}>Edit Task</Link>
         </Flex>
       </Flex>
-      <Text className="text-sm font-semibold">Description: </Text>
+      <Text className="text-sm font-semibold py-2">Description: </Text>
       <Box className="prose py-2">
         <ReactMarkdown>{task.description}</ReactMarkdown>
+      </Box>
+      <Box className="py-1 px-3 bg-red-700 rounded-custom text-white inline-flex items-center gap-1">
+        <MdDelete />
+        <Link href={`/dashboard/tasks/${task.id}/delete`}>Delete Task</Link>
       </Box>
     </div>
   );
