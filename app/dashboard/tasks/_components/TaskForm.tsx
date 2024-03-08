@@ -1,6 +1,5 @@
 "use client";
-import { createTaskSchema } from "@/app/SchemaValidation";
-import Breadcrumbs from "@/app/components/Breadcrumbs";
+import { taskSchema } from "@/app/SchemaValidation";
 import ButtonSpinner from "@/app/components/ButtonSpinner";
 import Title from "@/app/components/Title";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,7 +14,7 @@ import { Controller, useForm } from "react-hook-form";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { z } from "zod";
 
-type TaskFormData = z.infer<typeof createTaskSchema>;
+type TaskFormData = z.infer<typeof taskSchema>;
 
 const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
   ssr: false,
@@ -34,7 +33,7 @@ const TaskForm = ({ task, title }: Props) => {
     handleSubmit,
     formState: { errors },
   } = useForm<TaskFormData>({
-    resolver: zodResolver(createTaskSchema),
+    resolver: zodResolver(taskSchema),
   });
 
   const [error, setError] = useState("");
