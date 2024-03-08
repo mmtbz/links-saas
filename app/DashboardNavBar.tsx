@@ -52,7 +52,7 @@ const DashboardNavBar = () => {
               LOGO
             </Link>
           </Flex>
-          <Flex align="center" gap="5" className="py-2 px-2">
+          <Flex align="center" className="py-2">
             <Flex gap="2" align="center">
               <Image
                 src={NotificationIcon}
@@ -79,7 +79,7 @@ const DashboardNavBar = () => {
                 width={20}
               />
             </Flex>
-            <Box className="hidden lg:block">
+            <Box className="hidden lg:block pl-5">
               <Flex gap="4" align="center">
                 <Link href="/dashboard/quiz">
                   <Flex gap="2" align="center">
