@@ -42,7 +42,11 @@ const TaskForm = ({ task, title }: Props) => {
   const onSubmit = handleSubmit(async (data) => {
     try {
       setSubmittng(true);
-      await axios.post("/api/task", data);
+      if (task) {
+        await axios.patch("/api/task/" + task.id, data);
+      } else {
+        await axios.post("/api/task", data);
+      }
       router.push("/dashboard/tasks");
     } catch (error) {
       setSubmittng(false);
@@ -66,7 +70,7 @@ const TaskForm = ({ task, title }: Props) => {
           <Text>Title</Text>
           <input
             className="border border-solid py-2 px-4 rounded-[5px]"
-            value={task?.title}
+            defaultValue={task?.title}
             placeholder="Title"
             {...register("title")}
           />
@@ -89,10 +93,11 @@ const TaskForm = ({ task, title }: Props) => {
         <Flex direction="column" gap="2" align="start">
           <button
             disabled={isSubmitting}
-            className="flex py-2 px-6 bg-[#145959] text-white rounded-[5px] gap-1 items-center disabled:bg-gray-400"
+            className="flex py-2 px-4 bg-[#145959] text-white rounded-[5px] gap-1 items-center disabled:bg-gray-400"
             type="submit"
           >
-            Submit
+            {task ? "Update Task" : "Submit"}
+
             {isSubmitting && <ButtonSpinner />}
           </button>
         </Flex>
