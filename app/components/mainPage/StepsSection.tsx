@@ -1,9 +1,8 @@
-import { Container, Grid, Box, Flex, Text, Button } from "@radix-ui/themes";
-import React from "react";
-import InterviewImage from "../../../public/images/interview.png";
-import FreeImage from "../../../public/images/free.png";
-import FastDelivery from "../../../public/images/fast-delivery.png";
+import { Box, Container, Flex, Grid, Text } from "@radix-ui/themes";
 import Image from "next/image";
+import FastDelivery from "../../../public/images/fast-delivery.png";
+import FreeImage from "../../../public/images/free.png";
+import InterviewImage from "../../../public/images/interview.png";
 
 const StepsSection = () => {
   return (

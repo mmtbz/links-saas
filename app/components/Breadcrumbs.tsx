@@ -1,8 +1,7 @@
 "use client";
-import { Flex, Box } from "@radix-ui/themes";
+import { Box, Flex } from "@radix-ui/themes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 
 const Breadcrumbs = () => {

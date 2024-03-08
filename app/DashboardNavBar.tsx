@@ -48,7 +48,7 @@ const DashboardNavBar = () => {
       <Container className="text-white bg-[#145959]">
         <Flex justify="between">
           <Flex align="center" gap="3">
-            <Link href="/" className="pl-2">
+            <Link href="/" className="ml-3 lg:ml-0">
               LOGO
             </Link>
           </Flex>
@@ -149,7 +149,7 @@ const MobileNavigationBar = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Box className="lg:hidden border border-solid rounded-xl border-white p-2 focus:outline-none">
+        <Box className="lg:hidden border border-solid rounded-xl border-white p-2 focus:outline-none mr-3">
           <GiHamburgerMenu className="lg:hidden focus:outline-none" size={18} />
         </Box>
       </SheetTrigger>
