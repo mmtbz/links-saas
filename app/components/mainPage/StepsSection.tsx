@@ -57,7 +57,7 @@ const StepsSection = () => {
                   <Text className="block font-bold py-2">
                     Interview best match
                   </Text>
-                  <Text>Talk to our expert for your use case.</Text>
+                  <Text>We'll recomend you suitable candidate for your case, interview them.</Text>
                   <Flex justify="center">
                     <Image src={InterviewImage} alt="interview" height={100} width={100} className=" object-cover"/>
                   </Flex>
@@ -72,7 +72,7 @@ const StepsSection = () => {
                 <Box className="px-[0.75rem] py-1 bg-white rounded-full">3</Box>
                 <Box>
                   <Text className="block font-bold py-2">Start free trial</Text>
-                  <Text>Talk to our expert for your use case.</Text>
+                  <Text>Start 2 weeks free of no charge.</Text>
                   <Flex justify="center">
                     <Image src={FreeImage} alt="free" height={100} width={100} className=" object-cover"/>
                   </Flex>
@@ -89,7 +89,7 @@ const StepsSection = () => {
                   <Text className="block font-bold py-2">
                     Get your project delivered
                   </Text>
-                  <Text>Talk to our expert for your use case.</Text>
+                  <Text>Get your project delivered on time we agree on.</Text>
                   <Flex justify="center">
                     <Image src={FastDelivery} alt="fast" height={100} width={100} className=" object-cover"/>
                   </Flex>
