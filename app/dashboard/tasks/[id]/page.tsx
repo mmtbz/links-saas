@@ -54,7 +54,7 @@ const TaskDetailsPage = async ({ params }: Props) => {
       <Box className="prose py-2">
         <ReactMarkdown>{task.description}</ReactMarkdown>
       </Box>
-      <DeleteTaskButton />
+      <DeleteTaskButton taskId={task.id} />
     </div>
   );
 };

@@ -48,6 +48,7 @@ const TaskForm = ({ task, title }: Props) => {
         await axios.post("/api/task", data);
       }
       router.push("/dashboard/tasks");
+      router.refresh();
     } catch (error) {
       setSubmittng(false);
       setError("Something happened, please try again later");
