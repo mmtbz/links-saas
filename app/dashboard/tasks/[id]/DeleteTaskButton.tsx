@@ -1,5 +1,6 @@
 "use client";
-import { AlertDialog, Box, Button, Flex, Text } from "@radix-ui/themes";
+import ButtonSpinner from "@/app/components/ButtonSpinner";
+import { AlertDialog, Box, Flex, Text } from "@radix-ui/themes";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -8,12 +9,15 @@ import { MdDelete } from "react-icons/md";
 const DeleteTaskButton = ({ taskId }: { taskId: number }) => {
   const router = useRouter();
   const [error, setError] = useState(false);
+  const [isDeleting, setDeleting] = useState(false);
   const deleteTask = async () => {
     try {
+      setDeleting(true);
       await axios.delete("/api/task/" + taskId);
       router.push("/dashboard/tasks");
       router.refresh();
     } catch (error) {
+      setDeleting(false);
       setError(true);
     }
   };
@@ -22,10 +26,15 @@ const DeleteTaskButton = ({ taskId }: { taskId: number }) => {
     <>
       <AlertDialog.Root>
         <AlertDialog.Trigger>
-          <Box className="py-1 px-3 bg-red-700 rounded-custom text-white inline-flex items-center gap-1">
-            <MdDelete />
+          <button
+            className="py-1 px-3 bg-red-700 rounded-custom text-white inline-flex items-center gap-1
+             disabled:bg-gray-500"
+            disabled={isDeleting}
+          >
+            {!isDeleting && <MdDelete />}
+            {isDeleting && <ButtonSpinner />}
             <Text>Delete Task</Text>
-          </Box>
+          </button>
         </AlertDialog.Trigger>
         <AlertDialog.Content
           style={{ maxWidth: 450 }}
