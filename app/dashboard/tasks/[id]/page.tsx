@@ -2,12 +2,12 @@ import Breadcrumbs from "@/app/components/Breadcrumbs";
 import TaskStatusBadge from "@/app/components/TaskStatusBadge";
 import Title from "@/app/components/Title";
 import prisma from "@/prisma/client";
-import { Card, Flex, Heading, Text, Box } from "@radix-ui/themes";
+import { Box, Flex, Text } from "@radix-ui/themes";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FiEdit } from "react-icons/fi";
-import { MdDelete } from "react-icons/md";
 import ReactMarkdown from "react-markdown";
+import DeleteTaskButton from "./DeleteTaskButton";
 
 interface Props {
   params: { id: string };
@@ -54,10 +54,7 @@ const TaskDetailsPage = async ({ params }: Props) => {
       <Box className="prose py-2">
         <ReactMarkdown>{task.description}</ReactMarkdown>
       </Box>
-      <Box className="py-1 px-3 bg-red-700 rounded-custom text-white inline-flex items-center gap-1">
-        <MdDelete />
-        <Link href={`/dashboard/tasks/${task.id}/delete`}>Delete Task</Link>
-      </Box>
+      <DeleteTaskButton />
     </div>
   );
 };
