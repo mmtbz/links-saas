@@ -93,13 +93,14 @@ const TaskForm = ({ task, title }: Props) => {
         <Flex gap="2" align="center">
           <Text>Status </Text>
           <select
-            name="status"
             id="status"
             className="border border-solid py-2 px-4 rounded-custom inline-flex"
+            {...register("status")}
+            defaultValue={task?.status}
           >
-            <option> OPEN</option>
-            <option> IN_PROGRESS</option>
-            <option> CLOSED</option>
+            <option value="OPEN">Open</option>
+            <option value="IN_PROGRESS">In Progress</option>
+            <option value="CLOSED">Closed</option>
           </select>
         </Flex>
 
