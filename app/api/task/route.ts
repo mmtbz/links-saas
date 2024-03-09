@@ -2,7 +2,6 @@ import { taskSchema } from "@/app/SchemaValidation";
 import prisma from "@/prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
-
 export async function POST(request: NextRequest) {
   const body = await request.json();
   const validation = taskSchema.safeParse(body);
@@ -14,6 +13,7 @@ export async function POST(request: NextRequest) {
     data: {
       title: body.title,
       description: body.description,
+      status: body.status,
     },
   });
 

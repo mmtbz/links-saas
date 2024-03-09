@@ -48,6 +48,7 @@ const TaskForm = ({ task, title }: Props) => {
         await axios.post("/api/task", data);
       }
       router.push("/dashboard/tasks");
+      router.refresh();
     } catch (error) {
       setSubmittng(false);
       setError("Something happened, please try again later");
@@ -69,7 +70,7 @@ const TaskForm = ({ task, title }: Props) => {
         <Flex direction="column" gap="2">
           <Text>Title</Text>
           <input
-            className="border border-solid py-2 px-4 rounded-[5px]"
+            className="border border-solid py-2 px-4 rounded-custom"
             defaultValue={task?.title}
             placeholder="Title"
             {...register("title")}
@@ -90,6 +91,20 @@ const TaskForm = ({ task, title }: Props) => {
             <Text color="red"> {errors.description.message}</Text>
           )}
         </Flex>
+        <Flex gap="2" align="center">
+          <Text>Status </Text>
+          <select
+            id="status"
+            className="border border-solid py-2 px-4 rounded-custom inline-flex"
+            {...register("status")}
+            defaultValue={task?.status}
+          >
+            <option value="OPEN">Open</option>
+            <option value="IN_PROGRESS">In Progress</option>
+            <option value="CLOSED">Closed</option>
+          </select>
+        </Flex>
+
         <Flex direction="column" gap="2" align="start">
           <button
             disabled={isSubmitting}
