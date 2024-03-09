@@ -69,7 +69,7 @@ const TaskForm = ({ task, title }: Props) => {
         <Flex direction="column" gap="2">
           <Text>Title</Text>
           <input
-            className="border border-solid py-2 px-4 rounded-[5px]"
+            className="border border-solid py-2 px-4 rounded-custom"
             defaultValue={task?.title}
             placeholder="Title"
             {...register("title")}
@@ -90,6 +90,19 @@ const TaskForm = ({ task, title }: Props) => {
             <Text color="red"> {errors.description.message}</Text>
           )}
         </Flex>
+        <Flex gap="2" align="center">
+          <Text>Status </Text>
+          <select
+            name="status"
+            id="status"
+            className="border border-solid py-2 px-4 rounded-custom inline-flex"
+          >
+            <option> OPEN</option>
+            <option> IN_PROGRESS</option>
+            <option> CLOSED</option>
+          </select>
+        </Flex>
+
         <Flex direction="column" gap="2" align="start">
           <button
             disabled={isSubmitting}
