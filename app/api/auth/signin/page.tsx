@@ -1,6 +1,6 @@
 "use client";
 import { FEATURES } from "@/app/feature";
-import { Box, Button, Flex, Text } from "@radix-ui/themes";
+import { Box, Container, Flex, Grid, Switch, Text } from "@radix-ui/themes";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -44,99 +44,95 @@ const LoginPage = () => {
   const hideCustomLoginForm = !FEATURES.HIDE_CUSTOM_LOGIN.enabled;
 
   return (
-    <Flex
-      justify="between"
-      direction="column"
-      className="shadow-lg max-w-[25rem] m-auto bg-gradient-to-br from-teal-500 to-green-700"
-    >
-      <Flex
-        className="text-center text-3xl font-bold p-7"
-        align="center"
-        justify="center"
-      >
-        <Link href="/">HAKKA</Link>
-      </Flex>
-      <Box className="rounded-t-[10px]">
-        <Flex
-          direction="column"
-          className="rounded-[10px] p-3 bg-gray-50 m-1"
-        >
-          <Text size="8" mb="5" mt="5">
-            Welcome back 👋
-          </Text>
-          <Text mb="4" className="text-gray-500 text-sm">
-            Today is a new day. It&lsquo;s your day. You shape it. <br /> Sign
-            in to manage your projects
-          </Text>
+    <Container className="">
+      <Grid columns={{ initial: "1", md: "5" }}>
+        <Box className="h-screen md:col-span-3 p-5 bg-[#F0F2F5]">
+          <Flex justify="between">
+            <Text>Logo</Text>
+            <Box className="hidden md:block">
+              <Flex gap="2">
+                <Text>Don&lsquo;t have an account?</Text>
+                <Link
+                  href="/api/auth/signup"
+                  className="text-primary font-semibold hover:underline"
+                >
+                  Sign Up
+                </Link>
+              </Flex>
+            </Box>
+          </Flex>
+          <Box className="h-5/6 flex flex-col justify-center items-center">
+            <Box className="text-center space-y-5 max-w-sm mx-auto">
+              <Box className="space-y-2">
+                <Text className="font-bold block" size="7">
+                  👋 Welcome Back
+                </Text>
+                <Text size="3" className="block">
+                  Sign in into your account
+                </Text>
+              </Box>
 
-          <button
-            className="px-3 py-2 bg-sky-100 text-black rounded-xl my-3 flex gap-2 justify-center items-center"
-            onClick={handleGoogleSignIn}
-          >
-            <FcGoogle size={20} />
-            <Text>Sign In with Google</Text>
-          </button>
-          {hideCustomLoginForm && (
-            <>
+              <button
+                className="inline-flex gap-1 items-center justify-center bg-white py-2 px-4 rounded-custom border border-green-500 w-full"
+                onClick={handleGoogleSignIn}
+              >
+                <FcGoogle />
+                Google
+              </button>
               <div className="flex items-center my-4">
                 <hr className="flex-1 border-t border-gray-300" />
                 <span className="mx-4 text-gray-500">Or</span>
                 <hr className="flex-1 border-t border-gray-300" />
               </div>
-              <form>
-                <Flex direction="column" mb="3">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    placeholder="example@email.com"
-                    className="border border-solid border-grey px-3 py-2 rounded-xl bg-blue-50 outline-none"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
+              <input
+                placeholder="Email"
+                className="p-2 rounded-custom border border-gray-300 outline-none w-full"
+                type="email"
+              />
+              <input
+                placeholder="Password"
+                className="p-2 rounded-custom border border-gray-300 outline-none w-full"
+                type="password"
+              />
+              <Flex className="text-sm" justify="between">
+                <Flex gap="1">
+                  <Switch />
+                  <Text>Remember Me</Text>
                 </Flex>
-                <Flex direction="column" mb="3">
-                  <label>Password</label>
-                  <input
-                    placeholder="At least 8 characters"
-                    type="password"
-                    autoComplete="true"
-                    className="border border-solid border-grey px-3 py-2 rounded-xl bg-blue-50 outline-none"
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </Flex>
-              </form>
-              <Flex justify="end" className="mb-3">
-                <button className="outline-none hover:bg-inherit hover:cursor-pointer text-blue-800 text-sm">
-                  Forgot Password?
-                </button>
+
+                <Text className="text-blue-500">Forgot password</Text>
               </Flex>
-
-              <button
-                className="px-3 py-2 bg-slate-800 text-white rounded-xl mb-5"
-                onClick={handleCustomSignIn}
-              >
-                Sign In
+              <button className="p-2 rounded-custom border border-gray-300 w-full">
+                Login
               </button>
-            </>
-          )}
-
-          <Flex gap="2" align="center" justify="center" mb="5">
-            <Text>Don&lsquo;t have an account?</Text>
-            <Link
-              href="/api/auth/signup"
-              className="outline-none hover:bg-inherit hover:cursor-pointer text-blue-800"
-            >
-              Sign Up
-            </Link>
-          </Flex>
-
-          <Flex justify="center" align="center" className="mb-1 mt-9">
-            <Text color="gray" className="opacity-50" size="2">
-              © 2024 ALL RIGHTS RESERVED
-            </Text>
-          </Flex>
-        </Flex>
-      </Box>
-    </Flex>
+              <Box className="md:hidden">
+                <Flex gap="2">
+                  <Text>Don&lsquo;t have an account?</Text>
+                  <Link
+                    href="/api/auth/signup"
+                    className="text-primary font-semibold hover:underline"
+                  >
+                    Sign Up
+                  </Link>
+                </Flex>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        <Box className="md:col-span-2 h-screen bg-primary relative text-white hidden md:block">
+          <Box className="bg-[FFF2F2] rounded-[5px] space-y-3 p-5 m-4 bg-white bg-opacity-[0.06] absolute bottom-0">
+            <Box className="bg-orange-600 rounded-[5px] inline-flex py-1 px-4">
+              👍 Top notch candidates
+            </Box>
+            <Box>
+              Today, we create innovative solutions to the <br /> challenges
+              that consumers face in both their <br />
+              everyday lives and events.
+            </Box>
+          </Box>
+        </Box>
+      </Grid>
+    </Container>
   );
 };
 
