@@ -7,6 +7,7 @@ import {
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Logo from "@/public/logo-white.png";
 import {
   Avatar,
   Box,
@@ -49,7 +50,7 @@ const DashboardNavBar = () => {
         <Flex justify="between">
           <Flex align="center" gap="3">
             <Link href="/" className="ml-3 lg:ml-0">
-              LOGO
+            <Image src={Logo} alt="logo" height={40} />
             </Link>
           </Flex>
           <Flex align="center" className="py-2">
