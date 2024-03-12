@@ -11,7 +11,7 @@ const UpdateRoleModal = () => {
           We need few information before you start.
         </AlertDialog.Title>
         <AlertDialog.Description size="5">
-          <Text className="solid">How do you plan to use Hakka</Text> <br />
+          <Text className="solid">How do you plan to use Worklane</Text> <br />
           <Text>Please choose a role: </Text>
         </AlertDialog.Description>
 

@@ -146,7 +146,7 @@ const DashboardPage = () => {
       </Box>
       <Box className="mt-4 p-4 shadow-lg border border-solid border-[#E4E5E7] rounded-[5px]">
         <Text size="4" className=" font-semibold block py-2">
-          3 steps to become a top candidate on Hakka
+          3 steps to become a top candidate on Worklane
         </Text>
         <Text size="2" className="text-gray-500">
           The key to your success on Fiverr is the brand you build for yourself

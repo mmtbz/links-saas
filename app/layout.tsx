@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Hacka - Home",
+  title: "Worklane - Home",
   description: "No Remote Job platform in Africa",
 };
 
