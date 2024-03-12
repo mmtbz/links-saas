@@ -1,7 +1,9 @@
 "use client";
 import { FEATURES } from "@/app/feature";
+import Logo from "@/public/logo-green.png";
 import { Box, Container, Flex, Grid, Switch, Text } from "@radix-ui/themes";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -48,7 +50,9 @@ const LoginPage = () => {
       <Grid columns={{ initial: "1", md: "5" }}>
         <Box className="h-screen md:col-span-3 p-5 bg-[#F0F2F5]">
           <Flex justify="between">
-            <Text>Logo</Text>
+            <Box className="">
+              <Image src={Logo} alt="logo" height={40} />
+            </Box>
             <Box className="hidden md:block">
               <Flex gap="2">
                 <Text>Don&lsquo;t have an account?</Text>
@@ -100,7 +104,9 @@ const LoginPage = () => {
                   <Text>Remember Me</Text>
                 </Flex>
 
-                <Text className="text-blue-500 hover:cursor-pointer hover:underline">Forgot password</Text>
+                <Text className="text-blue-500 hover:cursor-pointer hover:underline">
+                  Forgot password
+                </Text>
               </Flex>
               <button className="p-2 rounded-custom border border-gray-300 w-full">
                 Login

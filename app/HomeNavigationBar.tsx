@@ -14,6 +14,8 @@ import { CiLogin } from "react-icons/ci";
 import { FiPlus } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { PiUsersFill } from "react-icons/pi";
+import Logo from "@/public/logo-white.png";
+import Image from "next/image";
 
 const links = [
   { label: "For Companies", href: "/dashboard" },
@@ -29,7 +31,9 @@ const HomeNavBar = () => {
       <Container className="py-2 lg:py-3 lg:px-0 mx-3 lg:mx-0">
         <Flex justify="between" align="center">
           <Flex align="center" gap="3">
-            <Link href="/">LOGO</Link>
+            <Link href="/">
+              <Image src={Logo} alt="logo" height={40} />
+            </Link>
           </Flex>
 
           <Flex align="center" gap="3">

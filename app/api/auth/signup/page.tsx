@@ -1,6 +1,8 @@
 "use client";
 import { FEATURES } from "@/app/feature";
-import { Container, Flex, Grid, Text, Box, Switch } from "@radix-ui/themes";
+import Logo from "@/public/logo-white.png";
+import { Box, Container, Flex, Grid, Text } from "@radix-ui/themes";
+import Image from "next/image";
 import Link from "next/link";
 import { FaBook } from "react-icons/fa";
 import { FaPeopleGroup } from "react-icons/fa6";
@@ -14,7 +16,9 @@ const SignUpPage = () => {
     <Container className="">
       <Grid columns={{ initial: "1", md: "5" }}>
         <Box className="md:col-span-2 h-screen bg-primary relative text-white hidden md:block">
-          <Box className="p-5">Logo</Box>
+          <Box className="p-5">
+            <Image src={Logo} alt="logo" height={40} />
+          </Box>
           <Box className="bg-[FFF2F2] rounded-[5px] space-y-3 p-5 m-4 bg-white bg-opacity-[0.06] absolute top-[210px] left-[15px]">
             <Box className="bg-black rounded-[5px] inline-flex py-3 px-4">
               <FaPeopleGroup size="24" />
