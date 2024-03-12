@@ -50,7 +50,7 @@ const DashboardNavBar = () => {
         <Flex justify="between">
           <Flex align="center" gap="3">
             <Link href="/" className="ml-3 lg:ml-0">
-            <Image src={Logo} alt="logo" height={40} />
+            <Image src={Logo} alt="logo" height={30} />
             </Link>
           </Flex>
           <Flex align="center" className="py-2">

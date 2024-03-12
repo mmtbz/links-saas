@@ -18,7 +18,7 @@ const SignUpPage = () => {
       <Grid columns={{ initial: "1", md: "5" }}>
         <Box className="md:col-span-2 h-screen bg-primary relative text-white hidden md:block">
           <Box className="p-5">
-            <Image src={LogoWite} alt="logo" height={40} />
+            <Image src={LogoWite} alt="logo" height={30} />
           </Box>
           <Box className="bg-[FFF2F2] rounded-[5px] space-y-3 p-5 m-4 bg-white bg-opacity-[0.06] absolute top-[210px] left-[15px]">
             <Box className="bg-black rounded-[5px] inline-flex py-3 px-4">
