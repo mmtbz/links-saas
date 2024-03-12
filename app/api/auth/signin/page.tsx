@@ -100,7 +100,7 @@ const LoginPage = () => {
                   <Text>Remember Me</Text>
                 </Flex>
 
-                <Text className="text-blue-500">Forgot password</Text>
+                <Text className="text-blue-500 hover:cursor-pointer hover:underline">Forgot password</Text>
               </Flex>
               <button className="p-2 rounded-custom border border-gray-300 w-full">
                 Login
