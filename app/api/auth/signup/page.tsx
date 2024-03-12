@@ -1,6 +1,7 @@
 "use client";
 import { FEATURES } from "@/app/feature";
-import Logo from "@/public/logo-white.png";
+import LogoWite from "@/public/logo-white.png";
+import LogoGreen from "@/public/logo-green.png";
 import { Box, Container, Flex, Grid, Text } from "@radix-ui/themes";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +18,7 @@ const SignUpPage = () => {
       <Grid columns={{ initial: "1", md: "5" }}>
         <Box className="md:col-span-2 h-screen bg-primary relative text-white hidden md:block">
           <Box className="p-5">
-            <Image src={Logo} alt="logo" height={40} />
+            <Image src={LogoWite} alt="logo" height={40} />
           </Box>
           <Box className="bg-[FFF2F2] rounded-[5px] space-y-3 p-5 m-4 bg-white bg-opacity-[0.06] absolute top-[210px] left-[15px]">
             <Box className="bg-black rounded-[5px] inline-flex py-3 px-4">
@@ -44,7 +45,7 @@ const SignUpPage = () => {
         <Box className="h-screen md:col-span-3 p-5 bg-[#F0F2F5]">
           <Flex className="justify-start md:justify-end">
             <Box className="lg:hidden">
-              <Text>Logo</Text>
+            <Image src={LogoGreen} alt="logo" height={30} />
             </Box>
 
             <Box className="hidden md:block">
