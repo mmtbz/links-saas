@@ -42,10 +42,10 @@ const SignUpPage = () => {
             <Text className="text-black">Lean & take quizes</Text>
           </Box>
         </Box>
-        <Box className="h-screen md:col-span-3 p-5 bg-[#F0F2F5]">
-          <Flex className="justify-start md:justify-end">
+        <Box className="md:col-span-3 p-5 bg-[#F0F2F5] overflow-auto">
+          <Flex className="justify-start md:justify-end mb-5">
             <Box className="lg:hidden">
-            <Image src={LogoGreen} alt="logo" height={30} />
+              <Image src={LogoGreen} alt="logo" height={30} />
             </Box>
 
             <Box className="hidden md:block">
