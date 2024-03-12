@@ -51,7 +51,7 @@ const LoginPage = () => {
         <Box className="h-screen md:col-span-3 p-5 bg-[#F0F2F5]">
           <Flex justify="between">
             <Box className="">
-              <Image src={Logo} alt="logo" height={40} />
+              <Image src={Logo} alt="logo" height={30} />
             </Box>
             <Box className="hidden md:block">
               <Flex gap="2">
