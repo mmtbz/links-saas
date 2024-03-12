@@ -120,7 +120,7 @@ const LoginPage = () => {
           </Box>
         </Box>
         <Box className="md:col-span-2 h-screen bg-primary relative text-white hidden md:block">
-          <Box className="bg-[FFF2F2] rounded-[5px] space-y-3 p-5 m-4 bg-white bg-opacity-[0.06] absolute bottom-0">
+          <Box className="bg-[FFF2F2] rounded-[5px] space-y-3 p-5 m-4 bg-white bg-opacity-[0.06] absolute bottom-0 left-7">
             <Box className="bg-orange-600 rounded-[5px] inline-flex py-1 px-4">
               👍 Top notch candidates
             </Box>
