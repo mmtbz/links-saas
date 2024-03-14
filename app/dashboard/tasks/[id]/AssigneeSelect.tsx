@@ -1,15 +1,31 @@
-import { Flex, Text } from "@radix-ui/themes";
+"use client";
+import { User } from "@prisma/client";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const AssigneeSelect = () => {
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get<User[]>("/api/users");
+      setUsers(data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <select
-      id="status"
+      id="assigness"
       className="border border-solid p-1 rounded-custom inline-flex outline-none"
-      defaultValue={"OPEN"}
     >
-      <option value="OPEN">Open</option>
-      <option value="IN_PROGRESS">In Progress</option>
-      <option value="CLOSED">Closed</option>
+      <option value=""> Assign User</option>
+      {users.map((user) => (
+        <option value={user.id} key={user.id}>
+          {user.name}
+        </option>
+      ))}
     </select>
   );
 };
