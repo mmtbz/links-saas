@@ -1,19 +1,23 @@
 "use client";
 import { User } from "@prisma/client";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 const AssigneeSelect = () => {
-  const [users, setUsers] = useState<User[]>([]);
+  const {
+    data: users,
+    error,
+    isLoading,
+  } = useQuery<User[]>({
+    queryKey: ["users"],
+    queryFn: () => axios.get("/api/users").then((res) => res.data),
+    staleTime: 60 * 1000, // stale for 60 secs
+    retry: 3,
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get<User[]>("/api/users");
-      setUsers(data);
-    };
-
-    fetchData();
-  }, []);
+  if (isLoading) return <div>loading</div>;
+  if (error) return null;
 
   return (
     <select
@@ -21,7 +25,7 @@ const AssigneeSelect = () => {
       className="border border-solid p-1 rounded-custom inline-flex outline-none"
     >
       <option value=""> Assign User</option>
-      {users.map((user) => (
+      {users?.map((user) => (
         <option value={user.id} key={user.id}>
           {user.name}
         </option>
