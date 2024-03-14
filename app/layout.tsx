@@ -6,6 +6,7 @@ import { Theme } from "@radix-ui/themes";
 
 import { Inter, Outfit } from "next/font/google";
 import DashboardNavBar from "./DashboardNavBar";
+import QueryClientProvider from "./QueryClientProvider";
 import AuthProvider from "./auth/Provider";
 
 const outfit = Outfit({
@@ -31,16 +32,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Theme
-          accentColor="iris"
-          panelBackground="solid"
-          radius="large"
-        >
-          <AuthProvider>
-            <DashboardNavBar />
-            {children}
-          </AuthProvider>
-        </Theme>
+        <QueryClientProvider>
+          <Theme accentColor="iris" panelBackground="solid" radius="large">
+            <AuthProvider>
+              <DashboardNavBar />
+              {children}
+            </AuthProvider>
+          </Theme>
+        </QueryClientProvider>
       </body>
     </html>
   );

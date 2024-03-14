@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import { FiEdit } from "react-icons/fi";
 import ReactMarkdown from "react-markdown";
 import DeleteTaskButton from "./DeleteTaskButton";
+import AssigneeSelect from "./AssigneeSelect";
 
 interface Props {
   params: { id: string };
@@ -21,7 +22,7 @@ const TaskDetailsPage = async ({ params }: Props) => {
   if (!task) notFound();
 
   return (
-    <div>
+    <div className="space-y-2">
       <Box>
         <Breadcrumbs />
         <Title title={task.title} />
@@ -50,8 +51,14 @@ const TaskDetailsPage = async ({ params }: Props) => {
           <Link href={`/dashboard/tasks/${task.id}/edit`}>Edit Task</Link>
         </Flex>
       </Flex>
+
+      <Flex align="center" gap="2">
+        <Text className="text-sm font-semibold py-2">Assignee: </Text>
+        <AssigneeSelect />
+      </Flex>
+
       <Text className="text-sm font-semibold py-2">Description: </Text>
-      <Box className="prose py-2">
+      <Box className="prose p-2 bg-gray-100 w-full rounded-custom">
         <ReactMarkdown>{task.description}</ReactMarkdown>
       </Box>
       <DeleteTaskButton taskId={task.id} />
