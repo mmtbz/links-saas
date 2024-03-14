@@ -1,30 +1,18 @@
 "use client";
-import { Box, Container, Flex, Separator, Text } from "@radix-ui/themes";
+import { Box, Flex, Separator, Text } from "@radix-ui/themes";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FaAngleRight, FaSortDown } from "react-icons/fa";
 import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
-import Spinner from "../components/Spinner";
 import Title from "../components/Title";
 import UpdateRoleModal from "./UpdateRoleModal";
 
 const DashboardPage = () => {
-  const router = useRouter();
+  const { data: session } = useSession();
 
-  const { status, data: session } = useSession();
-  if (status === "loading")
-    return (
-      <Container>
-        <Spinner header={"Dashaboard"} />
-      </Container>
-    );
-  if (status === "unauthenticated") {
-    router.push("/api/auth/signin");
-  }
   return (
     <>
       {session?.user?.role === "NONE" && <UpdateRoleModal />}
