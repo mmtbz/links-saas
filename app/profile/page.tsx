@@ -1,5 +1,4 @@
 "use client";
-import { toast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Avatar, Box, Flex, Text } from "@radix-ui/themes";
 import axios from "axios";
@@ -51,10 +50,10 @@ const ProfilePage = () => {
           try {
             data.userId = Math.random().toString();
             await axios.post("/api/profile", data);
-            await toast({
-              title: "Profile Updated Successfully",
-              description: "Your Profile was updated successfully.",
-            });
+            // await toast({
+            //   title: "Profile Updated Successfully",
+            //   description: "Your Profile was updated successfully.",
+            // });
           } catch (error) {
             setError("An unexpected error occured. Please try again.");
           }

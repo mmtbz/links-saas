@@ -23,9 +23,18 @@ export const patchUserSchema = z.object({
 });
 
 export const taskSchema = z.object({
-  title: z.string().min(1, "Title is required").max(255),
-  description: z.string().min(1, "Description is required"),
-  status: z.enum(["OPEN", "IN_PROGRESS", "CLOSED"]),
+  title: z.string().min(1, "Title is required").max(255).optional(),
+  description: z
+    .string()
+    .min(1, "Description is required")
+    .max(65535)
+    .optional(),
+  status: z.enum(["OPEN", "IN_PROGRESS", "CLOSED"]).optional(),
+  assignedToUserId: z
+    .string()
+    .min(1, "assignedToUserId is required")
+    .max(255)
+    .optional().nullable(),
 });
 
 export const createProfileSchema = z.object({
