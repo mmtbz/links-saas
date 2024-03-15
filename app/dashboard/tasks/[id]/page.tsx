@@ -54,7 +54,7 @@ const TaskDetailsPage = async ({ params }: Props) => {
 
       <Flex align="center" gap="2">
         <Text className="text-sm font-semibold py-2">Assignee: </Text>
-        <AssigneeSelect />
+        <AssigneeSelect task={task} />
       </Flex>
 
       <Text className="text-sm font-semibold py-2">Description: </Text>
