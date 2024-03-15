@@ -13,7 +13,7 @@ const HeroSection = () => {
         <Container>
           <Flex justify="between" align="center" className="px-3 lg:px-0">
             <div className="mb-6 space-y-4">
-              <div className="text-center lg:text-left capitalize font-extrabold lg:font-black text-[4.5rem] lg:text-[4.3rem] leading-[6.3rem] lg:leading-[5.3rem]  text-[#F5F5F5]">
+              <div className="text-center lg:text-left capitalize font-extrabold lg:font-black text-[4.3rem] leading-[6.3rem] lg:leading-[5.3rem]  text-[#F5F5F5]">
                 Hire best <br />
                 candidates in
                 <br />
