@@ -8,6 +8,7 @@ import { Inter, Outfit } from "next/font/google";
 import DashboardNavBar from "./DashboardNavBar";
 import QueryClientProvider from "./QueryClientProvider";
 import AuthProvider from "./auth/Provider";
+import { Toaster } from "react-hot-toast";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -40,6 +41,20 @@ export default function RootLayout({
             </AuthProvider>
           </Theme>
         </QueryClientProvider>
+        <Toaster
+          toastOptions={{
+            success: {
+              style: {
+                background: "green",
+              },
+            },
+            error: {
+              style: {
+                background: "red",
+              },
+            },
+          }}
+        />
       </body>
     </html>
   );
