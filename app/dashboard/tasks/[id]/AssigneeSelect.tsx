@@ -15,7 +15,6 @@ const AssigneeSelect = ({ task }: { task: Task }) => {
   } = useQuery<User[]>({
     queryKey: ["users"],
     queryFn: () => axios.get("/api/users").then((res) => res.data),
-    staleTime: 60 * 1000, // stale for 60 secs
     retry: 3,
   });
 
