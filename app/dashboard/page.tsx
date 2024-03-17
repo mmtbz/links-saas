@@ -8,7 +8,7 @@ import NoticedIcon from "../../public/svg/getNoticed.svg";
 import LearnIcon from "../../public/svg/learn.svg";
 import SuccessfullIcon from "../../public/svg/successfull.svg";
 import Title from "../components/Title";
-import UpdateRoleModal from "./UpdateRoleModal";
+import UpdateRoleModal from "./CreateProfileModal";
 
 const DashboardPage = () => {
   const { data: session } = useSession();
