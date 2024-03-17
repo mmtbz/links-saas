@@ -1,14 +1,15 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Avatar, Box, Flex, Text } from "@radix-ui/themes";
-import axios from "axios";
-import { useState } from "react";
+import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { IoInformationCircleOutline } from "react-icons/io5";
 import { z } from "zod";
 import { createProfileSchema } from "../SchemaValidation";
-import classNames from "classnames";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { FaCircleCheck } from "react-icons/fa6";
+import { IoIosCloseCircle } from "react-icons/io";
 
 type ProfileForm = z.infer<typeof createProfileSchema>;
 
@@ -20,7 +21,6 @@ const ProfilePage = () => {
   } = useForm<ProfileForm>({
     resolver: zodResolver(createProfileSchema),
   });
-  const [error, setError] = useState("");
 
   return (
     <Box className="col-span-1 lg:col-span-2 space-y-3">
@@ -34,29 +34,56 @@ const ProfilePage = () => {
           <Text>Remove</Text>
         </Flex>
       </Flex>
-      {error && (
-        <Flex
-          className="p-4 bg-red-400 text-white rounded-2xl"
-          gap="2"
-          align="center"
-        >
-          <IoInformationCircleOutline size={24} />
-          <Text>{error}</Text>
-        </Flex>
-      )}
+
       <form
         onSubmit={handleSubmit(async (data) => {
           // TODO add real userId
-          try {
-            data.userId = Math.random().toString();
-            await axios.post("/api/profile", data);
-            // await toast({
-            //   title: "Profile Updated Successfully",
-            //   description: "Your Profile was updated successfully.",
-            // });
-          } catch (error) {
-            setError("An unexpected error occured. Please try again.");
-          }
+          console.log(data);
+          data.userId = Math.random().toString();
+          axios
+            .post("/api/profile", data)
+            .then(() => {
+              toast.custom((t) => (
+                <Flex
+                  justify="between"
+                  align="center"
+                  className={`${
+                    t.visible ? "animate-enter" : "animate-leave"
+                  } w-full bg-green-500 text-white shadow-lg rounded-custom pointer-events-auto p-2`}
+                >
+                  <Flex gap="4" align="center">
+                    <FaCircleCheck size="24" color="white" />
+                    <Text className="pl-4">
+                      Your profile data has been updated successfully.
+                    </Text>
+                  </Flex>
+                  <button onClick={() => toast.dismiss(t.id)}>
+                    <IoIosCloseCircle size="30" />
+                  </button>
+                </Flex>
+              ));
+            })
+            .catch(() => {
+              toast.custom((t) => (
+                <Flex
+                  justify="between"
+                  align="center"
+                  className={`${
+                    t.visible ? "animate-enter" : "animate-leave"
+                  } w-full bg-red-500 text-white shadow-lg rounded-custom pointer-events-auto p-2`}
+                >
+                  <Flex gap="4" align="center">
+                    <IoIosCloseCircle size="30" />
+                    <Text className="pl-4">
+                      Error while updating profile data. Try again later.
+                    </Text>
+                  </Flex>
+                  <button onClick={() => toast.dismiss(t.id)}>
+                    <IoIosCloseCircle size="30" />
+                  </button>
+                </Flex>
+              ));
+            });
         })}
       >
         <Flex direction="column" gap="4" className="my-4">
@@ -140,12 +167,6 @@ const ProfilePage = () => {
         <Flex className="col-span-1 lg:col-span-2" justify="between">
           <button className="p-2 px-4 bg-[#145959] text-white rounded-[5px]">
             Save Changes
-          </button>
-          <button
-            className="py-2 px-4 border border-black rounded-[5px]"
-            onClick={() => console.log("clear")}
-          >
-            Cancel
           </button>
         </Flex>
       </form>
