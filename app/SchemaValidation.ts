@@ -1,5 +1,12 @@
 import { z } from "zod";
 
+export const userSchema = z.object({
+  role: z
+    .enum(["JOB_SEEKER", "EMPLOYEE", "ADMIN", "TESTER", "NONE"])
+    .optional(),
+  userProfileId: z.number().optional(),
+});
+
 export const taskSchema = z.object({
   title: z.string().min(1, "Title is required").max(255).optional(),
   description: z
