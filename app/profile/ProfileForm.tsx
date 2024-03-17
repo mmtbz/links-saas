@@ -40,7 +40,7 @@ const ProfileForm = ({ userProfile }: { userProfile?: UserProfile }) => {
           // todo use patch function instead
           data.userId = Math.random().toString();
           axios
-            .post("/api/profile", data)
+            .patch("/api/profile/" + userProfile?.userId, data)
             .then(() => {
               toast.custom((t) => (
                 <Flex
