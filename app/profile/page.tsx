@@ -4,10 +4,10 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import { z } from "zod";
-import { createProfileSchema } from "../SchemaValidation";
+import { profileSchema } from "../SchemaValidation";
 import ProfileForm from "./ProfileForm";
 
-type ProfileForm = z.infer<typeof createProfileSchema>;
+type ProfileForm = z.infer<typeof profileSchema>;
 
 const ProfilePage = () => {
   const { data: session, status } = useSession();

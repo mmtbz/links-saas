@@ -10,9 +10,9 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaCircleCheck } from "react-icons/fa6";
 import { IoIosCloseCircle } from "react-icons/io";
 import { z } from "zod";
-import { createProfileSchema } from "../SchemaValidation";
+import { profileSchema } from "../SchemaValidation";
 
-type ProfileFormData = z.infer<typeof createProfileSchema>;
+type ProfileFormData = z.infer<typeof profileSchema>;
 
 const ProfileForm = ({ userProfile }: { userProfile?: UserProfile }) => {
   const {
@@ -20,7 +20,7 @@ const ProfileForm = ({ userProfile }: { userProfile?: UserProfile }) => {
     handleSubmit,
     formState: { errors },
   } = useForm<ProfileFormData>({
-    resolver: zodResolver(createProfileSchema),
+    resolver: zodResolver(profileSchema),
   });
   return (
     <Box className="col-span-1 lg:col-span-2 space-y-3">
