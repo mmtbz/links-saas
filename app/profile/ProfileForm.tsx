@@ -11,6 +11,8 @@ import { FaCircleCheck } from "react-icons/fa6";
 import { IoIosCloseCircle } from "react-icons/io";
 import { z } from "zod";
 import { profileSchema } from "../SchemaValidation";
+import Breadcrumbs from "../components/Breadcrumbs";
+import Title from "../components/Title";
 
 type ProfileFormData = z.infer<typeof profileSchema>;
 
@@ -24,6 +26,9 @@ const ProfileForm = ({ userProfile }: { userProfile?: UserProfile }) => {
   });
   return (
     <Box className="col-span-1 lg:col-span-2 space-y-3">
+      <Breadcrumbs />
+      <Title title="Profile & Resume" />
+
       <Flex gap="4" align="center">
         <Avatar fallback="DM" size="6" color="green" radius="full" src={""} />
         <button className="border py-1 px-3 border-solid border-[#145959] rounded-[5px]">

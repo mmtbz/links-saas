@@ -10,14 +10,6 @@ import { MdDashboard } from "react-icons/md";
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Container>
-      <Box className="mt-4 px-3 lg:px-0">
-        <Text
-          size="6"
-          className="font-semibold bg-gradient-to-r from-teal-500 to-green-700 text-transparent bg-clip-text"
-        >
-          Profile & Resume
-        </Text>
-      </Box>
       <Grid
         columns={{ sm: "1", lg: "4" }}
         className="grid-cols-1 lg:grid-cols-4 py-4 px-3 lg:px-0"

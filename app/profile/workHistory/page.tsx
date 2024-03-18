@@ -1,12 +1,15 @@
 "use client";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
+import Title from "@/app/components/Title";
 import { Box, Flex, Text } from "@radix-ui/themes";
 import { FiPlus } from "react-icons/fi";
 
 const WorkHistoryPage = () => {
-
   return (
     <>
       <Box className="col-span-1 lg:col-span-2">
+        <Breadcrumbs />
+        <Title title="Work History" />
         <Flex
           className="border p-2 border-solid border-[#145959] text-[#145959] rounded-[5px] hover:cursor-pointer"
           align="center"
@@ -45,7 +48,7 @@ const WorkHistoryPage = () => {
               />
             </Flex>
             <Flex gap="2" align="center">
-              <input type="checkbox"/>
+              <input type="checkbox" />
               <Text>I am currently working in this position</Text>
             </Flex>
 
