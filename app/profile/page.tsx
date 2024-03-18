@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { z } from "zod";
 import { profileSchema } from "../SchemaValidation";
 import ProfileForm from "./ProfileForm";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 type ProfileForm = z.infer<typeof profileSchema>;
 
@@ -29,7 +30,11 @@ const ProfilePage = () => {
     return <div>Loading...</div>;
   }
 
-  return <ProfileForm userProfile={userProfile} />;
+  return (
+    <>
+      <ProfileForm userProfile={userProfile} />
+    </>
+  );
 };
 
 export default ProfilePage;
