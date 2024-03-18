@@ -11,11 +11,17 @@ import Title from "../components/Title";
 import UpdateRoleModal from "./CreateProfileModal";
 
 const DashboardPage = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  if (status === "loading") return <div>loading...</div>;
 
   return (
     <>
-      {session?.user?.role === "NONE" && <UpdateRoleModal />}
+      {session?.user?.role === "NONE" && (
+        <UpdateRoleModal
+          userId={session.user.id}
+          displayName={session.user.name || ""}
+        />
+      )}
       <Title title={`Hello ${session?.user?.name}`} />
 
       <Flex gap="4" className="mb-4 flex-col lg:flex-row">
@@ -229,5 +235,7 @@ const DashboardPage = () => {
     </>
   );
 };
+
+export const revalidate = 0;
 
 export default DashboardPage;

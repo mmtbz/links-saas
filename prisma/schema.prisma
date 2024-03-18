@@ -74,7 +74,7 @@ model User {
 
 enum Role {
   JOB_SEEKER
-  EMPLOYEE
+  EMPLOYEER
   ADMIN
   TESTER
   NONE
