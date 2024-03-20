@@ -16,8 +16,8 @@ import { FcGoogle } from "react-icons/fc";
 const PublicResume = () => {
   return (
     <Container>
-      <Grid columns="5">
-        <Box className="col-span-1 bg-gray-50 min-h-screen space-y-3 pt-4">
+      <Grid columns={{ initial: "1", sm: "5" }}>
+        <Box className="col-span-1 bg-gray-50 lg:min-h-screen space-y-3 pt-4">
           <Image
             src="https://randomuser.me/api/portraits/med/men/75.jpg"
             height={100}
@@ -81,7 +81,7 @@ const PublicResume = () => {
             </Box>
             <Text className="text-lg font-semibold">Latest Projects</Text>
           </Flex>
-          <Flex gap="2" className="pl-6">
+          <Flex gap="2" className="pl-6 flex-col lg:flex-row pr-2 lg:pr-0">
             <Box className="bg-blue-50 p-4 rounded-l-xl space-y-4">
               <Flex gap="4">
                 <Box className="min-w-max">
@@ -154,8 +154,8 @@ const PublicResume = () => {
             <Text className="text-lg font-semibold block">Experience</Text>
           </Flex>
           <Box className="space-y-4">
-            <Flex className="gap-4">
-              <Box className="pl-6 space-y-3 min-w-max">
+            <Flex className="pl-6 gap-4 flex-col lg:flex-row pr-2 lg:pr-0">
+              <Box className="space-y-3 min-w-max">
                 <Flex
                   align="center"
                   className=" text-gray-500 text-sm space-x-2"
@@ -180,7 +180,7 @@ const PublicResume = () => {
                   </Flex>
                 </Flex>
               </Box>
-              <Box>
+              <Box className="pl-6 lg:pl-0">
                 <Text className="text-gray-500">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Doloremque id praesentium amet! Eos in dignissimos quos ipsa
@@ -192,8 +192,8 @@ const PublicResume = () => {
                 </Text>
               </Box>
             </Flex>
-            <Flex className="gap-4">
-              <Box className="pl-6 space-y-3 min-w-max">
+            <Flex className="pl-6 gap-4 flex-col lg:flex-row pr-2 lg:pr-0">
+              <Box className="space-y-3 min-w-max">
                 <Flex
                   align="center"
                   className=" text-gray-500 text-sm space-x-2"
@@ -218,7 +218,7 @@ const PublicResume = () => {
                   </Flex>
                 </Flex>
               </Box>
-              <Box>
+              <Box className="pl-6 lg:pl-0">
                 <Text className="text-gray-500">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Doloremque id praesentium amet! Eos in dignissimos quos ipsa
@@ -230,8 +230,8 @@ const PublicResume = () => {
                 </Text>
               </Box>
             </Flex>
-            <Flex className="gap-4">
-              <Box className="pl-6 space-y-3 min-w-max">
+            <Flex className="pl-6 gap-4 flex-col lg:flex-row pr-2 lg:pr-0">
+              <Box className="space-y-3 min-w-max">
                 <Flex
                   align="center"
                   className=" text-gray-500 text-sm space-x-2"
@@ -243,7 +243,6 @@ const PublicResume = () => {
                 </Flex>
                 <Flex className="ml-6" gap="4">
                   <div className="w-12 h-12 relative bg-gray-100 rounded-xl">
-
                     <FcGoogle
                       className="absolute object-cover inset-0 w-full h-full rounded-xl p-2"
                       color="white"
@@ -257,7 +256,7 @@ const PublicResume = () => {
                   </Flex>
                 </Flex>
               </Box>
-              <Box>
+              <Box className="pl-6 lg:pl-0">
                 <Text className="text-gray-500">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Doloremque id praesentium amet! Eos in dignissimos quos ipsa
