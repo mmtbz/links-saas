@@ -2,6 +2,7 @@ import { Box, Container, Flex, Grid, Separator, Text } from "@radix-ui/themes";
 import Flags from "country-flag-icons/react/3x2";
 import Image from "next/image";
 import {
+  FaCheck,
   FaClock,
   FaLink,
   FaLinkedinIn,
@@ -18,13 +19,23 @@ const PublicResume = () => {
     <Container>
       <Grid columns={{ initial: "1", sm: "5" }}>
         <Box className="col-span-1 bg-gray-50 lg:min-h-screen space-y-3 pt-4">
-          <Image
-            src="https://randomuser.me/api/portraits/med/men/75.jpg"
-            height={100}
-            width={150}
-            alt="profile picture"
-            className="object-cover rounded-r-[15px]"
-          />
+          <Flex justify="between" align="start" className="pr-2">
+            <Image
+              src="https://randomuser.me/api/portraits/med/men/75.jpg"
+              height={100}
+              width={150}
+              alt="profile picture"
+              className="object-cover rounded-r-[15px]"
+            />
+            <Box className="lg:hidden">
+              <Flex align="end" gap="2" direction="column">
+                <Box className="p-2 bg-primary rounded-xl max-w-fit">
+                  <FaCheck color="white" />
+                </Box>
+                <Text className="font-semibold">Verified</Text>
+              </Flex>
+            </Box>
+          </Flex>
           <Flex className="p-5" direction="column">
             <Text className="font-bold text-2xl">John Smith</Text>
             <Text className="font-semibold text-lg text-violet-500">
@@ -32,6 +43,15 @@ const PublicResume = () => {
             </Text>
 
             <Separator size="4" className="my-5" />
+            <Box className="hidden lg:block">
+              <Flex align="center" gap="2">
+                <Box className="p-2 bg-primary rounded-xl max-w-fit">
+                  <FaCheck color="white" />
+                </Box>
+                <Text className="font-semibold">Verified</Text>
+              </Flex>
+              <Separator size="4" className="my-5" />
+            </Box>
 
             <Flex gap="2" align="center" className="mb-3">
               <Box className="p-2 bg-gray-300 rounded-full">
