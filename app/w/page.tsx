@@ -28,7 +28,7 @@ const PublicResume = () => {
               className="object-cover rounded-r-[15px]"
             />
             <Box className="lg:hidden">
-              <Flex align="center" gap="2" direction="column">
+              <Flex align="end" gap="2" direction="column">
                 <Box className="p-2 bg-primary rounded-xl max-w-fit">
                   <FaCheck color="white" />
                 </Box>
