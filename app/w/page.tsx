@@ -9,7 +9,7 @@ import {
   FaLocationDot,
   FaRegCircleDot,
 } from "react-icons/fa6";
-import { SiTesla } from "react-icons/si";
+import { SiCoursera, SiTesla, SiUdacity, SiUdemy } from "react-icons/si";
 
 import { GoDotFill } from "react-icons/go";
 import { FcGoogle } from "react-icons/fc";
@@ -94,7 +94,9 @@ const PublicResume = () => {
             </Box>
           </Flex>
         </Box>
+
         <Box className=" col-span-4 pt-4 pl-4">
+          {/** latest projects */}
           <Flex gap="2" align="center" className="mb-4">
             <Box>
               <FaRegCircleDot />
@@ -167,6 +169,7 @@ const PublicResume = () => {
               </Box>
             </Box>
           </Flex>
+          {/** experience section */}
           <Flex gap="2" align="center" className="my-4">
             <Box>
               <FaRegCircleDot />
@@ -289,6 +292,84 @@ const PublicResume = () => {
               </Box>
             </Flex>
           </Box>
+          {/** education section */}
+          <Flex gap="2" align="center" className="my-4">
+            <Box>
+              <FaRegCircleDot />
+            </Box>
+            <Text className="text-lg font-semibold block">Education</Text>
+          </Flex>
+          <Flex gap="2" className="pl-6 flex-col lg:flex-row pr-2 lg:pr-0">
+            <Box className="bg-blue-50 p-4 rounded-xl space-y-4 flex-1">
+              <Flex gap="4">
+                <Flex align="center" gap="2">
+                  <Box className="min-w-max">
+                    <div className="w-12 h-12 relative bg-purple-600 rounded-xl">
+                      <SiUdemy
+                        className="absolute object-cover inset-0 w-full h-full rounded-xl p-2"
+                        color="white"
+                      />
+                    </div>
+                  </Box>
+                  <Text className="font-semibold text-lg" as="p">
+                    Udemy
+                  </Text>
+                </Flex>
+              </Flex>
+              <Flex gap="1" direction="column">
+                <Text className="text-blue-600 font-semibold">
+                  Javascript mastery
+                </Text>
+                <Text className=" text-sm text-gray-500">Oct 2021</Text>
+              </Flex>
+            </Box>
+            <Box className="bg-blue-50 p-4 rounded-xl space-y-4 flex-1">
+              <Flex gap="4">
+                <Flex align="center" gap="2">
+                  <Box className="min-w-max">
+                    <div className="w-12 h-12 relative bg-blue-600 rounded-xl">
+                      <SiCoursera
+                        className="absolute object-cover inset-0 w-full h-full rounded-xl p-2"
+                        color="white"
+                      />
+                    </div>
+                  </Box>
+                  <Text className="font-semibold text-lg" as="p">
+                    Coursera
+                  </Text>
+                </Flex>
+              </Flex>
+              <Flex gap="1" direction="column">
+                <Text className="text-blue-600 font-semibold">
+                  Javascript mastery
+                </Text>
+                <Text className=" text-sm text-gray-500">Oct 2021</Text>
+              </Flex>
+            </Box>
+            <Box className="bg-blue-50 p-4 rounded-xl space-y-4 flex-1">
+              <Flex gap="4">
+                <Flex align="center" gap="2">
+                  <Box className="min-w-max">
+                    <div className="w-12 h-12 relative bg-gray-100 rounded-xl">
+                      <SiUdacity
+                        className="absolute object-cover inset-0 w-full h-full rounded-xl p-2"
+                        color="blue"
+                      />
+                    </div>
+                  </Box>
+                  <Text className="font-semibold text-lg" as="p">
+                    Udacity
+                  </Text>
+                </Flex>
+              </Flex>
+              <Flex gap="1" direction="column">
+                <Text className="text-blue-600 font-semibold">
+                  Javascript mastery
+                </Text>
+                <Text className=" text-sm text-gray-500">Oct 2021</Text>
+              </Flex>
+            </Box>
+          </Flex>
         </Box>
       </Grid>
     </Container>
