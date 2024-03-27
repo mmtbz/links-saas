@@ -1,6 +1,7 @@
 "use client";
 import { Box, Container, Flex, Grid, Text } from "@radix-ui/themes";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { CiLogout } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
@@ -8,6 +9,7 @@ import { IoMdSettings } from "react-icons/io";
 import { MdDashboard } from "react-icons/md";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
+  const router = useRouter();
   return (
     <Container>
       <Grid
@@ -45,6 +47,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
             gap="1"
             justify="center"
             className="text-[#145959] hover:cursor-pointer py-2 rounded-[5px] border-2 border-solid border-[#145959] my-4"
+            onClick={() => router.push("/w")}
           >
             <FaRegEye />
 
