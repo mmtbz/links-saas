@@ -1,3 +1,4 @@
+"use client"
 import "@radix-ui/themes/styles.css";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -9,6 +10,7 @@ import DashboardNavBar from "./DashboardNavBar";
 import QueryClientProvider from "./QueryClientProvider";
 import AuthProvider from "./auth/Provider";
 import { Toaster } from "react-hot-toast";
+import { usePathname, useRouter } from "next/navigation";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -20,23 +22,24 @@ const inter = Inter({
   weight: "400",
 });
 
-export const metadata: Metadata = {
-  title: "Worklane - Home",
-  description: "No Remote Job platform in Africa",
-};
+// export const metadata: Metadata = {
+//   title: "Worklane - Home",
+//   description: "No Remote Job platform in Africa",
+// };
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathName = usePathname();
   return (
     <html lang="en">
       <body className={inter.className}>
         <QueryClientProvider>
           <Theme accentColor="iris" panelBackground="solid" radius="large">
             <AuthProvider>
-              <DashboardNavBar />
+              {pathName !== "/new-dash" && <DashboardNavBar />}
               {children}
             </AuthProvider>
           </Theme>
