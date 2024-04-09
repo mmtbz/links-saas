@@ -43,10 +43,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <Box className="px-3 lg:px-0">
         <Grid
           columns={{ sm: "1", lg: "4" }}
-          className=" grid-cols-1 lg:grid-cols-4 py-4"
+          className=" grid-cols-1 lg:grid-cols-4 py-4 h-screen"
           gap="4"
         >
-          <Box className="col-span-1 shadow-lg border border-solid border-[#E4E5E7] rounded-[5px] hidden lg:block h-screen">
+          <Box className="col-span-1 shadow-lg border border-solid border-[#E4E5E7] rounded-[5px] hidden lg:block">
             <Box className=" bg-white">
               <text className="opacity-0">a</text>
             </Box>
@@ -195,7 +195,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               </Box>
             </Box>
           </Box>
-          <Box className="col-span-1 lg:col-span-3 overflow-y-auto">{children}</Box>
+          <Box className="col-span-1 lg:col-span-3 overflow-y-auto">
+            {children}
+          </Box>
         </Grid>
       </Box>
     </Container>
